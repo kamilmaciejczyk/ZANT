@@ -1,90 +1,328 @@
 .ewyp-form-container {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 40px 20px;
+  background-color: #f5f5f5;
 
   h1 {
     text-align: center;
-    color: #333;
-    margin-bottom: 30px;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 16px;
   }
 }
 
 .progress-indicator {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
   .steps {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
+    justify-content: space-around;
+    align-items: flex-start;
+    position: relative;
 
     .step {
-      flex: 1;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       position: relative;
+      flex: 1;
+      max-width: 200px;
 
-      &:not(:last-child)::after {
-        content: '';
-        position: absolute;
-        top: 20px;
-        right: -50%;
-        width: 100%;
-        height: 2px;
-        background-color: #ddd;
-        z-index: -1;
-      }
-
-      .step-number {
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
+      .step-circle {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
         border-radius: 50%;
-        background-color: #ddd;
-        color: #666;
-        margin: 0 auto;
-        font-weight: bold;
+        background-color: #e0e0e0;
+        color: #999;
+        margin: 0 auto 12px;
+        font-weight: 600;
+        font-size: 18px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 3px solid #e0e0e0;
       }
 
-      &.active .step-number {
-        background-color: #007bff;
-        color: white;
+      .step-label {
+        text-align: center;
+
+        .step-title-small {
+          font-weight: 600;
+          color: #666;
+          font-size: 14px;
+          margin-bottom: 4px;
+        }
+
+        .step-subtitle-small {
+          font-size: 12px;
+          color: #999;
+        }
       }
 
-      &.completed .step-number {
-        background-color: #28a745;
-        color: white;
+      &.active {
+        .step-circle {
+          background-color: #2d7a3e;
+          color: white;
+          border-color: #2d7a3e;
+          box-shadow: 0 0 0 4px rgba(45, 122, 62, 0.2);
+        }
+
+        .step-label .step-title-small {
+          color: #2d7a3e;
+          font-weight: 700;
+        }
+      }
+
+      &.completed {
+        .step-circle {
+          background-color: #2d7a3e;
+          color: white;
+          border-color: #2d7a3e;
+        }
+
+        .step-label .step-title-small {
+          color: #2d7a3e;
+        }
       }
     }
-  }
-
-  .step-title {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
   }
 }
 
 .form-step {
   background-color: white;
-  padding: 30px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  padding: 40px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
   h2 {
-    color: #007bff;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 600;
   }
 
   h3 {
-    color: #555;
-    margin-top: 20px;
-    margin-bottom: 15px;
+    color: #333;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+// Identification step specific styles
+.identification-step {
+  .step-header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    .search-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      color: #1a1a1a;
+    }
+
+    .step-description {
+      color: #666;
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  .search-section {
+    max-width: 700px;
+    margin: 0 auto 40px;
+
+    .search-label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .search-input-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 8px;
+
+      .search-input {
+        flex: 1;
+        padding: 14px 18px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+
+        &:focus {
+          outline: none;
+          border-color: #2d7a3e;
+        }
+      }
+
+      .search-button {
+        padding: 14px 32px;
+        background-color: #2d7a3e;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        white-space: nowrap;
+
+        &:hover:not(:disabled) {
+          background-color: #246332;
+        }
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .test-nip-hint {
+      font-size: 12px;
+      color: #999;
+      font-style: italic;
+      margin-top: 8px;
+    }
+  }
+
+  .company-data-result {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #e8f5e9;
+    border: 2px solid #c8e6c9;
+    border-radius: 12px;
+    padding: 30px;
+    animation: slideIn 0.4s ease-out;
+
+    .result-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #c8e6c9;
+
+      .check-icon {
+        font-size: 32px;
+      }
+
+      h3 {
+        margin: 0;
+        color: #2d7a3e;
+        font-size: 22px;
+        font-weight: 600;
+      }
+    }
+
+    .company-info {
+      background-color: white;
+      border-radius: 8px;
+      padding: 25px;
+      margin-bottom: 25px;
+
+      .info-row {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        padding: 15px 0;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid #f0f0f0;
+        }
+
+        .info-icon {
+          font-size: 28px;
+          flex-shrink: 0;
+        }
+
+        .info-content {
+          flex: 1;
+
+          .info-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+          }
+
+          .info-value {
+            font-size: 16px;
+            color: #1a1a1a;
+            font-weight: 600;
+          }
+        }
+
+        .info-label-standalone {
+          font-size: 12px;
+          color: #666;
+          margin-bottom: 4px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          flex: 0 0 80px;
+        }
+
+        .info-value-standalone {
+          flex: 1;
+          font-size: 15px;
+          color: #1a1a1a;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .continue-button {
+      width: 100%;
+      padding: 16px;
+      background-color: #2d7a3e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #246332;
+      }
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -165,11 +403,11 @@
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: #2d7a3e;
   color: white;
 
   &:hover:not(:disabled) {
-    background-color: #0056b3;
+    background-color: #246332;
   }
 }
 
@@ -183,11 +421,11 @@
 }
 
 .btn-success {
-  background-color: #28a745;
+  background-color: #2d7a3e;
   color: white;
 
   &:hover:not(:disabled) {
-    background-color: #218838;
+    background-color: #246332;
   }
 }
 
@@ -245,11 +483,11 @@ input[type="checkbox"] {
 }
 
 .btn-info {
-  background-color: #17a2b8;
+  background-color: #4a90a4;
   color: white;
 
   &:hover:not(:disabled) {
-    background-color: #138496;
+    background-color: #3a7a8a;
   }
 }
 

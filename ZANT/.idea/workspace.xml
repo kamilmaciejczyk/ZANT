@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28b01dab-5ce6-41f1-8934-4c46d97420c0" name="Changes" comment="Poprawki dodawania załączników">
+    <list default="true" id="28b01dab-5ce6-41f1-8934-4c46d97420c0" name="Changes" comment="Poprawa obslugi bledow promptow">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/ai/AiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/ai/AiClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/controller/AssistantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/controller/AssistantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/ewyp-report.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/ewyp-report.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +101,7 @@
       <workItem from="1765034998895" duration="3545000" />
       <workItem from="1765038564722" duration="3852000" />
       <workItem from="1765042436889" duration="3930000" />
-      <workItem from="1765046576458" duration="6253000" />
+      <workItem from="1765046576458" duration="8834000" />
     </task>
     <task id="LOCAL-00001" summary="dodanie prompta na GEMINI">
       <option name="closed" value="true" />
@@ -179,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765053785381</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Poprawa obslugi bledow promptow">
+      <option name="closed" value="true" />
+      <created>1765055193581</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1765055193581</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +222,7 @@
     <MESSAGE value="sprzątanko" />
     <MESSAGE value="Poprawki zapisu plików" />
     <MESSAGE value="Poprawki dodawania załączników" />
-    <option name="LAST_COMMIT_MESSAGE" value="Poprawki dodawania załączników" />
+    <MESSAGE value="Poprawa obslugi bledow promptow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Poprawa obslugi bledow promptow" />
   </component>
 </project>

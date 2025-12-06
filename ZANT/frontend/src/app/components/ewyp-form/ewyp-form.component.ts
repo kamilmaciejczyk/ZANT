@@ -14,14 +14,20 @@ import { EWYPReport } from '../../models/ewyp-report';
 })
 export class EwypFormComponent implements OnInit {
   reportForm!: FormGroup;
-  currentStep = 1;
-  totalSteps = 6;
+  currentStep = 0;
+  totalSteps = 7;
   submittedReportId: string | null = null;
   savedDraftId: string | null = null;
   isSubmitting = false;
   isSavingDraft = false;
   errorMessage: string | null = null;
   draftSaveMessage: string | null = null;
+
+  // NIP/REGON search properties
+  nipRegonSearch: string = '';
+  isSearching = false;
+  searchError: string | null = null;
+  companyData: any = null;
 
   // Circumstances AI Assistant properties
   circumstancesQuestions: CircumstancesQuestion[] = [];
@@ -75,6 +81,39 @@ export class EwypFormComponent implements OnInit {
         }
       }
     });
+  }
+
+  searchCompanyData(): void {
+    if (!this.nipRegonSearch || this.nipRegonSearch.trim().length === 0) {
+      this.searchError = 'Proszę wprowadzić NIP lub REGON';
+      return;
+    }
+
+    this.isSearching = true;
+    this.searchError = null;
+    this.companyData = null;
+
+    // Simulate API call - replace with actual API call later
+    setTimeout(() => {
+      this.isSearching = false;
+
+      // Mock company data
+      this.companyData = {
+        name: 'Jan Kowalski - Usługi Remontowo-Budowlane',
+        nip: '1234567890',
+        regon: '123456789',
+        pkd: '43.99.Z - Pozostałe specjalistyczne roboty budowlane',
+        address: 'ul. Budowlana 15, 00-001 Warszawa'
+      };
+    }, 1000);
+  }
+
+  continueWithCompanyData(): void {
+    if (this.companyData) {
+      // Pre-fill form with company data
+      // This can be expanded based on what data is available
+      this.nextStep();
+    }
   }
 
   loadDraft(id: string): void {
@@ -266,16 +305,20 @@ export class EwypFormComponent implements OnInit {
       if (this.savedDraftId) {
         localStorage.setItem(`ewyp-form-step-${this.savedDraftId}`, this.currentStep.toString());
       }
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
   previousStep(): void {
-    if (this.currentStep > 1) {
+    if (this.currentStep > 0) {
       this.currentStep--;
       // Save current step to localStorage if we have a draft ID
       if (this.savedDraftId) {
         localStorage.setItem(`ewyp-form-step-${this.savedDraftId}`, this.currentStep.toString());
       }
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
@@ -362,12 +405,54 @@ export class EwypFormComponent implements OnInit {
 
   getStepTitle(): string {
     switch (this.currentStep) {
-      case 1: return 'Injured Person Information';
-      case 2: return 'Reporter Information';
-      case 3: return 'Accident Information';
-      case 4: return 'Witnesses';
-      case 5: return 'Documents & Attachments';
-      case 6: return 'Signature & Submission';
+      case 0: return 'Identyfikacja';
+      case 1: return 'Opis wypadku';
+      case 2: return 'Dane osoby poszkodowanej';
+      case 3: return 'Dane osoby zgłaszającej';
+      case 4: return 'Świadkowie';
+      case 5: return 'Dokumenty i załączniki';
+      case 6: return 'Walidacja';
+      case 7: return 'Podpis i wysłanie';
+      default: return '';
+    }
+  }
+
+  getStepSubtitle(): string {
+    switch (this.currentStep) {
+      case 0: return 'Dane firmy';
+      case 1: return 'Okoliczności';
+      case 2: return 'Informacje';
+      case 3: return 'Dane zgłaszającego';
+      case 4: return 'Informacje o świadkach';
+      case 5: return 'Załączniki';
+      case 6: return 'Weryfikacja';
+      case 7: return 'Pobierz PDF';
+      default: return '';
+    }
+  }
+
+  getStepTitleForProgress(step: number): string {
+    switch (step) {
+      case 1: return 'Identyfikacja';
+      case 2: return 'Opis wypadku';
+      case 3: return 'Osoba poszkodowana';
+      case 4: return 'Zgłaszający';
+      case 5: return 'Świadkowie';
+      case 6: return 'Dokumenty';
+      case 7: return 'Podsumowanie';
+      default: return '';
+    }
+  }
+
+  getStepSubtitleForProgress(step: number): string {
+    switch (step) {
+      case 1: return 'Dane firmy';
+      case 2: return 'Okoliczności';
+      case 3: return 'Dane poszkodowanego';
+      case 4: return 'Dane zgłaszającego';
+      case 5: return 'Dane świadków';
+      case 6: return 'Załączniki';
+      case 7: return 'Weryfikacja';
       default: return '';
     }
   }

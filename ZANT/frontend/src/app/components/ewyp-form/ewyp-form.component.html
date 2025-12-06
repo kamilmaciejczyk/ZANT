@@ -1,152 +1,102 @@
 <div class="ewyp-form-container">
-  <h1>Formularz zgłoszenia wypadku EWYP</h1>
+  <h1>Zgłoszenie wypadku przy pracy</h1>
+  <p class="subtitle">Wypełnij formularz krok po kroku. Asystent pomoże Ci uzupełnić wymagane informacje.</p>
 
   <div class="progress-indicator">
     <div class="steps">
-      <div *ngFor="let step of [1,2,3,4,5,6]"
-           [class.active]="currentStep === step"
-           [class.completed]="currentStep > step"
+      <div *ngFor="let step of [1,2,3,4,5,6,7]"
+           [class.active]="currentStep + 1 === step"
+           [class.completed]="currentStep + 1 > step"
            class="step">
-        <div class="step-number">{{ step }}</div>
+        <div class="step-circle">{{ step }}</div>
+        <div class="step-label">
+          <div class="step-title-small">{{ getStepTitleForProgress(step) }}</div>
+          <div class="step-subtitle-small">{{ getStepSubtitleForProgress(step) }}</div>
+        </div>
       </div>
     </div>
-    <div class="step-title">{{ getStepTitle() }}</div>
   </div>
 
   <form [formGroup]="reportForm" (ngSubmit)="onSubmit()">
 
-    <!-- Krok 1: Dane osoby poszkodowanej -->
-    <div *ngIf="currentStep === 1" class="form-step" formGroupName="injuredPerson">
-      <h2>Dane osoby poszkodowanej</h2>
-
-      <div class="form-group">
-        <label>PESEL *</label>
-        <input type="text" formControlName="pesel" class="form-control">
+    <!-- Krok 0: Identyfikacja działalności gospodarczej -->
+    <div *ngIf="currentStep === 0" class="form-step identification-step">
+      <div class="step-header">
+        <div class="search-icon">🔍</div>
+        <h2>Identyfikacja działalności gospodarczej</h2>
+        <p class="step-description">Podaj NIP lub REGON swojej firmy, abyśmy mogli automatycznie pobrać dane.</p>
       </div>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label>Imię *</label>
-          <input type="text" formControlName="firstName" class="form-control">
+      <div class="search-section">
+        <label class="search-label">NIP lub REGON</label>
+        <div class="search-input-group">
+          <input
+            type="text"
+            [(ngModel)]="nipRegonSearch"
+            [ngModelOptions]="{standalone: true}"
+            placeholder="np. 1234567890"
+            class="search-input"
+            (keyup.enter)="searchCompanyData()">
+          <button
+            type="button"
+            (click)="searchCompanyData()"
+            [disabled]="isSearching"
+            class="search-button">
+            <span *ngIf="!isSearching">🔍 Szukaj</span>
+            <span *ngIf="isSearching">⏳ Wyszukiwanie...</span>
+          </button>
         </div>
-        <div class="form-group">
-          <label>Nazwisko *</label>
-          <input type="text" formControlName="lastName" class="form-control">
-        </div>
-      </div>
+        <p class="test-nip-hint">Testowe NIP-y: 1234567890, 9876543210, 5555555555</p>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label>Rodzaj dokumentu tożsamości</label>
-          <input type="text" formControlName="idDocumentType" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Numer dokumentu tożsamości</label>
-          <input type="text" formControlName="idDocumentNumber" class="form-control">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Data urodzenia</label>
-          <input type="date" formControlName="birthDate" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Miejsce urodzenia</label>
-          <input type="text" formControlName="birthPlace" class="form-control">
+        <div *ngIf="searchError" class="alert alert-error">
+          {{ searchError }}
         </div>
       </div>
 
-      <div class="form-group">
-        <label>Numer telefonu</label>
-        <input type="tel" formControlName="phoneNumber" class="form-control">
-      </div>
+      <!-- Company Data Results -->
+      <div *ngIf="companyData" class="company-data-result">
+        <div class="result-header">
+          <span class="check-icon">✅</span>
+          <h3>Znaleziono dane działalności</h3>
+        </div>
 
-      <h3>Adres zamieszkania osoby poszkodowanej</h3>
-      <div formGroupName="address">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Ulica</label>
-            <input type="text" formControlName="street" class="form-control">
+        <div class="company-info">
+          <div class="info-row">
+            <div class="info-icon">🏢</div>
+            <div class="info-content">
+              <div class="info-label">Nazwa firmy</div>
+              <div class="info-value">{{ companyData.name }}</div>
+            </div>
+            <div class="info-content">
+              <div class="info-label">NIP</div>
+              <div class="info-value">{{ companyData.nip }}</div>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Numer domu</label>
-            <input type="text" formControlName="houseNumber" class="form-control">
+
+          <div class="info-row">
+            <div class="info-label-standalone">REGON</div>
+            <div class="info-value-standalone">{{ companyData.regon }}</div>
+            <div class="info-label-standalone">PKD</div>
+            <div class="info-value-standalone">{{ companyData.pkd }}</div>
           </div>
-          <div class="form-group">
-            <label>Numer lokalu</label>
-            <input type="text" formControlName="apartmentNumber" class="form-control">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Kod pocztowy</label>
-            <input type="text" formControlName="postalCode" class="form-control">
-          </div>
-          <div class="form-group">
-            <label>Miejscowość</label>
-            <input type="text" formControlName="city" class="form-control">
-          </div>
-          <div class="form-group">
-            <label>Nazwa państwa</label>
-            <input type="text" formControlName="country" class="form-control">
+
+          <div class="info-row">
+            <div class="info-label-standalone">Adres siedziby</div>
+            <div class="info-value-standalone">{{ companyData.address }}</div>
           </div>
         </div>
+
+        <button
+          type="button"
+          (click)="continueWithCompanyData()"
+          class="continue-button">
+          Kontynuuj zgłoszenie
+        </button>
       </div>
     </div>
 
-    <!-- Krok 2: Dane osoby zgłaszającej wypadek -->
-    <div *ngIf="currentStep === 2" class="form-step" formGroupName="reporter">
-      <h2>Dane osoby zgłaszającej wypadek</h2>
-
-      <div class="form-group">
-        <label>
-          <input type="checkbox" formControlName="isDifferentFromInjuredPerson">
-          Zgłaszający jest inną osobą niż poszkodowany
-        </label>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Imię</label>
-          <input type="text" formControlName="firstName" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Nazwisko</label>
-          <input type="text" formControlName="lastName" class="form-control">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>PESEL</label>
-        <input type="text" formControlName="pesel" class="form-control">
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Rodzaj dokumentu tożsamości</label>
-          <input type="text" formControlName="idDocumentType" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Numer dokumentu tożsamości</label>
-          <input type="text" formControlName="idDocumentNumber" class="form-control">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Data urodzenia</label>
-          <input type="date" formControlName="birthDate" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Numer telefonu</label>
-          <input type="tel" formControlName="phoneNumber" class="form-control">
-        </div>
-      </div>
-    </div>
-
-    <!-- Krok 3: Informacje o wypadku -->
-    <div *ngIf="currentStep === 3" class="form-step" formGroupName="accidentInfo">
+    <!-- Krok 1: Opis wypadku (wcześniej Krok 3) -->
+    <div *ngIf="currentStep === 1" class="form-step" formGroupName="accidentInfo">
       <h2>Informacje o wypadku</h2>
 
       <div class="form-row">
@@ -248,6 +198,136 @@
       <div class="form-group">
         <label>Opis stanu technicznego i użytkowania maszyny</label>
         <textarea formControlName="machineConditionDescription" class="form-control" rows="2"></textarea>
+      </div>
+    </div>
+
+    <!-- Krok 2: Dane osoby poszkodowanej -->
+    <div *ngIf="currentStep === 2" class="form-step" formGroupName="injuredPerson">
+      <h2>Dane osoby poszkodowanej</h2>
+
+      <div class="form-group">
+        <label>PESEL *</label>
+        <input type="text" formControlName="pesel" class="form-control">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Imię *</label>
+          <input type="text" formControlName="firstName" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Nazwisko *</label>
+          <input type="text" formControlName="lastName" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Rodzaj dokumentu tożsamości</label>
+          <input type="text" formControlName="idDocumentType" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Numer dokumentu tożsamości</label>
+          <input type="text" formControlName="idDocumentNumber" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Data urodzenia</label>
+          <input type="date" formControlName="birthDate" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Miejsce urodzenia</label>
+          <input type="text" formControlName="birthPlace" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Numer telefonu</label>
+        <input type="tel" formControlName="phoneNumber" class="form-control">
+      </div>
+
+      <h3>Adres zamieszkania osoby poszkodowanej</h3>
+      <div formGroupName="address">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Ulica</label>
+            <input type="text" formControlName="street" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Numer domu</label>
+            <input type="text" formControlName="houseNumber" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Numer lokalu</label>
+            <input type="text" formControlName="apartmentNumber" class="form-control">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Kod pocztowy</label>
+            <input type="text" formControlName="postalCode" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Miejscowość</label>
+            <input type="text" formControlName="city" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Nazwa państwa</label>
+            <input type="text" formControlName="country" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Krok 3: Dane osoby zgłaszającej wypadek -->
+    <div *ngIf="currentStep === 3" class="form-step" formGroupName="reporter">
+      <h2>Dane osoby zgłaszającej wypadek</h2>
+
+      <div class="form-group">
+        <label>
+          <input type="checkbox" formControlName="isDifferentFromInjuredPerson">
+          Zgłaszający jest inną osobą niż poszkodowany
+        </label>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Imię</label>
+          <input type="text" formControlName="firstName" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Nazwisko</label>
+          <input type="text" formControlName="lastName" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>PESEL</label>
+        <input type="text" formControlName="pesel" class="form-control">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Rodzaj dokumentu tożsamości</label>
+          <input type="text" formControlName="idDocumentType" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Numer dokumentu tożsamości</label>
+          <input type="text" formControlName="idDocumentNumber" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Data urodzenia</label>
+          <input type="date" formControlName="birthDate" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Numer telefonu</label>
+          <input type="tel" formControlName="phoneNumber" class="form-control">
+        </div>
       </div>
     </div>
 
@@ -568,13 +648,14 @@
     <!-- Nawigacja -->
     <div class="form-navigation">
       <button type="button"
-              *ngIf="currentStep > 1"
+              *ngIf="currentStep > 0"
               (click)="previousStep()"
               class="btn btn-secondary">
         Wstecz
       </button>
 
       <button type="button"
+              *ngIf="currentStep > 0"
               (click)="saveDraft()"
               [disabled]="isSavingDraft"
               class="btn btn-info">
@@ -582,14 +663,14 @@
       </button>
 
       <button type="button"
-              *ngIf="currentStep < totalSteps"
+              *ngIf="currentStep < totalSteps - 1"
               (click)="nextStep()"
               class="btn btn-primary">
         Dalej
       </button>
 
       <button type="submit"
-              *ngIf="currentStep === totalSteps"
+              *ngIf="currentStep === totalSteps - 1"
               [disabled]="isSubmitting"
               class="btn btn-success">
         {{ isSubmitting ? 'Trwa wysyłanie...' : 'Złóż zgłoszenie' }}
