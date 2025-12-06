@@ -28,6 +28,12 @@ export class EwypFormComponent implements OnInit {
   isLoadingQuestions = false;
   showCircumstancesAssistant = false;
 
+  // File upload properties
+  selectedFile: File | null = null;
+  uploadedFileName: string | null = null;
+  isUploadingFile = false;
+  fileUploadError: string | null = null;
+
   constructor(
     private fb: FormBuilder,
     private reportService: EWYPReportService,
@@ -52,6 +58,11 @@ export class EwypFormComponent implements OnInit {
       next: (report) => {
         this.savedDraftId = report.id || null;
         this.reportForm.patchValue(report);
+
+        // Load uploaded file name if exists
+        if (report.attachmentFilename) {
+          this.uploadedFileName = report.attachmentFilename;
+        }
 
         // Load witnesses if any
         if (report.witnesses && report.witnesses.length > 0) {
@@ -348,6 +359,104 @@ export class EwypFormComponent implements OnInit {
         this.isLoadingQuestions = false;
         console.error('Error generating circumstances questions:', error);
         this.circumstancesQuestions = [];
+      }
+    });
+  }
+
+  // File upload methods
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      // Validate file type
+      if (file.type !== 'application/pdf') {
+        this.fileUploadError = 'Tylko pliki PDF są dozwolone';
+        this.selectedFile = null;
+        return;
+      }
+
+      // Validate file size (max 10MB)
+      const maxSize = 10 * 1024 * 1024;
+      if (file.size > maxSize) {
+        this.fileUploadError = 'Plik jest za duży (maksymalnie 10MB)';
+        this.selectedFile = null;
+        return;
+      }
+
+      this.selectedFile = file;
+      this.fileUploadError = null;
+    }
+  }
+
+  uploadFile(): void {
+    if (!this.selectedFile) {
+      this.fileUploadError = 'Proszę wybrać plik';
+      return;
+    }
+
+    if (!this.savedDraftId) {
+      this.fileUploadError = 'Najpierw zapisz wersję roboczą wniosku';
+      return;
+    }
+
+    this.isUploadingFile = true;
+    this.fileUploadError = null;
+
+    this.reportService.uploadAttachment(this.savedDraftId, this.selectedFile).subscribe({
+      next: (response) => {
+        this.isUploadingFile = false;
+        this.uploadedFileName = response.attachmentFilename || null;
+        this.selectedFile = null;
+        alert('Plik został przesłany pomyślnie!');
+      },
+      error: (error) => {
+        this.isUploadingFile = false;
+        this.fileUploadError = 'Nie udało się przesłać pliku. Spróbuj ponownie.';
+        console.error('Error uploading file:', error);
+      }
+    });
+  }
+
+  downloadFile(): void {
+    if (!this.savedDraftId) {
+      return;
+    }
+
+    this.reportService.downloadAttachment(this.savedDraftId).subscribe({
+      next: (blob) => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = this.uploadedFileName || 'attachment.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      },
+      error: (error) => {
+        alert('Nie udało się pobrać pliku.');
+        console.error('Error downloading file:', error);
+      }
+    });
+  }
+
+  deleteFile(): void {
+    if (!this.savedDraftId) {
+      return;
+    }
+
+    if (!confirm('Czy na pewno chcesz usunąć załączony plik?')) {
+      return;
+    }
+
+    this.reportService.deleteAttachment(this.savedDraftId).subscribe({
+      next: () => {
+        this.uploadedFileName = null;
+        this.selectedFile = null;
+        alert('Plik został usunięty.');
+      },
+      error: (error) => {
+        alert('Nie udało się usunąć pliku.');
+        console.error('Error deleting file:', error);
       }
     });
   }

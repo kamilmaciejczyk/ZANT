@@ -321,6 +321,64 @@
           Inne dokumenty
         </label>
       </div>
+
+      <hr>
+
+      <h3>Załącznik PDF</h3>
+      <p class="field-description">Możesz załączyć plik PDF (maksymalnie 10MB)</p>
+
+      <div class="file-upload-section">
+        <div *ngIf="!uploadedFileName" class="file-input-wrapper">
+          <div class="form-group">
+            <label for="fileInput" class="file-label">Wybierz plik PDF</label>
+            <input
+              type="file"
+              id="fileInput"
+              accept="application/pdf"
+              (change)="onFileSelected($event)"
+              class="file-input">
+            <div *ngIf="selectedFile" class="selected-file-info">
+              ✓ Wybrany plik: {{ selectedFile.name }} ({{ (selectedFile.size / 1024 / 1024).toFixed(2) }} MB)
+            </div>
+          </div>
+
+          <button
+            type="button"
+            (click)="uploadFile()"
+            [disabled]="!selectedFile || isUploadingFile || !savedDraftId"
+            class="btn btn-primary">
+            {{ isUploadingFile ? 'Przesyłanie...' : 'Prześlij plik' }}
+          </button>
+
+          <div *ngIf="!savedDraftId" class="alert alert-warning">
+            Najpierw zapisz wersję roboczą, aby móc załączyć plik.
+          </div>
+
+          <div *ngIf="fileUploadError" class="alert alert-error">
+            {{ fileUploadError }}
+          </div>
+        </div>
+
+        <div *ngIf="uploadedFileName" class="uploaded-file-info">
+          <div class="file-status">
+            ✅ Załączony plik: <strong>{{ uploadedFileName }}</strong>
+          </div>
+          <div class="file-actions">
+            <button
+              type="button"
+              (click)="downloadFile()"
+              class="btn btn-secondary">
+              📥 Pobierz
+            </button>
+            <button
+              type="button"
+              (click)="deleteFile()"
+              class="btn btn-danger">
+              🗑️ Usuń
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Krok 6: Podpis i wysłanie -->

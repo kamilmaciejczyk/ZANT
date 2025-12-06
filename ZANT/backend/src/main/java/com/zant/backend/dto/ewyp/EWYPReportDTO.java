@@ -20,6 +20,8 @@ public class EWYPReportDTO {
     private DocumentsToDeliverLaterDTO documentsToDeliverLater;
     private String responseDeliveryMethod;
     private SignatureDTO signature;
+    private String attachmentFilename;
+    private String attachmentContentType;
     private String status;
     private String scoringClassification;
 }

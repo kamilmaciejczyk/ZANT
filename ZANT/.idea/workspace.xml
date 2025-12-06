@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28b01dab-5ce6-41f1-8934-4c46d97420c0" name="Changes" comment="fix">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="28b01dab-5ce6-41f1-8934-4c46d97420c0" name="Changes" comment="fix parametrow modelu">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/controller/EWYPReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/controller/EWYPReportController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/dto/ewyp/EWYPReportDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/dto/ewyp/EWYPReportDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/model/ewyp/EWYPReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/model/ewyp/EWYPReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/models/ewyp-report.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/models/ewyp-report.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/services/ewyp-report.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/ewyp-report.service.ts" afterDir="false" />
     </list>
@@ -98,7 +98,7 @@
       <updated>1765034997563</updated>
       <workItem from="1765034998895" duration="3545000" />
       <workItem from="1765038564722" duration="3852000" />
-      <workItem from="1765042436889" duration="443000" />
+      <workItem from="1765042436889" duration="3930000" />
     </task>
     <task id="LOCAL-00001" summary="dodanie prompta na GEMINI">
       <option name="closed" value="true" />
@@ -124,7 +124,31 @@
       <option name="project" value="LOCAL" />
       <updated>1765040442156</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="wyszukiwarka wnioskow">
+      <option name="closed" value="true" />
+      <created>1765043146137</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1765043146137</updated>
+    </task>
+    <task id="LOCAL-00005" summary="wyszukiwarka wnioskowfix">
+      <option name="closed" value="true" />
+      <created>1765043168549</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1765043168549</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix parametrow modelu">
+      <option name="closed" value="true" />
+      <created>1765044923104</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1765044923104</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +181,9 @@
     <MESSAGE value="dodanie prompta na GEMINI" />
     <MESSAGE value="nask nie dziala" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="wyszukiwarka wnioskow" />
+    <MESSAGE value="wyszukiwarka wnioskowfix" />
+    <MESSAGE value="fix parametrow modelu" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix parametrow modelu" />
   </component>
 </project>

@@ -5,10 +5,14 @@ import com.zant.backend.mapper.EWYPReportMapper;
 import com.zant.backend.model.ewyp.EWYPReport;
 import com.zant.backend.repository.EWYPReportRepository;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -115,5 +119,61 @@ public class EWYPReportController {
                 .collect(Collectors.toList());
         
         return ResponseEntity.ok(reportDTOs);
+    }
+    
+    @PostMapping("/{id}/attachment")
+    public ResponseEntity<EWYPReportDTO> uploadAttachment(
+            @PathVariable UUID id,
+            @RequestParam("file") MultipartFile file) {
+        
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().build();
+        }
+        
+        // Validate file type (PDF only)
+        String contentType = file.getContentType();
+        if (contentType == null || !contentType.equals("application/pdf")) {
+            return ResponseEntity.badRequest().build();
+        }
+        
+        return repository.findById(id)
+                .<ResponseEntity<EWYPReportDTO>>map(report -> {
+                    try {
+                        report.setAttachmentFile(file.getBytes());
+                        report.setAttachmentFilename(file.getOriginalFilename());
+                        report.setAttachmentContentType(file.getContentType());
+                        EWYPReport savedEntity = repository.save(report);
+                        return ResponseEntity.ok(mapper.toDTO(savedEntity));
+                    } catch (IOException e) {
+                        return ResponseEntity.<EWYPReportDTO>status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+                    }
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    @GetMapping("/{id}/attachment")
+    public ResponseEntity<byte[]> downloadAttachment(@PathVariable UUID id) {
+        return repository.findById(id)
+                .filter(report -> report.getAttachmentFile() != null)
+                .map(report -> {
+                    HttpHeaders headers = new HttpHeaders();
+                    headers.setContentType(MediaType.parseMediaType(report.getAttachmentContentType()));
+                    headers.setContentDispositionFormData("attachment", report.getAttachmentFilename());
+                    return new ResponseEntity<>(report.getAttachmentFile(), headers, HttpStatus.OK);
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    @DeleteMapping("/{id}/attachment")
+    public ResponseEntity<EWYPReportDTO> deleteAttachment(@PathVariable UUID id) {
+        return repository.findById(id)
+                .map(report -> {
+                    report.setAttachmentFile(null);
+                    report.setAttachmentFilename(null);
+                    report.setAttachmentContentType(null);
+                    EWYPReport savedEntity = repository.save(report);
+                    return ResponseEntity.ok(mapper.toDTO(savedEntity));
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 }

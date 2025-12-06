@@ -8,6 +8,8 @@ export interface EWYPReport {
   documentsToDeliverLater: DocumentsToDeliverLater;
   responseDeliveryMethod: string;
   signature: Signature;
+  attachmentFilename?: string;
+  attachmentContentType?: string;
   status?: string;
   scoringClassification?: string;
   createdAt?: string;

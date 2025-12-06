@@ -57,4 +57,20 @@ export class EWYPReportService {
       { accidentDescription }
     );
   }
+
+  uploadAttachment(reportId: string, file: File): Observable<EWYPReport> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<EWYPReport>(`${this.apiUrl}/${reportId}/attachment`, formData);
+  }
+
+  downloadAttachment(reportId: string): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/${reportId}/attachment`, {
+      responseType: 'blob'
+    });
+  }
+
+  deleteAttachment(reportId: string): Observable<EWYPReport> {
+    return this.http.delete<EWYPReport>(`${this.apiUrl}/${reportId}/attachment`);
+  }
 }
