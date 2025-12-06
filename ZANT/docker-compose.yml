@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    container_name: zant-db
+    environment:
+      POSTGRES_DB: zant
+      POSTGRES_USER: zant
+      POSTGRES_PASSWORD: zant123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - zant-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zant"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Spring Boot Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: zant-backend
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/zant
+      SPRING_DATASOURCE_USERNAME: zant
+      SPRING_DATASOURCE_PASSWORD: zant123
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - zant-network
+    restart: unless-stopped
+
+  # Angular Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: zant-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - zant-network
+    restart: unless-stopped
+
+networks:
+  zant-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
