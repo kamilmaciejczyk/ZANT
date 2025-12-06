@@ -15,7 +15,17 @@ export class EWYPReportService {
     return this.http.post<EWYPReport>(this.apiUrl, report);
   }
 
-  getReportById(id: number): Observable<EWYPReport> {
+  saveDraft(report: EWYPReport): Observable<EWYPReport> {
+    if (report.id) {
+      // Update existing draft
+      return this.http.put<EWYPReport>(`${this.apiUrl}/${report.id}`, report);
+    } else {
+      // Create new draft
+      return this.http.post<EWYPReport>(`${this.apiUrl}/draft`, report);
+    }
+  }
+
+  getReportById(id: string): Observable<EWYPReport> {
     return this.http.get<EWYPReport>(`${this.apiUrl}/${id}`);
   }
 }

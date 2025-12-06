@@ -5,12 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class EWYPReportDTO {
-    private Long id;
+    private UUID id;
     private InjuredPersonDTO injuredPerson;
     private ReporterDTO reporter;
     private AccidentInfoDTO accidentInfo;
@@ -19,4 +20,5 @@ public class EWYPReportDTO {
     private DocumentsToDeliverLaterDTO documentsToDeliverLater;
     private String responseDeliveryMethod;
     private SignatureDTO signature;
+    private String status;
 }

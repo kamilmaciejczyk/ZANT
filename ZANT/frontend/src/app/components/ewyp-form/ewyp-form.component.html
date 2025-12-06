@@ -328,6 +328,11 @@
       </div>
     </div>
 
+    <!-- Messages -->
+    <div *ngIf="draftSaveMessage" class="alert alert-success">
+      {{ draftSaveMessage }}
+    </div>
+
     <!-- Nawigacja -->
     <div class="form-navigation">
       <button type="button"
@@ -335,6 +340,13 @@
               (click)="previousStep()"
               class="btn btn-secondary">
         Wstecz
+      </button>
+
+      <button type="button"
+              (click)="saveDraft()"
+              [disabled]="isSavingDraft"
+              class="btn btn-info">
+        {{ isSavingDraft ? 'Zapisywanie...' : 'Zapisz wersję roboczą' }}
       </button>
 
       <button type="button"

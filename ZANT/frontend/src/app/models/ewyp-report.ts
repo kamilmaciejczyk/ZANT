@@ -1,5 +1,5 @@
 export interface EWYPReport {
-  id?: number;
+  id?: string;
   injuredPerson: InjuredPerson;
   reporter: Reporter;
   accidentInfo: AccidentInfo;
@@ -8,6 +8,7 @@ export interface EWYPReport {
   documentsToDeliverLater: DocumentsToDeliverLater;
   responseDeliveryMethod: string;
   signature: Signature;
+  status?: string;
 }
 
 export interface InjuredPerson {

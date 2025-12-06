@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { EWYPReportService } from '../../services/ewyp-report.service';
 import { EWYPReport } from '../../models/ewyp-report';
 
@@ -15,17 +16,59 @@ export class EwypFormComponent implements OnInit {
   reportForm!: FormGroup;
   currentStep = 1;
   totalSteps = 6;
-  submittedReportId: number | null = null;
+  submittedReportId: string | null = null;
+  savedDraftId: string | null = null;
   isSubmitting = false;
+  isSavingDraft = false;
   errorMessage: string | null = null;
+  draftSaveMessage: string | null = null;
 
   constructor(
     private fb: FormBuilder,
-    private reportService: EWYPReportService
+    private reportService: EWYPReportService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.initializeForm();
+
+    // Check if there's a draft ID in the route
+    this.route.params.subscribe(params => {
+      const draftId = params['id'];
+      if (draftId) {
+        this.loadDraft(draftId);
+      }
+    });
+  }
+
+  loadDraft(id: string): void {
+    this.reportService.getReportById(id).subscribe({
+      next: (report) => {
+        this.savedDraftId = report.id || null;
+        this.reportForm.patchValue(report);
+
+        // Load witnesses if any
+        if (report.witnesses && report.witnesses.length > 0) {
+          report.witnesses.forEach(witness => {
+            const witnessGroup = this.fb.group({
+              firstName: [witness.firstName],
+              lastName: [witness.lastName],
+              street: [witness.street],
+              houseNumber: [witness.houseNumber],
+              apartmentNumber: [witness.apartmentNumber],
+              postalCode: [witness.postalCode],
+              city: [witness.city],
+              country: [witness.country]
+            });
+            this.witnesses.push(witnessGroup);
+          });
+        }
+      },
+      error: (error) => {
+        this.errorMessage = 'Nie udało się załadować wersji roboczej.';
+        console.error('Error loading draft:', error);
+      }
+    });
   }
 
   initializeForm(): void {
@@ -206,6 +249,40 @@ export class EwypFormComponent implements OnInit {
     } else {
       alert('Please fill in all required fields');
     }
+  }
+
+  saveDraft(): void {
+    this.isSavingDraft = true;
+    this.draftSaveMessage = null;
+    this.errorMessage = null;
+
+    const report: EWYPReport = {
+      ...this.reportForm.value,
+      id: this.savedDraftId || undefined
+    };
+
+    this.reportService.saveDraft(report).subscribe({
+      next: (response) => {
+        this.isSavingDraft = false;
+        this.savedDraftId = response.id || null;
+        this.draftSaveMessage = `Wersja robocza zapisana pomyślnie! ID: ${response.id}`;
+
+        // Clear the message after 3 seconds
+        setTimeout(() => {
+          this.draftSaveMessage = null;
+        }, 3000);
+      },
+      error: (error) => {
+        this.isSavingDraft = false;
+        this.errorMessage = 'Nie udało się zapisać wersji roboczej. Spróbuj ponownie.';
+        console.error('Error saving draft:', error);
+
+        // Clear the error message after 5 seconds
+        setTimeout(() => {
+          this.errorMessage = null;
+        }, 5000);
+      }
+    });
   }
 
   getStepTitle(): string {
