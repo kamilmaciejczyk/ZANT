@@ -137,4 +137,12 @@ export class EWYPReportService {
   deleteOtherDocument(reportId: string, index: number): Observable<EWYPReport> {
     return this.http.delete<EWYPReport>(`${this.apiUrl}/${reportId}/attachment/other-document/${index}`);
   }
+
+  // Document Generation
+  generateDocument(reportId: string, format: 'docx' | 'pdf'): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/${reportId}/generate-document`, {
+      params: { format },
+      responseType: 'blob'
+    });
+  }
 }

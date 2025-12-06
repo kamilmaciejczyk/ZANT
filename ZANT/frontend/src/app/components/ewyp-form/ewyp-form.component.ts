@@ -41,6 +41,11 @@ export class EwypFormComponent implements OnInit {
   isUploadingFile = false;
   fileUploadError: string | null = null;
 
+  // Document generation properties
+  isGeneratingDocument = false;
+  showFormatSelection = false;
+  selectedFormat: 'docx' | 'pdf' = 'pdf';
+
   // Document-specific file upload properties
   selectedHospitalCardFile: File | null = null;
   isUploadingHospitalCard = false;
@@ -913,6 +918,35 @@ export class EwypFormComponent implements OnInit {
 
   get otherDocuments(): any[] {
     return this.reportForm.get('attachments.otherDocuments')?.value || [];
+  }
+
+  // Document generation methods
+  toggleFormatSelection(): void {
+    this.showFormatSelection = !this.showFormatSelection;
+  }
+
+  generateAndDownloadDocument(format: 'docx' | 'pdf'): void {
+    if (!this.savedDraftId) {
+      alert('Najpierw zapisz wersję roboczą zgłoszenia');
+      return;
+    }
+
+    this.isGeneratingDocument = true;
+    this.showFormatSelection = false;
+
+    this.reportService.generateDocument(this.savedDraftId, format).subscribe({
+      next: (blob) => {
+        this.isGeneratingDocument = false;
+        const extension = format === 'docx' ? 'docx' : 'pdf';
+        const filename = `zawiadomienie_wypadku_${this.savedDraftId}.${extension}`;
+        this.downloadBlob(blob, filename);
+      },
+      error: (error) => {
+        this.isGeneratingDocument = false;
+        alert('Nie udało się wygenerować dokumentu. Spróbuj ponownie.');
+        console.error('Error generating document:', error);
+      }
+    });
   }
 
   // Helper methods

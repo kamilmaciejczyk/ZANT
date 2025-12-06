@@ -4,6 +4,7 @@ import com.zant.backend.dto.ewyp.EWYPReportDTO;
 import com.zant.backend.mapper.EWYPReportMapper;
 import com.zant.backend.model.ewyp.EWYPReport;
 import com.zant.backend.repository.EWYPReportRepository;
+import com.zant.backend.service.EWYPDocumentService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -23,10 +24,13 @@ public class EWYPReportController {
     
     private final EWYPReportRepository repository;
     private final EWYPReportMapper mapper;
+    private final EWYPDocumentService documentService;
     
-    public EWYPReportController(EWYPReportRepository repository, EWYPReportMapper mapper) {
+    public EWYPReportController(EWYPReportRepository repository, EWYPReportMapper mapper, 
+                                EWYPDocumentService documentService) {
         this.repository = repository;
         this.mapper = mapper;
+        this.documentService = documentService;
     }
     
     @PostMapping
@@ -420,6 +424,45 @@ public class EWYPReportController {
                         return ResponseEntity.ok(mapper.toDTO(savedEntity));
                     }
                     return ResponseEntity.badRequest().<EWYPReportDTO>build();
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    // Document Generation Endpoints
+    @GetMapping("/{id}/generate-document")
+    public ResponseEntity<byte[]> generateDocument(
+            @PathVariable UUID id,
+            @RequestParam("format") String format) {
+        
+        return repository.findById(id)
+                .<ResponseEntity<byte[]>>map(report -> {
+                    try {
+                        byte[] documentBytes;
+                        String filename;
+                        MediaType mediaType;
+                        
+                        if ("docx".equalsIgnoreCase(format)) {
+                            documentBytes = documentService.generateDocx(report);
+                            filename = "zawiadomienie_wypadku_" + id + ".docx";
+                            mediaType = MediaType.parseMediaType("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+                        } else if ("pdf".equalsIgnoreCase(format)) {
+                            documentBytes = documentService.generatePdf(report);
+                            filename = "zawiadomienie_wypadku_" + id + ".pdf";
+                            mediaType = MediaType.APPLICATION_PDF;
+                        } else {
+                            return ResponseEntity.<byte[]>badRequest().build();
+                        }
+                        
+                        HttpHeaders headers = new HttpHeaders();
+                        headers.setContentType(mediaType);
+                        headers.setContentDispositionFormData("attachment", filename);
+                        headers.setContentLength(documentBytes.length);
+                        
+                        return new ResponseEntity<>(documentBytes, headers, HttpStatus.OK);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return ResponseEntity.<byte[]>status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+                    }
                 })
                 .orElse(ResponseEntity.notFound().build());
     }

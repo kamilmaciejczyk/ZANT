@@ -766,6 +766,36 @@
         Dalej
       </button>
 
+      <!-- Document Generation Button -->
+      <div *ngIf="currentStep === totalSteps - 1 && savedDraftId" class="document-generation">
+        <button type="button"
+                (click)="toggleFormatSelection()"
+                [disabled]="isGeneratingDocument"
+                class="btn btn-warning">
+          {{ isGeneratingDocument ? '📄 Generowanie...' : '📄 Generuj Zawiadomienie o wypadku' }}
+        </button>
+
+        <!-- Format Selection Dropdown -->
+        <div *ngIf="showFormatSelection" class="format-selection-dropdown">
+          <h4>Wybierz format dokumentu:</h4>
+          <button type="button"
+                  (click)="generateAndDownloadDocument('docx')"
+                  class="btn btn-format">
+            📝 DOCX (Word)
+          </button>
+          <button type="button"
+                  (click)="generateAndDownloadDocument('pdf')"
+                  class="btn btn-format">
+            📄 PDF
+          </button>
+          <button type="button"
+                  (click)="toggleFormatSelection()"
+                  class="btn btn-cancel">
+            Anuluj
+          </button>
+        </div>
+      </div>
+
       <button type="submit"
               *ngIf="currentStep === totalSteps - 1"
               [disabled]="isSubmitting"
