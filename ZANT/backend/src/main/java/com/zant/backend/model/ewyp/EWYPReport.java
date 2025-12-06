@@ -84,6 +84,10 @@ public class EWYPReport {
     @Lob
     @Column(name = "prosecutor_decision_copy_file")
     private byte[] prosecutorDecisionCopyFile;
+
+    @Lob
+    @Column(name = "power_of_attorney_copy_file")
+    private byte[] powerOfAttorneyCopyFile;
     
     @Lob
     @Column(name = "death_docs_copy_file")

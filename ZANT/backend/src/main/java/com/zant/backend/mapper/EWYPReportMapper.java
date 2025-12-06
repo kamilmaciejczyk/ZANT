@@ -278,6 +278,8 @@ public class EWYPReportMapper {
         entity.setHospitalCardCopyFilename(dto.getHospitalCardCopyFilename());
         entity.setHasProsecutorDecisionCopy(dto.getHasProsecutorDecisionCopy());
         entity.setProsecutorDecisionCopyFilename(dto.getProsecutorDecisionCopyFilename());
+        entity.setHasPowerOfAttorneyCopy(dto.getHasPowerOfAttorneyCopy());
+        entity.setPowerOfAttorneyCopyFilename(dto.getPowerOfAttorneyCopyFilename());
         entity.setHasDeathDocsCopy(dto.getHasDeathDocsCopy());
         entity.setDeathDocsCopyFilename(dto.getDeathDocsCopyFilename());
         entity.setHasOtherDocuments(dto.getHasOtherDocuments());
@@ -301,6 +303,8 @@ public class EWYPReportMapper {
         dto.setHospitalCardCopyFilename(entity.getHospitalCardCopyFilename());
         dto.setHasProsecutorDecisionCopy(entity.getHasProsecutorDecisionCopy());
         dto.setProsecutorDecisionCopyFilename(entity.getProsecutorDecisionCopyFilename());
+        dto.setHasPowerOfAttorneyCopy(entity.getHasPowerOfAttorneyCopy());
+        dto.setPowerOfAttorneyCopyFilename(entity.getPowerOfAttorneyCopyFilename());
         dto.setHasDeathDocsCopy(entity.getHasDeathDocsCopy());
         dto.setDeathDocsCopyFilename(entity.getDeathDocsCopyFilename());
         dto.setHasOtherDocuments(entity.getHasOtherDocuments());

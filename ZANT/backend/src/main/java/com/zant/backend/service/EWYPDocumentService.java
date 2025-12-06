@@ -185,6 +185,8 @@ public class EWYPDocumentService {
                     "kserokopia karty informacyjnej ze szpitala/ zaświadczenia o udzieleniu pierwszej pomocy");
                 addCheckbox(document, attachments.getHasProsecutorDecisionCopy(), 
                     "kserokopia postanowienia prokuratury");
+                addCheckbox(document, attachments.getHasPowerOfAttorneyCopy(),
+                    "skan pełnomocnictwa");
                 addCheckbox(document, attachments.getHasDeathDocsCopy(), 
                     "kserokopia dokumentów dotyczących zgonu");
                 addCheckbox(document, attachments.getHasOtherDocuments(), "inne dokumenty");
@@ -309,7 +311,30 @@ public class EWYPDocumentService {
                         witness.getStreet() + " " + witness.getHouseNumber() + 
                         (witness.getApartmentNumber() != null ? "/" + witness.getApartmentNumber() : "") +
                         ", " + witness.getPostalCode() + " " + witness.getCity());
-                    witnessNum++;
+                        witnessNum++;
+                }
+            }
+
+            document.add(new Paragraph("\n"));
+
+            // Załączniki
+            if (report.getAttachments() != null) {
+                addPdfSectionTitle(document, "Załączniki");
+                Attachments attachments = report.getAttachments();
+                addPdfCheckbox(document, attachments.getHasHospitalCardCopy(),
+                    "kserokopia karty informacyjnej ze szpitala/ zaświadczenia o udzieleniu pierwszej pomocy");
+                addPdfCheckbox(document, attachments.getHasProsecutorDecisionCopy(),
+                    "kserokopia postanowienia prokuratury");
+                addPdfCheckbox(document, attachments.getHasPowerOfAttorneyCopy(),
+                    "skan pełnomocnictwa");
+                addPdfCheckbox(document, attachments.getHasDeathDocsCopy(),
+                    "kserokopia dokumentów dotyczących zgonu");
+                addPdfCheckbox(document, attachments.getHasOtherDocuments(), "inne dokumenty");
+                if (attachments.getHasOtherDocuments() != null && attachments.getHasOtherDocuments()
+                    && attachments.getOtherDocuments() != null) {
+                    for (Object doc : attachments.getOtherDocuments()) {
+                        addPdfField(document, "  - ", doc.toString());
+                    }
                 }
             }
 
@@ -404,6 +429,12 @@ public class EWYPDocumentService {
         Paragraph paragraph = new Paragraph()
             .add(new Text(label + ": ").setBold())
             .add(new Text(value))
+            .setFontSize(11);
+        document.add(paragraph);
+    }
+    
+    private void addPdfCheckbox(Document document, Boolean checked, String label) {
+        Paragraph paragraph = new Paragraph((checked != null && checked ? "☑" : "☐") + " " + label)
             .setFontSize(11);
         document.add(paragraph);
     }

@@ -46,6 +46,12 @@ public class EWYPReportController {
     public ResponseEntity<EWYPReportDTO> saveDraft(@RequestBody EWYPReportDTO reportDTO) {
         EWYPReport entity = mapper.toEntity(reportDTO);
         entity.setStatus("DRAFT");
+        if (reportDTO.getId() != null) {
+            entity.setId(reportDTO.getId());
+            repository.findById(reportDTO.getId()).ifPresent(existing -> {
+                copyFileFields(existing, entity);
+            });
+        }
         EWYPReport savedEntity = repository.save(entity);
         EWYPReportDTO responseDTO = mapper.toDTO(savedEntity);
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
@@ -57,6 +63,7 @@ public class EWYPReportController {
                 .map(existingReport -> {
                     EWYPReport updatedEntity = mapper.toEntity(reportDTO);
                     updatedEntity.setId(id);
+                    copyFileFields(existingReport, updatedEntity);
                     // Keep the existing status unless explicitly changed
                     if (reportDTO.getStatus() == null) {
                         updatedEntity.setStatus(existingReport.getStatus());
@@ -65,6 +72,18 @@ public class EWYPReportController {
                     return ResponseEntity.ok(mapper.toDTO(savedEntity));
                 })
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    private void copyFileFields(EWYPReport source, EWYPReport target) {
+        target.setAttachmentFile(source.getAttachmentFile());
+        target.setAttachmentFilename(source.getAttachmentFilename());
+        target.setAttachmentContentType(source.getAttachmentContentType());
+        target.setHospitalCardCopyFile(source.getHospitalCardCopyFile());
+        target.setProsecutorDecisionCopyFile(source.getProsecutorDecisionCopyFile());
+        target.setPowerOfAttorneyCopyFile(source.getPowerOfAttorneyCopyFile());
+        target.setDeathDocsCopyFile(source.getDeathDocsCopyFile());
+        target.setOtherDocumentsFiles(source.getOtherDocumentsFiles());
+        target.setCreatedAt(source.getCreatedAt());
     }
     
     @PostMapping("/{id}/submit")
@@ -292,6 +311,65 @@ public class EWYPReportController {
                     if (report.getAttachments() != null) {
                         report.getAttachments().setProsecutorDecisionCopyFilename(null);
                         report.getAttachments().setHasProsecutorDecisionCopy(false);
+                    }
+                    EWYPReport savedEntity = repository.save(report);
+                    return ResponseEntity.ok(mapper.toDTO(savedEntity));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    // Power of Attorney Copy attachment endpoints
+    @PostMapping("/{id}/attachment/power-of-attorney")
+    public ResponseEntity<EWYPReportDTO> uploadPowerOfAttorneyCopy(
+            @PathVariable UUID id,
+            @RequestParam("file") MultipartFile file) {
+
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        return repository.findById(id)
+                .<ResponseEntity<EWYPReportDTO>>map(report -> {
+                    try {
+                        report.setPowerOfAttorneyCopyFile(file.getBytes());
+                        if (report.getAttachments() == null) {
+                            report.setAttachments(new com.zant.backend.model.ewyp.Attachments());
+                        }
+                        report.getAttachments().setPowerOfAttorneyCopyFilename(file.getOriginalFilename());
+                        report.getAttachments().setHasPowerOfAttorneyCopy(true);
+                        EWYPReport savedEntity = repository.save(report);
+                        return ResponseEntity.ok(mapper.toDTO(savedEntity));
+                    } catch (IOException e) {
+                        return ResponseEntity.<EWYPReportDTO>status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+                    }
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/{id}/attachment/power-of-attorney")
+    public ResponseEntity<byte[]> downloadPowerOfAttorneyCopy(@PathVariable UUID id) {
+        return repository.findById(id)
+                .filter(report -> report.getPowerOfAttorneyCopyFile() != null)
+                .map(report -> {
+                    HttpHeaders headers = new HttpHeaders();
+                    headers.setContentType(MediaType.APPLICATION_PDF);
+                    String filename = report.getAttachments() != null && report.getAttachments().getPowerOfAttorneyCopyFilename() != null
+                            ? report.getAttachments().getPowerOfAttorneyCopyFilename()
+                            : "pelnomocnictwo.pdf";
+                    headers.setContentDispositionFormData("attachment", filename);
+                    return new ResponseEntity<>(report.getPowerOfAttorneyCopyFile(), headers, HttpStatus.OK);
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/{id}/attachment/power-of-attorney")
+    public ResponseEntity<EWYPReportDTO> deletePowerOfAttorneyCopy(@PathVariable UUID id) {
+        return repository.findById(id)
+                .map(report -> {
+                    report.setPowerOfAttorneyCopyFile(null);
+                    if (report.getAttachments() != null) {
+                        report.getAttachments().setPowerOfAttorneyCopyFilename(null);
+                        report.getAttachments().setHasPowerOfAttorneyCopy(false);
                     }
                     EWYPReport savedEntity = repository.save(report);
                     return ResponseEntity.ok(mapper.toDTO(savedEntity));

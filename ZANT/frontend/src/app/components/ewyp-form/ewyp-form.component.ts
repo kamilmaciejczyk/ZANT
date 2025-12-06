@@ -55,6 +55,10 @@ export class EwypFormComponent implements OnInit {
   isUploadingProsecutorDecision = false;
   prosecutorDecisionUploadError: string | null = null;
 
+  selectedPowerOfAttorneyFile: File | null = null;
+  isUploadingPowerOfAttorney = false;
+  powerOfAttorneyUploadError: string | null = null;
+
   selectedDeathDocsFile: File | null = null;
   isUploadingDeathDocs = false;
   deathDocsUploadError: string | null = null;
@@ -91,6 +95,7 @@ export class EwypFormComponent implements OnInit {
 
   setupConditionalValidation(): void {
     // Krok 1 - Opis wypadku: conditionally enable/disable fields based on checkboxes
+    const attachmentsGroup = this.reportForm.get('attachments') as FormGroup;
 
     // First aid conditional validation
     this.reportForm.get('accidentInfo.firstAidGiven')?.valueChanges.subscribe(value => {
@@ -129,6 +134,8 @@ export class EwypFormComponent implements OnInit {
     // Krok 3 - Zgłaszający: conditionally enable/disable all reporter fields
     this.reportForm.get('reporter.isDifferentFromInjuredPerson')?.valueChanges.subscribe(value => {
       const reporterGroup = this.reportForm.get('reporter') as FormGroup;
+      const powerOfAttorneyControl = attachmentsGroup?.get('hasPowerOfAttorneyCopy');
+      const powerOfAttorneyFilenameControl = attachmentsGroup?.get('powerOfAttorneyCopyFilename');
 
       if (value === true) {
         // Enable and require all reporter fields except the checkbox itself
@@ -146,6 +153,11 @@ export class EwypFormComponent implements OnInit {
             reporterGroup.get(key)?.enable();
           }
         });
+
+        // Require pełnomocnictwo attachment
+        powerOfAttorneyControl?.setValidators([Validators.requiredTrue]);
+        powerOfAttorneyControl?.setValue(true, { emitEvent: false });
+        powerOfAttorneyFilenameControl?.setValidators([Validators.required]);
       } else {
         // Disable and remove validators
         Object.keys(reporterGroup.controls).forEach(key => {
@@ -154,6 +166,10 @@ export class EwypFormComponent implements OnInit {
             reporterGroup.get(key)?.disable();
           }
         });
+
+        powerOfAttorneyControl?.clearValidators();
+        powerOfAttorneyControl?.setValue(false, { emitEvent: false });
+        powerOfAttorneyFilenameControl?.clearValidators();
       }
 
       // Update validity of all controls
@@ -162,6 +178,14 @@ export class EwypFormComponent implements OnInit {
           reporterGroup.get(key)?.updateValueAndValidity();
         }
       });
+      powerOfAttorneyControl?.updateValueAndValidity();
+      powerOfAttorneyFilenameControl?.updateValueAndValidity();
+    });
+
+    attachmentsGroup.get('hasPowerOfAttorneyCopy')?.valueChanges.subscribe(flag => {
+      if (this.reportForm.get('reporter.isDifferentFromInjuredPerson')?.value && flag !== true) {
+        attachmentsGroup.get('hasPowerOfAttorneyCopy')?.setValue(true, { emitEvent: false });
+      }
     });
 
     // Trigger initial state
@@ -208,6 +232,7 @@ export class EwypFormComponent implements OnInit {
       next: (report) => {
         this.savedDraftId = report.id || null;
         this.reportForm.patchValue(report);
+        this.enforcePowerOfAttorneyRequirement();
 
         // Load uploaded file name if exists
         if (report.attachmentFilename) {
@@ -346,6 +371,8 @@ export class EwypFormComponent implements OnInit {
         hospitalCardCopyFilename: [''],
         hasProsecutorDecisionCopy: [false],
         prosecutorDecisionCopyFilename: [''],
+        hasPowerOfAttorneyCopy: [false],
+        powerOfAttorneyCopyFilename: [''],
         hasDeathDocsCopy: [false],
         deathDocsCopyFilename: [''],
         hasOtherDocuments: [false],
@@ -800,6 +827,72 @@ export class EwypFormComponent implements OnInit {
     });
   }
 
+  // Power of Attorney Copy methods
+  onPowerOfAttorneyFileSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file && this.validatePDFFile(file)) {
+      this.selectedPowerOfAttorneyFile = file;
+      this.powerOfAttorneyUploadError = null;
+    } else if (file) {
+      this.powerOfAttorneyUploadError = 'Nieprawidłowy plik';
+      this.selectedPowerOfAttorneyFile = null;
+    }
+  }
+
+  uploadPowerOfAttorneyFile(): void {
+    if (!this.selectedPowerOfAttorneyFile || !this.savedDraftId) return;
+
+    this.isUploadingPowerOfAttorney = true;
+    this.powerOfAttorneyUploadError = null;
+
+    this.reportService.uploadPowerOfAttorneyCopy(this.savedDraftId, this.selectedPowerOfAttorneyFile).subscribe({
+      next: (response) => {
+        this.isUploadingPowerOfAttorney = false;
+        this.reportForm.patchValue({ attachments: response.attachments });
+        this.enforcePowerOfAttorneyRequirement();
+        this.selectedPowerOfAttorneyFile = null;
+        this.saveDraft();
+        alert('Plik został przesłany pomyślnie!');
+      },
+      error: (error) => {
+        this.isUploadingPowerOfAttorney = false;
+        this.powerOfAttorneyUploadError = 'Nie udało się przesłać pliku.';
+        console.error('Error uploading power of attorney file:', error);
+      }
+    });
+  }
+
+  deletePowerOfAttorneyFile(): void {
+    if (!this.savedDraftId || !confirm('Czy na pewno chcesz usunąć plik?')) return;
+
+    this.reportService.deletePowerOfAttorneyCopy(this.savedDraftId).subscribe({
+      next: (response) => {
+        this.reportForm.patchValue({ attachments: response.attachments });
+        this.enforcePowerOfAttorneyRequirement();
+        alert('Plik został usunięty.');
+      },
+      error: (error) => {
+        alert('Nie udało się usunąć pliku.');
+        console.error('Error deleting power of attorney file:', error);
+      }
+    });
+  }
+
+  downloadPowerOfAttorneyFile(): void {
+    if (!this.savedDraftId) return;
+
+    this.reportService.downloadPowerOfAttorneyCopy(this.savedDraftId).subscribe({
+      next: (blob) => {
+        const filename = this.reportForm.get('attachments.powerOfAttorneyCopyFilename')?.value || 'pelnomocnictwo.pdf';
+        this.downloadBlob(blob, filename);
+      },
+      error: (error) => {
+        alert('Nie udało się pobrać pliku.');
+        console.error('Error downloading power of attorney file:', error);
+      }
+    });
+  }
+
   // Death Docs Copy methods
   onDeathDocsFileSelected(event: any): void {
     const file = event.target.files[0];
@@ -970,5 +1063,16 @@ export class EwypFormComponent implements OnInit {
     a.click();
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
+  }
+
+  private enforcePowerOfAttorneyRequirement(): void {
+    const isDifferent = this.reportForm.get('reporter.isDifferentFromInjuredPerson')?.value;
+    const poaControl = this.reportForm.get('attachments.hasPowerOfAttorneyCopy');
+    const poaFilenameControl = this.reportForm.get('attachments.powerOfAttorneyCopyFilename');
+    if (isDifferent) {
+      poaControl?.setValue(true, { emitEvent: false });
+    }
+    poaControl?.updateValueAndValidity();
+    poaFilenameControl?.updateValueAndValidity();
   }
 }

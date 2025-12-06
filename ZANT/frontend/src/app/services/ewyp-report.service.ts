@@ -109,6 +109,23 @@ export class EWYPReportService {
     return this.http.delete<EWYPReport>(`${this.apiUrl}/${reportId}/attachment/prosecutor-decision`);
   }
 
+  // Power of Attorney Copy
+  uploadPowerOfAttorneyCopy(reportId: string, file: File): Observable<EWYPReport> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<EWYPReport>(`${this.apiUrl}/${reportId}/attachment/power-of-attorney`, formData);
+  }
+
+  downloadPowerOfAttorneyCopy(reportId: string): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/${reportId}/attachment/power-of-attorney`, {
+      responseType: 'blob'
+    });
+  }
+
+  deletePowerOfAttorneyCopy(reportId: string): Observable<EWYPReport> {
+    return this.http.delete<EWYPReport>(`${this.apiUrl}/${reportId}/attachment/power-of-attorney`);
+  }
+
   // Death Docs Copy
   uploadDeathDocsCopy(reportId: string, file: File): Observable<EWYPReport> {
     const formData = new FormData();

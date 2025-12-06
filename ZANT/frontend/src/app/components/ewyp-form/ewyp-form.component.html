@@ -480,6 +480,10 @@
         Najpierw zapisz wersję roboczą, aby móc załączyć pliki.
       </div>
 
+      <div *ngIf="reportForm.get('reporter.isDifferentFromInjuredPerson')?.value" class="alert alert-info">
+        Zgłoszenie składa pełnomocnik poszkodowanego. Dołącz skan pełnomocnictwa w formacie PDF.
+      </div>
+
       <!-- Hospital Card Copy -->
       <div class="form-group document-upload-group">
         <label>
@@ -553,6 +557,50 @@
             <div class="file-actions">
               <button type="button" (click)="downloadProsecutorDecisionFile()" class="btn btn-secondary btn-sm">📥 Pobierz</button>
               <button type="button" (click)="deleteProsecutorDecisionFile()" class="btn btn-danger btn-sm">🗑️ Usuń</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Power of Attorney Copy -->
+      <div class="form-group document-upload-group">
+        <label>
+          <input type="checkbox" formControlName="hasPowerOfAttorneyCopy">
+          Skan pełnomocnictwa (PDF) <span *ngIf="reportForm.get('reporter.isDifferentFromInjuredPerson')?.value">(wymagany dla pełnomocnika)</span>
+        </label>
+
+        <div class="validation-error"
+             *ngIf="reportForm.get('reporter.isDifferentFromInjuredPerson')?.value && !reportForm.get('attachments.powerOfAttorneyCopyFilename')?.value">
+          Załącz skan pełnomocnictwa, jeśli zgłaszający jest inną osobą niż poszkodowany.
+        </div>
+
+        <div *ngIf="reportForm.get('attachments.hasPowerOfAttorneyCopy')?.value" class="file-upload-section">
+          <div *ngIf="!reportForm.get('attachments.powerOfAttorneyCopyFilename')?.value" class="file-input-wrapper">
+            <input
+              type="file"
+              accept="application/pdf"
+              (change)="onPowerOfAttorneyFileSelected($event)"
+              class="file-input">
+            <div *ngIf="selectedPowerOfAttorneyFile" class="selected-file-info">
+              ✓ Wybrany plik: {{ selectedPowerOfAttorneyFile.name }}
+            </div>
+            <button
+              type="button"
+              (click)="uploadPowerOfAttorneyFile()"
+              [disabled]="!selectedPowerOfAttorneyFile || isUploadingPowerOfAttorney || !savedDraftId"
+              class="btn btn-primary btn-sm">
+              {{ isUploadingPowerOfAttorney ? 'Przesyłanie...' : 'Prześlij plik' }}
+            </button>
+            <div *ngIf="powerOfAttorneyUploadError" class="alert alert-error">{{ powerOfAttorneyUploadError }}</div>
+          </div>
+
+          <div *ngIf="reportForm.get('attachments.powerOfAttorneyCopyFilename')?.value" class="uploaded-file-info">
+            <div class="file-status">
+              ✅ Załączony: <strong>{{ reportForm.get('attachments.powerOfAttorneyCopyFilename')?.value }}</strong>
+            </div>
+            <div class="file-actions">
+              <button type="button" (click)="downloadPowerOfAttorneyFile()" class="btn btn-secondary btn-sm">📥 Pobierz</button>
+              <button type="button" (click)="deletePowerOfAttorneyFile()" class="btn btn-danger btn-sm">🗑️ Usuń</button>
             </div>
           </div>
         </div>

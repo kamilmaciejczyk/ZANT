@@ -124,6 +124,8 @@ export interface Attachments {
   hospitalCardCopyFilename?: string;
   hasProsecutorDecisionCopy: boolean;
   prosecutorDecisionCopyFilename?: string;
+  hasPowerOfAttorneyCopy: boolean;
+  powerOfAttorneyCopyFilename?: string;
   hasDeathDocsCopy: boolean;
   deathDocsCopyFilename?: string;
   hasOtherDocuments: boolean;

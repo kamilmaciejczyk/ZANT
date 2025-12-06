@@ -16,6 +16,9 @@ public class AttachmentsDTO {
     private Boolean hasProsecutorDecisionCopy;
     private String prosecutorDecisionCopyFilename;
     
+    private Boolean hasPowerOfAttorneyCopy;
+    private String powerOfAttorneyCopyFilename;
+    
     private Boolean hasDeathDocsCopy;
     private String deathDocsCopyFilename;
     
