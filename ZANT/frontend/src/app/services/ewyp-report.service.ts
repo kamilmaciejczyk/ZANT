@@ -40,6 +40,17 @@ export class EWYPReportService {
     return this.http.get<EWYPReport>(`${this.apiUrl}/${id}`);
   }
 
+  getAllReports(search?: string, status?: string): Observable<EWYPReport[]> {
+    let params: any = {};
+    if (search) {
+      params.search = search;
+    }
+    if (status) {
+      params.status = status;
+    }
+    return this.http.get<EWYPReport[]>(this.apiUrl, { params });
+  }
+
   generateCircumstancesQuestions(accidentDescription: string): Observable<CircumstancesAssistantResponse> {
     return this.http.post<CircumstancesAssistantResponse>(
       `${this.assistantUrl}/circumstances`,

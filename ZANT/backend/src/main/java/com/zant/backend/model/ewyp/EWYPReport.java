@@ -69,6 +69,9 @@ public class EWYPReport {
     @Column(name = "status")
     private String status; // DRAFT | SUBMITTED
     
+    @Column(name = "scoring_classification")
+    private String scoringClassification; // Placeholder dla klasyfikacji scoringu
+    
     @Column(name = "created_at")
     private LocalDateTime createdAt;
     

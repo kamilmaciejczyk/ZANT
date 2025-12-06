@@ -9,6 +9,9 @@ export interface EWYPReport {
   responseDeliveryMethod: string;
   signature: Signature;
   status?: string;
+  scoringClassification?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface InjuredPerson {

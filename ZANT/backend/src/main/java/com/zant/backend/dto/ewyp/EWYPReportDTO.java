@@ -21,4 +21,5 @@ public class EWYPReportDTO {
     private String responseDeliveryMethod;
     private SignatureDTO signature;
     private String status;
+    private String scoringClassification;
 }

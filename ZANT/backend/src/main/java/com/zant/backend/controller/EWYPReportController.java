@@ -9,7 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/ewyp-reports")
@@ -74,5 +76,44 @@ public class EWYPReportController {
                 .map(mapper::toDTO)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+    
+    @GetMapping
+    public ResponseEntity<List<EWYPReportDTO>> getAllReports(
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false) String status) {
+        List<EWYPReport> reports = repository.findAll();
+        
+        // Filter by search term (searches in injured person's name or PESEL)
+        if (search != null && !search.trim().isEmpty()) {
+            String searchLower = search.toLowerCase().trim();
+            reports = reports.stream()
+                    .filter(report -> {
+                        if (report.getInjuredPerson() != null) {
+                            String firstName = report.getInjuredPerson().getFirstName();
+                            String lastName = report.getInjuredPerson().getLastName();
+                            String pesel = report.getInjuredPerson().getPesel();
+                            
+                            return (firstName != null && firstName.toLowerCase().contains(searchLower)) ||
+                                   (lastName != null && lastName.toLowerCase().contains(searchLower)) ||
+                                   (pesel != null && pesel.contains(searchLower));
+                        }
+                        return false;
+                    })
+                    .collect(Collectors.toList());
+        }
+        
+        // Filter by status
+        if (status != null && !status.trim().isEmpty()) {
+            reports = reports.stream()
+                    .filter(report -> status.equalsIgnoreCase(report.getStatus()))
+                    .collect(Collectors.toList());
+        }
+        
+        List<EWYPReportDTO> reportDTOs = reports.stream()
+                .map(mapper::toDTO)
+                .collect(Collectors.toList());
+        
+        return ResponseEntity.ok(reportDTOs);
     }
 }
