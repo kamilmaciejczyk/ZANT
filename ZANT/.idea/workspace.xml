@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28b01dab-5ce6-41f1-8934-4c46d97420c0" name="Changes" comment="sprzątanko">
-      <change afterPath="$PROJECT_DIR$/.idea/ZANT.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="28b01dab-5ce6-41f1-8934-4c46d97420c0" name="Changes" comment="Poprawki zapisu plików">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/controller/EWYPReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/controller/EWYPReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/dto/ewyp/AttachmentsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/dto/ewyp/AttachmentsDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/mapper/EWYPReportMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/mapper/EWYPReportMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/model/ewyp/Attachments.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/model/ewyp/Attachments.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/model/ewyp/EWYPReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/model/ewyp/EWYPReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/models/ewyp-report.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/models/ewyp-report.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/ewyp-report.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/ewyp-report.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +43,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -44,7 +52,6 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.ZantBackendApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
@@ -101,7 +108,7 @@
       <workItem from="1765034998895" duration="3545000" />
       <workItem from="1765038564722" duration="3852000" />
       <workItem from="1765042436889" duration="3930000" />
-      <workItem from="1765046576458" duration="1606000" />
+      <workItem from="1765046576458" duration="4847000" />
     </task>
     <task id="LOCAL-00001" summary="dodanie prompta na GEMINI">
       <option name="closed" value="true" />
@@ -159,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765046722960</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Poprawki zapisu plików">
+      <option name="closed" value="true" />
+      <created>1765050410540</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1765050410540</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +211,7 @@
     <MESSAGE value="wyszukiwarka wnioskowfix" />
     <MESSAGE value="fix parametrow modelu" />
     <MESSAGE value="sprzątanko" />
-    <option name="LAST_COMMIT_MESSAGE" value="sprzątanko" />
+    <MESSAGE value="Poprawki zapisu plików" />
+    <option name="LAST_COMMIT_MESSAGE" value="Poprawki zapisu plików" />
   </component>
 </project>

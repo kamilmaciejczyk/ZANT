@@ -76,6 +76,26 @@ public class EWYPReport {
     @Column(name = "attachment_content_type")
     private String attachmentContentType;
     
+    // Additional attachment files for specific documents
+    @Lob
+    @Column(name = "hospital_card_copy_file")
+    private byte[] hospitalCardCopyFile;
+    
+    @Lob
+    @Column(name = "prosecutor_decision_copy_file")
+    private byte[] prosecutorDecisionCopyFile;
+    
+    @Lob
+    @Column(name = "death_docs_copy_file")
+    private byte[] deathDocsCopyFile;
+    
+    @ElementCollection
+    @CollectionTable(name = "ewyp_other_documents", joinColumns = @JoinColumn(name = "ewyp_report_id"))
+    @MapKeyColumn(name = "document_key")
+    @Column(name = "file_data")
+    @Lob
+    private java.util.Map<String, byte[]> otherDocumentsFiles;
+    
     @Column(name = "status")
     private String status; // DRAFT | SUBMITTED
     

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EWYPReportService, CircumstancesQuestion } from '../../services/ewyp-report.service';
 import { EWYPReport } from '../../models/ewyp-report';
@@ -8,7 +8,7 @@ import { EWYPReport } from '../../models/ewyp-report';
 @Component({
   selector: 'app-ewyp-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './ewyp-form.component.html',
   styleUrls: ['./ewyp-form.component.scss']
 })
@@ -34,6 +34,24 @@ export class EwypFormComponent implements OnInit {
   isUploadingFile = false;
   fileUploadError: string | null = null;
 
+  // Document-specific file upload properties
+  selectedHospitalCardFile: File | null = null;
+  isUploadingHospitalCard = false;
+  hospitalCardUploadError: string | null = null;
+
+  selectedProsecutorDecisionFile: File | null = null;
+  isUploadingProsecutorDecision = false;
+  prosecutorDecisionUploadError: string | null = null;
+
+  selectedDeathDocsFile: File | null = null;
+  isUploadingDeathDocs = false;
+  deathDocsUploadError: string | null = null;
+
+  selectedOtherDocFile: File | null = null;
+  otherDocumentName: string = '';
+  isUploadingOtherDoc = false;
+  otherDocUploadError: string | null = null;
+
   constructor(
     private fb: FormBuilder,
     private reportService: EWYPReportService,
@@ -49,6 +67,11 @@ export class EwypFormComponent implements OnInit {
       const draftId = params['id'];
       if (draftId) {
         this.loadDraft(draftId);
+        // Restore current step from localStorage for this draft
+        const savedStep = localStorage.getItem(`ewyp-form-step-${draftId}`);
+        if (savedStep) {
+          this.currentStep = parseInt(savedStep, 10);
+        }
       }
     });
   }
@@ -193,8 +216,11 @@ export class EwypFormComponent implements OnInit {
       witnesses: this.fb.array([]),
       attachments: this.fb.group({
         hasHospitalCardCopy: [false],
+        hospitalCardCopyFilename: [''],
         hasProsecutorDecisionCopy: [false],
+        prosecutorDecisionCopyFilename: [''],
         hasDeathDocsCopy: [false],
+        deathDocsCopyFilename: [''],
         hasOtherDocuments: [false],
         otherDocuments: [[]]
       }),
@@ -235,12 +261,20 @@ export class EwypFormComponent implements OnInit {
   nextStep(): void {
     if (this.currentStep < this.totalSteps) {
       this.currentStep++;
+      // Save current step to localStorage if we have a draft ID
+      if (this.savedDraftId) {
+        localStorage.setItem(`ewyp-form-step-${this.savedDraftId}`, this.currentStep.toString());
+      }
     }
   }
 
   previousStep(): void {
     if (this.currentStep > 1) {
       this.currentStep--;
+      // Save current step to localStorage if we have a draft ID
+      if (this.savedDraftId) {
+        localStorage.setItem(`ewyp-form-step-${this.savedDraftId}`, this.currentStep.toString());
+      }
     }
   }
 
@@ -285,6 +319,8 @@ export class EwypFormComponent implements OnInit {
       ...this.reportForm.value,
       id: this.savedDraftId || undefined
     };
+
+    console.log(report);
 
     this.reportService.saveDraft(report).subscribe({
       next: (response) => {
@@ -459,5 +495,277 @@ export class EwypFormComponent implements OnInit {
         console.error('Error deleting file:', error);
       }
     });
+  }
+
+  // Hospital Card Copy methods
+  onHospitalCardFileSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file && this.validatePDFFile(file)) {
+      this.selectedHospitalCardFile = file;
+      this.hospitalCardUploadError = null;
+    } else if (file) {
+      this.hospitalCardUploadError = 'Nieprawidłowy plik';
+      this.selectedHospitalCardFile = null;
+    }
+  }
+
+  uploadHospitalCardFile(): void {
+    if (!this.selectedHospitalCardFile || !this.savedDraftId) return;
+
+    this.isUploadingHospitalCard = true;
+    this.hospitalCardUploadError = null;
+
+    this.reportService.uploadHospitalCardCopy(this.savedDraftId, this.selectedHospitalCardFile).subscribe({
+      next: (response) => {
+        this.isUploadingHospitalCard = false;
+        this.reportForm.patchValue({ attachments: response.attachments });
+        this.selectedHospitalCardFile = null;
+        this.saveDraft();
+        alert('Plik został przesłany pomyślnie!');
+      },
+      error: (error) => {
+        this.isUploadingHospitalCard = false;
+        this.hospitalCardUploadError = 'Nie udało się przesłać pliku.';
+        console.error('Error uploading hospital card file:', error);
+      }
+    });
+  }
+
+  deleteHospitalCardFile(): void {
+    if (!this.savedDraftId || !confirm('Czy na pewno chcesz usunąć plik?')) return;
+
+    this.reportService.deleteHospitalCardCopy(this.savedDraftId).subscribe({
+      next: (response) => {
+        this.reportForm.patchValue({ attachments: response.attachments });
+        this.saveDraft();
+        alert('Plik został usunięty.');
+      },
+      error: (error) => {
+        alert('Nie udało się usunąć pliku.');
+        console.error('Error deleting hospital card file:', error);
+      }
+    });
+  }
+
+  downloadHospitalCardFile(): void {
+    if (!this.savedDraftId) return;
+
+    this.reportService.downloadHospitalCardCopy(this.savedDraftId).subscribe({
+      next: (blob) => {
+        const filename = this.reportForm.get('attachments.hospitalCardCopyFilename')?.value || 'hospital-card.pdf';
+        this.downloadBlob(blob, filename);
+      },
+      error: (error) => {
+        alert('Nie udało się pobrać pliku.');
+        console.error('Error downloading hospital card file:', error);
+      }
+    });
+  }
+
+  // Prosecutor Decision Copy methods
+  onProsecutorDecisionFileSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file && this.validatePDFFile(file)) {
+      this.selectedProsecutorDecisionFile = file;
+      this.prosecutorDecisionUploadError = null;
+    } else if (file) {
+      this.prosecutorDecisionUploadError = 'Nieprawidłowy plik';
+      this.selectedProsecutorDecisionFile = null;
+    }
+  }
+
+  uploadProsecutorDecisionFile(): void {
+    if (!this.selectedProsecutorDecisionFile || !this.savedDraftId) return;
+
+    this.isUploadingProsecutorDecision = true;
+    this.prosecutorDecisionUploadError = null;
+
+    this.reportService.uploadProsecutorDecisionCopy(this.savedDraftId, this.selectedProsecutorDecisionFile).subscribe({
+      next: (response) => {
+        this.isUploadingProsecutorDecision = false;
+        this.reportForm.patchValue({ attachments: response.attachments });
+        this.selectedProsecutorDecisionFile = null;
+        this.saveDraft();
+        alert('Plik został przesłany pomyślnie!');
+      },
+      error: (error) => {
+        this.isUploadingProsecutorDecision = false;
+        this.prosecutorDecisionUploadError = 'Nie udało się przesłać pliku.';
+        console.error('Error uploading prosecutor decision file:', error);
+      }
+    });
+  }
+
+  deleteProsecutorDecisionFile(): void {
+    if (!this.savedDraftId || !confirm('Czy na pewno chcesz usunąć plik?')) return;
+
+    this.reportService.deleteProsecutorDecisionCopy(this.savedDraftId).subscribe({
+      next: (response) => {
+        this.reportForm.patchValue({ attachments: response.attachments });
+        alert('Plik został usunięty.');
+      },
+      error: (error) => {
+        alert('Nie udało się usunąć pliku.');
+        console.error('Error deleting prosecutor decision file:', error);
+      }
+    });
+  }
+
+  downloadProsecutorDecisionFile(): void {
+    if (!this.savedDraftId) return;
+
+    this.reportService.downloadProsecutorDecisionCopy(this.savedDraftId).subscribe({
+      next: (blob) => {
+        const filename = this.reportForm.get('attachments.prosecutorDecisionCopyFilename')?.value || 'prosecutor-decision.pdf';
+        this.downloadBlob(blob, filename);
+      },
+      error: (error) => {
+        alert('Nie udało się pobrać pliku.');
+        console.error('Error downloading prosecutor decision file:', error);
+      }
+    });
+  }
+
+  // Death Docs Copy methods
+  onDeathDocsFileSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file && this.validatePDFFile(file)) {
+      this.selectedDeathDocsFile = file;
+      this.deathDocsUploadError = null;
+    } else if (file) {
+      this.deathDocsUploadError = 'Nieprawidłowy plik';
+      this.selectedDeathDocsFile = null;
+    }
+  }
+
+  uploadDeathDocsFile(): void {
+    if (!this.selectedDeathDocsFile || !this.savedDraftId) return;
+
+    this.isUploadingDeathDocs = true;
+    this.deathDocsUploadError = null;
+
+    this.reportService.uploadDeathDocsCopy(this.savedDraftId, this.selectedDeathDocsFile).subscribe({
+      next: (response) => {
+        this.isUploadingDeathDocs = false;
+        this.reportForm.patchValue({ attachments: response.attachments });
+        this.selectedDeathDocsFile = null;
+        this.saveDraft();
+        alert('Plik został przesłany pomyślnie!');
+      },
+      error: (error) => {
+        this.isUploadingDeathDocs = false;
+        this.deathDocsUploadError = 'Nie udało się przesłać pliku.';
+        console.error('Error uploading death docs file:', error);
+      }
+    });
+  }
+
+  deleteDeathDocsFile(): void {
+    if (!this.savedDraftId || !confirm('Czy na pewno chcesz usunąć plik?')) return;
+
+    this.reportService.deleteDeathDocsCopy(this.savedDraftId).subscribe({
+      next: (response) => {
+        this.reportForm.patchValue({ attachments: response.attachments });
+        alert('Plik został usunięty.');
+      },
+      error: (error) => {
+        alert('Nie udało się usunąć pliku.');
+        console.error('Error deleting death docs file:', error);
+      }
+    });
+  }
+
+  downloadDeathDocsFile(): void {
+    if (!this.savedDraftId) return;
+
+    this.reportService.downloadDeathDocsCopy(this.savedDraftId).subscribe({
+      next: (blob) => {
+        const filename = this.reportForm.get('attachments.deathDocsCopyFilename')?.value || 'death-docs.pdf';
+        this.downloadBlob(blob, filename);
+      },
+      error: (error) => {
+        alert('Nie udało się pobrać pliku.');
+        console.error('Error downloading death docs file:', error);
+      }
+    });
+  }
+
+  // Other Documents methods
+  onOtherDocFileSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file && this.validatePDFFile(file)) {
+      this.selectedOtherDocFile = file;
+      this.otherDocUploadError = null;
+    } else if (file) {
+      this.otherDocUploadError = 'Nieprawidłowy plik';
+      this.selectedOtherDocFile = null;
+    }
+  }
+
+  uploadOtherDocFile(): void {
+    if (!this.selectedOtherDocFile || !this.savedDraftId || !this.otherDocumentName.trim()) {
+      this.otherDocUploadError = 'Proszę wybrać plik i podać nazwę dokumentu';
+      return;
+    }
+
+    this.isUploadingOtherDoc = true;
+    this.otherDocUploadError = null;
+
+    this.reportService.uploadOtherDocument(this.savedDraftId, this.selectedOtherDocFile, this.otherDocumentName).subscribe({
+      next: (response) => {
+        this.isUploadingOtherDoc = false;
+        this.reportForm.patchValue({ attachments: response.attachments });
+        this.selectedOtherDocFile = null;
+        this.otherDocumentName = '';
+        alert('Plik został przesłany pomyślnie!');
+      },
+      error: (error) => {
+        this.isUploadingOtherDoc = false;
+        this.otherDocUploadError = 'Nie udało się przesłać pliku.';
+        console.error('Error uploading other document file:', error);
+      }
+    });
+  }
+
+  deleteOtherDocFile(index: number): void {
+    if (!this.savedDraftId || !confirm('Czy na pewno chcesz usunąć ten dokument?')) return;
+
+    this.reportService.deleteOtherDocument(this.savedDraftId, index).subscribe({
+      next: (response) => {
+        this.reportForm.patchValue({ attachments: response.attachments });
+        alert('Dokument został usunięty.');
+      },
+      error: (error) => {
+        alert('Nie udało się usunąć dokumentu.');
+        console.error('Error deleting other document:', error);
+      }
+    });
+  }
+
+  get otherDocuments(): any[] {
+    return this.reportForm.get('attachments.otherDocuments')?.value || [];
+  }
+
+  // Helper methods
+  private validatePDFFile(file: File): boolean {
+    if (file.type !== 'application/pdf') {
+      return false;
+    }
+    const maxSize = 10 * 1024 * 1024; // 10MB
+    if (file.size > maxSize) {
+      return false;
+    }
+    return true;
+  }
+
+  private downloadBlob(blob: Blob, filename: string): void {
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
   }
 }

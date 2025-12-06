@@ -18,29 +18,40 @@ import java.util.List;
 public class Attachments {
     
     private Boolean hasHospitalCardCopy;
+    private String hospitalCardCopyFilename;
     
     private Boolean hasProsecutorDecisionCopy;
+    private String prosecutorDecisionCopyFilename;
     
     private Boolean hasDeathDocsCopy;
+    private String deathDocsCopyFilename;
     
     private Boolean hasOtherDocuments;
     
     @Column(columnDefinition = "TEXT")
-    @Convert(converter = StringListConverter.class)
-    private List<String> otherDocuments;
+    @Convert(converter = OtherDocumentListConverter.class)
+    private List<OtherDocument> otherDocuments;
+    
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class OtherDocument {
+        private String documentName;
+        private String filename;
+    }
     
     @Converter
-    public static class StringListConverter implements AttributeConverter<List<String>, String> {
+    public static class OtherDocumentListConverter implements AttributeConverter<List<OtherDocument>, String> {
         private static final Gson gson = new Gson();
-        private static final Type type = new TypeToken<List<String>>(){}.getType();
+        private static final Type type = new TypeToken<List<OtherDocument>>(){}.getType();
 
         @Override
-        public String convertToDatabaseColumn(List<String> attribute) {
+        public String convertToDatabaseColumn(List<OtherDocument> attribute) {
             return attribute == null ? null : gson.toJson(attribute);
         }
 
         @Override
-        public List<String> convertToEntityAttribute(String dbData) {
+        public List<OtherDocument> convertToEntityAttribute(String dbData) {
             return dbData == null ? new ArrayList<>() : gson.fromJson(dbData, type);
         }
     }

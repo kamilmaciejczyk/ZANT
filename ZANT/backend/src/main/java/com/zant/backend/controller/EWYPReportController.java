@@ -176,4 +176,251 @@ public class EWYPReportController {
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
+    
+    // Hospital Card Copy attachment endpoints
+    @PostMapping("/{id}/attachment/hospital-card")
+    public ResponseEntity<EWYPReportDTO> uploadHospitalCardCopy(
+            @PathVariable UUID id,
+            @RequestParam("file") MultipartFile file) {
+        
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().build();
+        }
+        
+        return repository.findById(id)
+                .<ResponseEntity<EWYPReportDTO>>map(report -> {
+                    try {
+                        report.setHospitalCardCopyFile(file.getBytes());
+                        if (report.getAttachments() == null) {
+                            report.setAttachments(new com.zant.backend.model.ewyp.Attachments());
+                        }
+                        report.getAttachments().setHospitalCardCopyFilename(file.getOriginalFilename());
+                        report.getAttachments().setHasHospitalCardCopy(true);
+                        EWYPReport savedEntity = repository.save(report);
+                        return ResponseEntity.ok(mapper.toDTO(savedEntity));
+                    } catch (IOException e) {
+                        return ResponseEntity.<EWYPReportDTO>status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+                    }
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    @GetMapping("/{id}/attachment/hospital-card")
+    public ResponseEntity<byte[]> downloadHospitalCardCopy(@PathVariable UUID id) {
+        return repository.findById(id)
+                .filter(report -> report.getHospitalCardCopyFile() != null)
+                .map(report -> {
+                    HttpHeaders headers = new HttpHeaders();
+                    headers.setContentType(MediaType.APPLICATION_PDF);
+                    String filename = report.getAttachments() != null && report.getAttachments().getHospitalCardCopyFilename() != null
+                            ? report.getAttachments().getHospitalCardCopyFilename()
+                            : "hospital-card.pdf";
+                    headers.setContentDispositionFormData("attachment", filename);
+                    return new ResponseEntity<>(report.getHospitalCardCopyFile(), headers, HttpStatus.OK);
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    @DeleteMapping("/{id}/attachment/hospital-card")
+    public ResponseEntity<EWYPReportDTO> deleteHospitalCardCopy(@PathVariable UUID id) {
+        return repository.findById(id)
+                .map(report -> {
+                    report.setHospitalCardCopyFile(null);
+                    if (report.getAttachments() != null) {
+                        report.getAttachments().setHospitalCardCopyFilename(null);
+                        report.getAttachments().setHasHospitalCardCopy(false);
+                    }
+                    EWYPReport savedEntity = repository.save(report);
+                    return ResponseEntity.ok(mapper.toDTO(savedEntity));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    // Prosecutor Decision Copy attachment endpoints
+    @PostMapping("/{id}/attachment/prosecutor-decision")
+    public ResponseEntity<EWYPReportDTO> uploadProsecutorDecisionCopy(
+            @PathVariable UUID id,
+            @RequestParam("file") MultipartFile file) {
+        
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().build();
+        }
+        
+        return repository.findById(id)
+                .<ResponseEntity<EWYPReportDTO>>map(report -> {
+                    try {
+                        report.setProsecutorDecisionCopyFile(file.getBytes());
+                        if (report.getAttachments() == null) {
+                            report.setAttachments(new com.zant.backend.model.ewyp.Attachments());
+                        }
+                        report.getAttachments().setProsecutorDecisionCopyFilename(file.getOriginalFilename());
+                        report.getAttachments().setHasProsecutorDecisionCopy(true);
+                        EWYPReport savedEntity = repository.save(report);
+                        return ResponseEntity.ok(mapper.toDTO(savedEntity));
+                    } catch (IOException e) {
+                        return ResponseEntity.<EWYPReportDTO>status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+                    }
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    @GetMapping("/{id}/attachment/prosecutor-decision")
+    public ResponseEntity<byte[]> downloadProsecutorDecisionCopy(@PathVariable UUID id) {
+        return repository.findById(id)
+                .filter(report -> report.getProsecutorDecisionCopyFile() != null)
+                .map(report -> {
+                    HttpHeaders headers = new HttpHeaders();
+                    headers.setContentType(MediaType.APPLICATION_PDF);
+                    String filename = report.getAttachments() != null && report.getAttachments().getProsecutorDecisionCopyFilename() != null
+                            ? report.getAttachments().getProsecutorDecisionCopyFilename()
+                            : "prosecutor-decision.pdf";
+                    headers.setContentDispositionFormData("attachment", filename);
+                    return new ResponseEntity<>(report.getProsecutorDecisionCopyFile(), headers, HttpStatus.OK);
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    @DeleteMapping("/{id}/attachment/prosecutor-decision")
+    public ResponseEntity<EWYPReportDTO> deleteProsecutorDecisionCopy(@PathVariable UUID id) {
+        return repository.findById(id)
+                .map(report -> {
+                    report.setProsecutorDecisionCopyFile(null);
+                    if (report.getAttachments() != null) {
+                        report.getAttachments().setProsecutorDecisionCopyFilename(null);
+                        report.getAttachments().setHasProsecutorDecisionCopy(false);
+                    }
+                    EWYPReport savedEntity = repository.save(report);
+                    return ResponseEntity.ok(mapper.toDTO(savedEntity));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    // Death Docs Copy attachment endpoints
+    @PostMapping("/{id}/attachment/death-docs")
+    public ResponseEntity<EWYPReportDTO> uploadDeathDocsCopy(
+            @PathVariable UUID id,
+            @RequestParam("file") MultipartFile file) {
+        
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().build();
+        }
+        
+        return repository.findById(id)
+                .<ResponseEntity<EWYPReportDTO>>map(report -> {
+                    try {
+                        report.setDeathDocsCopyFile(file.getBytes());
+                        if (report.getAttachments() == null) {
+                            report.setAttachments(new com.zant.backend.model.ewyp.Attachments());
+                        }
+                        report.getAttachments().setDeathDocsCopyFilename(file.getOriginalFilename());
+                        report.getAttachments().setHasDeathDocsCopy(true);
+                        EWYPReport savedEntity = repository.save(report);
+                        return ResponseEntity.ok(mapper.toDTO(savedEntity));
+                    } catch (IOException e) {
+                        return ResponseEntity.<EWYPReportDTO>status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+                    }
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    @GetMapping("/{id}/attachment/death-docs")
+    public ResponseEntity<byte[]> downloadDeathDocsCopy(@PathVariable UUID id) {
+        return repository.findById(id)
+                .filter(report -> report.getDeathDocsCopyFile() != null)
+                .map(report -> {
+                    HttpHeaders headers = new HttpHeaders();
+                    headers.setContentType(MediaType.APPLICATION_PDF);
+                    String filename = report.getAttachments() != null && report.getAttachments().getDeathDocsCopyFilename() != null
+                            ? report.getAttachments().getDeathDocsCopyFilename()
+                            : "death-docs.pdf";
+                    headers.setContentDispositionFormData("attachment", filename);
+                    return new ResponseEntity<>(report.getDeathDocsCopyFile(), headers, HttpStatus.OK);
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    @DeleteMapping("/{id}/attachment/death-docs")
+    public ResponseEntity<EWYPReportDTO> deleteDeathDocsCopy(@PathVariable UUID id) {
+        return repository.findById(id)
+                .map(report -> {
+                    report.setDeathDocsCopyFile(null);
+                    if (report.getAttachments() != null) {
+                        report.getAttachments().setDeathDocsCopyFilename(null);
+                        report.getAttachments().setHasDeathDocsCopy(false);
+                    }
+                    EWYPReport savedEntity = repository.save(report);
+                    return ResponseEntity.ok(mapper.toDTO(savedEntity));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    // Other Documents attachment endpoints (supports multiple documents with names)
+    @PostMapping("/{id}/attachment/other-document")
+    public ResponseEntity<EWYPReportDTO> uploadOtherDocument(
+            @PathVariable UUID id,
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("documentName") String documentName) {
+        
+        if (file.isEmpty() || documentName == null || documentName.trim().isEmpty()) {
+            return ResponseEntity.badRequest().build();
+        }
+        
+        return repository.findById(id)
+                .<ResponseEntity<EWYPReportDTO>>map(report -> {
+                    try {
+                        // Store file in a map with a unique key (document name + timestamp)
+                        String fileKey = documentName + "_" + System.currentTimeMillis();
+                        
+                        if (report.getOtherDocumentsFiles() == null) {
+                            report.setOtherDocumentsFiles(new java.util.HashMap<>());
+                        }
+                        report.getOtherDocumentsFiles().put(fileKey, file.getBytes());
+                        
+                        if (report.getAttachments() == null) {
+                            report.setAttachments(new com.zant.backend.model.ewyp.Attachments());
+                        }
+                        if (report.getAttachments().getOtherDocuments() == null) {
+                            report.getAttachments().setOtherDocuments(new java.util.ArrayList<>());
+                            report.getAttachments().setHasOtherDocuments(false);
+                        }
+                        
+                        com.zant.backend.model.ewyp.Attachments.OtherDocument otherDoc = 
+                            new com.zant.backend.model.ewyp.Attachments.OtherDocument(
+                                documentName, 
+                                file.getOriginalFilename()
+                            );
+                        report.getAttachments().getOtherDocuments().add(otherDoc);
+                        
+                        EWYPReport savedEntity = repository.save(report);
+                        return ResponseEntity.ok(mapper.toDTO(savedEntity));
+                    } catch (IOException e) {
+                        return ResponseEntity.<EWYPReportDTO>status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+                    }
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    @DeleteMapping("/{id}/attachment/other-document/{index}")
+    public ResponseEntity<EWYPReportDTO> deleteOtherDocument(
+            @PathVariable UUID id,
+            @PathVariable int index) {
+        
+        return repository.findById(id)
+                .map(report -> {
+                    if (report.getAttachments() != null && 
+                        report.getAttachments().getOtherDocuments() != null &&
+                        index >= 0 && 
+                        index < report.getAttachments().getOtherDocuments().size()) {
+                        
+                        report.getAttachments().getOtherDocuments().remove(index);
+                        // Note: We're not removing from otherDocumentsFiles map here
+                        // You might want to add logic to clean up the map as well
+                        
+                        EWYPReport savedEntity = repository.save(report);
+                        return ResponseEntity.ok(mapper.toDTO(savedEntity));
+                    }
+                    return ResponseEntity.badRequest().<EWYPReportDTO>build();
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 }

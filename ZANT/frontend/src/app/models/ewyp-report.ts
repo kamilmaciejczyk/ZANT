@@ -121,10 +121,18 @@ export interface WitnessInfo {
 
 export interface Attachments {
   hasHospitalCardCopy: boolean;
+  hospitalCardCopyFilename?: string;
   hasProsecutorDecisionCopy: boolean;
+  prosecutorDecisionCopyFilename?: string;
   hasDeathDocsCopy: boolean;
+  deathDocsCopyFilename?: string;
   hasOtherDocuments: boolean;
-  otherDocuments: string[];
+  otherDocuments: OtherDocument[];
+}
+
+export interface OtherDocument {
+  documentName: string;
+  filename: string;
 }
 
 export interface DocumentsToDeliverLater {

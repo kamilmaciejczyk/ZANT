@@ -73,4 +73,67 @@ export class EWYPReportService {
   deleteAttachment(reportId: string): Observable<EWYPReport> {
     return this.http.delete<EWYPReport>(`${this.apiUrl}/${reportId}/attachment`);
   }
+
+  // Hospital Card Copy
+  uploadHospitalCardCopy(reportId: string, file: File): Observable<EWYPReport> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<EWYPReport>(`${this.apiUrl}/${reportId}/attachment/hospital-card`, formData);
+  }
+
+  downloadHospitalCardCopy(reportId: string): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/${reportId}/attachment/hospital-card`, {
+      responseType: 'blob'
+    });
+  }
+
+  deleteHospitalCardCopy(reportId: string): Observable<EWYPReport> {
+    return this.http.delete<EWYPReport>(`${this.apiUrl}/${reportId}/attachment/hospital-card`);
+  }
+
+  // Prosecutor Decision Copy
+  uploadProsecutorDecisionCopy(reportId: string, file: File): Observable<EWYPReport> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<EWYPReport>(`${this.apiUrl}/${reportId}/attachment/prosecutor-decision`, formData);
+  }
+
+  downloadProsecutorDecisionCopy(reportId: string): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/${reportId}/attachment/prosecutor-decision`, {
+      responseType: 'blob'
+    });
+  }
+
+  deleteProsecutorDecisionCopy(reportId: string): Observable<EWYPReport> {
+    return this.http.delete<EWYPReport>(`${this.apiUrl}/${reportId}/attachment/prosecutor-decision`);
+  }
+
+  // Death Docs Copy
+  uploadDeathDocsCopy(reportId: string, file: File): Observable<EWYPReport> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<EWYPReport>(`${this.apiUrl}/${reportId}/attachment/death-docs`, formData);
+  }
+
+  downloadDeathDocsCopy(reportId: string): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/${reportId}/attachment/death-docs`, {
+      responseType: 'blob'
+    });
+  }
+
+  deleteDeathDocsCopy(reportId: string): Observable<EWYPReport> {
+    return this.http.delete<EWYPReport>(`${this.apiUrl}/${reportId}/attachment/death-docs`);
+  }
+
+  // Other Documents
+  uploadOtherDocument(reportId: string, file: File, documentName: string): Observable<EWYPReport> {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('documentName', documentName);
+    return this.http.post<EWYPReport>(`${this.apiUrl}/${reportId}/attachment/other-document`, formData);
+  }
+
+  deleteOtherDocument(reportId: string, index: number): Observable<EWYPReport> {
+    return this.http.delete<EWYPReport>(`${this.apiUrl}/${reportId}/attachment/other-document/${index}`);
+  }
 }

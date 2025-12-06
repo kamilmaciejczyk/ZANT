@@ -272,14 +272,48 @@ public class EWYPReportMapper {
     
     private Attachments toAttachmentsEntity(AttachmentsDTO dto) {
         if (dto == null) return null;
-        return new Attachments(dto.getHasHospitalCardCopy(), dto.getHasProsecutorDecisionCopy(),
-                dto.getHasDeathDocsCopy(), dto.getHasOtherDocuments(), dto.getOtherDocuments());
+        
+        Attachments entity = new Attachments();
+        entity.setHasHospitalCardCopy(dto.getHasHospitalCardCopy());
+        entity.setHospitalCardCopyFilename(dto.getHospitalCardCopyFilename());
+        entity.setHasProsecutorDecisionCopy(dto.getHasProsecutorDecisionCopy());
+        entity.setProsecutorDecisionCopyFilename(dto.getProsecutorDecisionCopyFilename());
+        entity.setHasDeathDocsCopy(dto.getHasDeathDocsCopy());
+        entity.setDeathDocsCopyFilename(dto.getDeathDocsCopyFilename());
+        entity.setHasOtherDocuments(dto.getHasOtherDocuments());
+        
+        // Map OtherDocumentDTO list to OtherDocument list
+        if (dto.getOtherDocuments() != null) {
+            List<Attachments.OtherDocument> otherDocuments = dto.getOtherDocuments().stream()
+                .map(dtoDoc -> new Attachments.OtherDocument(dtoDoc.getDocumentName(), dtoDoc.getFilename()))
+                .collect(Collectors.toList());
+            entity.setOtherDocuments(otherDocuments);
+        }
+        
+        return entity;
     }
     
     private AttachmentsDTO toAttachmentsDTO(Attachments entity) {
         if (entity == null) return null;
-        return new AttachmentsDTO(entity.getHasHospitalCardCopy(), entity.getHasProsecutorDecisionCopy(),
-                entity.getHasDeathDocsCopy(), entity.getHasOtherDocuments(), entity.getOtherDocuments());
+        
+        AttachmentsDTO dto = new AttachmentsDTO();
+        dto.setHasHospitalCardCopy(entity.getHasHospitalCardCopy());
+        dto.setHospitalCardCopyFilename(entity.getHospitalCardCopyFilename());
+        dto.setHasProsecutorDecisionCopy(entity.getHasProsecutorDecisionCopy());
+        dto.setProsecutorDecisionCopyFilename(entity.getProsecutorDecisionCopyFilename());
+        dto.setHasDeathDocsCopy(entity.getHasDeathDocsCopy());
+        dto.setDeathDocsCopyFilename(entity.getDeathDocsCopyFilename());
+        dto.setHasOtherDocuments(entity.getHasOtherDocuments());
+        
+        // Map OtherDocument list to OtherDocumentDTO list
+        if (entity.getOtherDocuments() != null) {
+            List<AttachmentsDTO.OtherDocumentDTO> otherDocuments = entity.getOtherDocuments().stream()
+                .map(entityDoc -> new AttachmentsDTO.OtherDocumentDTO(entityDoc.getDocumentName(), entityDoc.getFilename()))
+                .collect(Collectors.toList());
+            dto.setOtherDocuments(otherDocuments);
+        }
+        
+        return dto;
     }
     
     private DocumentsToDeliverLater toDocumentsToDeliverLaterEntity(DocumentsToDeliverLaterDTO dto) {

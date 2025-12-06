@@ -11,8 +11,22 @@ import java.util.List;
 @AllArgsConstructor
 public class AttachmentsDTO {
     private Boolean hasHospitalCardCopy;
+    private String hospitalCardCopyFilename;
+    
     private Boolean hasProsecutorDecisionCopy;
+    private String prosecutorDecisionCopyFilename;
+    
     private Boolean hasDeathDocsCopy;
+    private String deathDocsCopyFilename;
+    
     private Boolean hasOtherDocuments;
-    private List<String> otherDocuments;
+    private List<OtherDocumentDTO> otherDocuments;
+    
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class OtherDocumentDTO {
+        private String documentName;
+        private String filename;
+    }
 }

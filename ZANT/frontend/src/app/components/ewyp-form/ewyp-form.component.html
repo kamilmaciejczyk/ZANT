@@ -294,38 +294,181 @@
     <div *ngIf="currentStep === 5" class="form-step" formGroupName="attachments">
       <h2>Dokumenty i załączniki</h2>
 
-      <div class="form-group">
+      <div *ngIf="!savedDraftId" class="alert alert-warning">
+        Najpierw zapisz wersję roboczą, aby móc załączyć pliki.
+      </div>
+
+      <!-- Hospital Card Copy -->
+      <div class="form-group document-upload-group">
         <label>
           <input type="checkbox" formControlName="hasHospitalCardCopy">
           Kserokopia karty informacyjnej ze szpitala / zaświadczenia o udzieleniu pierwszej pomocy
         </label>
+
+        <div *ngIf="reportForm.get('attachments.hasHospitalCardCopy')?.value" class="file-upload-section">
+          <div *ngIf="!reportForm.get('attachments.hospitalCardCopyFilename')?.value" class="file-input-wrapper">
+            <input
+              type="file"
+              accept="application/pdf"
+              (change)="onHospitalCardFileSelected($event)"
+              class="file-input">
+            <div *ngIf="selectedHospitalCardFile" class="selected-file-info">
+              ✓ Wybrany plik: {{ selectedHospitalCardFile.name }}
+            </div>
+            <button
+              type="button"
+              (click)="uploadHospitalCardFile()"
+              [disabled]="!selectedHospitalCardFile || isUploadingHospitalCard || !savedDraftId"
+              class="btn btn-primary btn-sm">
+              {{ isUploadingHospitalCard ? 'Przesyłanie...' : 'Prześlij plik' }}
+            </button>
+            <div *ngIf="hospitalCardUploadError" class="alert alert-error">{{ hospitalCardUploadError }}</div>
+          </div>
+
+          <div *ngIf="reportForm.get('attachments.hospitalCardCopyFilename')?.value" class="uploaded-file-info">
+            <div class="file-status">
+              ✅ Załączony: <strong>{{ reportForm.get('attachments.hospitalCardCopyFilename')?.value }}</strong>
+            </div>
+            <div class="file-actions">
+              <button type="button" (click)="downloadHospitalCardFile()" class="btn btn-secondary btn-sm">📥 Pobierz</button>
+              <button type="button" (click)="deleteHospitalCardFile()" class="btn btn-danger btn-sm">🗑️ Usuń</button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="form-group">
+      <!-- Prosecutor Decision Copy -->
+      <div class="form-group document-upload-group">
         <label>
           <input type="checkbox" formControlName="hasProsecutorDecisionCopy">
           Kserokopia postanowienia prokuratury
         </label>
+
+        <div *ngIf="reportForm.get('attachments.hasProsecutorDecisionCopy')?.value" class="file-upload-section">
+          <div *ngIf="!reportForm.get('attachments.prosecutorDecisionCopyFilename')?.value" class="file-input-wrapper">
+            <input
+              type="file"
+              accept="application/pdf"
+              (change)="onProsecutorDecisionFileSelected($event)"
+              class="file-input">
+            <div *ngIf="selectedProsecutorDecisionFile" class="selected-file-info">
+              ✓ Wybrany plik: {{ selectedProsecutorDecisionFile.name }}
+            </div>
+            <button
+              type="button"
+              (click)="uploadProsecutorDecisionFile()"
+              [disabled]="!selectedProsecutorDecisionFile || isUploadingProsecutorDecision || !savedDraftId"
+              class="btn btn-primary btn-sm">
+              {{ isUploadingProsecutorDecision ? 'Przesyłanie...' : 'Prześlij plik' }}
+            </button>
+            <div *ngIf="prosecutorDecisionUploadError" class="alert alert-error">{{ prosecutorDecisionUploadError }}</div>
+          </div>
+
+          <div *ngIf="reportForm.get('attachments.prosecutorDecisionCopyFilename')?.value" class="uploaded-file-info">
+            <div class="file-status">
+              ✅ Załączony: <strong>{{ reportForm.get('attachments.prosecutorDecisionCopyFilename')?.value }}</strong>
+            </div>
+            <div class="file-actions">
+              <button type="button" (click)="downloadProsecutorDecisionFile()" class="btn btn-secondary btn-sm">📥 Pobierz</button>
+              <button type="button" (click)="deleteProsecutorDecisionFile()" class="btn btn-danger btn-sm">🗑️ Usuń</button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="form-group">
+      <!-- Death Docs Copy -->
+      <div class="form-group document-upload-group">
         <label>
           <input type="checkbox" formControlName="hasDeathDocsCopy">
           Kopie dokumentów dotyczących zgonu
         </label>
+
+        <div *ngIf="reportForm.get('attachments.hasDeathDocsCopy')?.value" class="file-upload-section">
+          <div *ngIf="!reportForm.get('attachments.deathDocsCopyFilename')?.value" class="file-input-wrapper">
+            <input
+              type="file"
+              accept="application/pdf"
+              (change)="onDeathDocsFileSelected($event)"
+              class="file-input">
+            <div *ngIf="selectedDeathDocsFile" class="selected-file-info">
+              ✓ Wybrany plik: {{ selectedDeathDocsFile.name }}
+            </div>
+            <button
+              type="button"
+              (click)="uploadDeathDocsFile()"
+              [disabled]="!selectedDeathDocsFile || isUploadingDeathDocs || !savedDraftId"
+              class="btn btn-primary btn-sm">
+              {{ isUploadingDeathDocs ? 'Przesyłanie...' : 'Prześlij plik' }}
+            </button>
+            <div *ngIf="deathDocsUploadError" class="alert alert-error">{{ deathDocsUploadError }}</div>
+          </div>
+
+          <div *ngIf="reportForm.get('attachments.deathDocsCopyFilename')?.value" class="uploaded-file-info">
+            <div class="file-status">
+              ✅ Załączony: <strong>{{ reportForm.get('attachments.deathDocsCopyFilename')?.value }}</strong>
+            </div>
+            <div class="file-actions">
+              <button type="button" (click)="downloadDeathDocsFile()" class="btn btn-secondary btn-sm">📥 Pobierz</button>
+              <button type="button" (click)="deleteDeathDocsFile()" class="btn btn-danger btn-sm">🗑️ Usuń</button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="form-group">
+      <!-- Other Documents -->
+      <div class="form-group document-upload-group">
         <label>
           <input type="checkbox" formControlName="hasOtherDocuments">
           Inne dokumenty
         </label>
+
+        <div *ngIf="reportForm.get('attachments.hasOtherDocuments')?.value" class="file-upload-section">
+          <div class="file-input-wrapper">
+            <div class="form-group">
+              <label>Nazwa dokumentu:</label>
+              <input
+                type="text"
+                [(ngModel)]="otherDocumentName"
+                [ngModelOptions]="{standalone: true}"
+                placeholder="Np. Zaświadczenie lekarskie"
+                class="form-control">
+            </div>
+            <input
+              type="file"
+              accept="application/pdf"
+              (change)="onOtherDocFileSelected($event)"
+              class="file-input">
+            <div *ngIf="selectedOtherDocFile" class="selected-file-info">
+              ✓ Wybrany plik: {{ selectedOtherDocFile.name }}
+            </div>
+            <button
+              type="button"
+              (click)="uploadOtherDocFile()"
+              [disabled]="!selectedOtherDocFile || isUploadingOtherDoc || !savedDraftId || !otherDocumentName.trim()"
+              class="btn btn-primary btn-sm">
+              {{ isUploadingOtherDoc ? 'Przesyłanie...' : 'Dodaj dokument' }}
+            </button>
+            <div *ngIf="otherDocUploadError" class="alert alert-error">{{ otherDocUploadError }}</div>
+          </div>
+
+          <div *ngIf="otherDocuments.length > 0" class="other-documents-list">
+            <h4>Dodane dokumenty:</h4>
+            <div *ngFor="let doc of otherDocuments; let i = index" class="uploaded-file-info">
+              <div class="file-status">
+                ✅ <strong>{{ doc.documentName }}</strong>: {{ doc.filename }}
+              </div>
+              <div class="file-actions">
+                <button type="button" (click)="deleteOtherDocFile(i)" class="btn btn-danger btn-sm">🗑️ Usuń</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <hr>
 
-      <h3>Załącznik PDF</h3>
-      <p class="field-description">Możesz załączyć plik PDF (maksymalnie 10MB)</p>
+      <h3>Załącznik PDF (dodatkowy)</h3>
+      <p class="field-description">Możesz załączyć dodatkowy plik PDF (maksymalnie 10MB)</p>
 
       <div class="file-upload-section">
         <div *ngIf="!uploadedFileName" class="file-input-wrapper">
@@ -349,10 +492,6 @@
             class="btn btn-primary">
             {{ isUploadingFile ? 'Przesyłanie...' : 'Prześlij plik' }}
           </button>
-
-          <div *ngIf="!savedDraftId" class="alert alert-warning">
-            Najpierw zapisz wersję roboczą, aby móc załączyć plik.
-          </div>
 
           <div *ngIf="fileUploadError" class="alert alert-error">
             {{ fileUploadError }}
