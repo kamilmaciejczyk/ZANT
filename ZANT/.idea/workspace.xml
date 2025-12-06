@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28b01dab-5ce6-41f1-8934-4c46d97420c0" name="Changes" comment="Poprawa obslugi bledow promptow">
+    <list default="true" id="28b01dab-5ce6-41f1-8934-4c46d97420c0" name="Changes" comment="Poprawa UX/UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.scss" afterDir="false" />
@@ -101,7 +101,7 @@
       <workItem from="1765034998895" duration="3545000" />
       <workItem from="1765038564722" duration="3852000" />
       <workItem from="1765042436889" duration="3930000" />
-      <workItem from="1765046576458" duration="8834000" />
+      <workItem from="1765046576458" duration="9588000" />
     </task>
     <task id="LOCAL-00001" summary="dodanie prompta na GEMINI">
       <option name="closed" value="true" />
@@ -183,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765055193581</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Poprawa UX/UI">
+      <option name="closed" value="true" />
+      <created>1765057830102</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1765057830102</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +231,7 @@
     <MESSAGE value="Poprawki zapisu plików" />
     <MESSAGE value="Poprawki dodawania załączników" />
     <MESSAGE value="Poprawa obslugi bledow promptow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Poprawa obslugi bledow promptow" />
+    <MESSAGE value="Poprawa UX/UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Poprawa UX/UI" />
   </component>
 </project>

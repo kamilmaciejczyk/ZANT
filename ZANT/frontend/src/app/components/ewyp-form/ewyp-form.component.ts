@@ -68,6 +68,7 @@ export class EwypFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+    this.setupConditionalValidation();
 
     // Check if there's a draft ID in the route
     this.route.params.subscribe(params => {
@@ -81,6 +82,87 @@ export class EwypFormComponent implements OnInit {
         }
       }
     });
+  }
+
+  setupConditionalValidation(): void {
+    // Krok 1 - Opis wypadku: conditionally enable/disable fields based on checkboxes
+
+    // First aid conditional validation
+    this.reportForm.get('accidentInfo.firstAidGiven')?.valueChanges.subscribe(value => {
+      const firstAidFacilityControl = this.reportForm.get('accidentInfo.firstAidFacility');
+      const investigatingAuthorityControl = this.reportForm.get('accidentInfo.investigatingAuthority');
+
+      if (value === true) {
+        firstAidFacilityControl?.setValidators([Validators.required]);
+        investigatingAuthorityControl?.setValidators([Validators.required]);
+        firstAidFacilityControl?.enable();
+        investigatingAuthorityControl?.enable();
+      } else {
+        firstAidFacilityControl?.clearValidators();
+        investigatingAuthorityControl?.clearValidators();
+        firstAidFacilityControl?.disable();
+        investigatingAuthorityControl?.disable();
+      }
+      firstAidFacilityControl?.updateValueAndValidity();
+      investigatingAuthorityControl?.updateValueAndValidity();
+    });
+
+    // Machine operation conditional validation
+    this.reportForm.get('accidentInfo.accidentDuringMachineOperation')?.valueChanges.subscribe(value => {
+      const machineConditionControl = this.reportForm.get('accidentInfo.machineConditionDescription');
+
+      if (value === true) {
+        machineConditionControl?.setValidators([Validators.required]);
+        machineConditionControl?.enable();
+      } else {
+        machineConditionControl?.clearValidators();
+        machineConditionControl?.disable();
+      }
+      machineConditionControl?.updateValueAndValidity();
+    });
+
+    // Krok 3 - Zgłaszający: conditionally enable/disable all reporter fields
+    this.reportForm.get('reporter.isDifferentFromInjuredPerson')?.valueChanges.subscribe(value => {
+      const reporterGroup = this.reportForm.get('reporter') as FormGroup;
+
+      if (value === true) {
+        // Enable and require all reporter fields except the checkbox itself
+        reporterGroup.get('firstName')?.setValidators([Validators.required]);
+        reporterGroup.get('lastName')?.setValidators([Validators.required]);
+        reporterGroup.get('pesel')?.setValidators([Validators.required, Validators.pattern(/^\d{11}$/)]);
+        reporterGroup.get('idDocumentType')?.setValidators([Validators.required]);
+        reporterGroup.get('idDocumentNumber')?.setValidators([Validators.required]);
+        reporterGroup.get('birthDate')?.setValidators([Validators.required]);
+        reporterGroup.get('phoneNumber')?.setValidators([Validators.required]);
+
+        // Enable all controls
+        Object.keys(reporterGroup.controls).forEach(key => {
+          if (key !== 'isDifferentFromInjuredPerson') {
+            reporterGroup.get(key)?.enable();
+          }
+        });
+      } else {
+        // Disable and remove validators
+        Object.keys(reporterGroup.controls).forEach(key => {
+          if (key !== 'isDifferentFromInjuredPerson') {
+            reporterGroup.get(key)?.clearValidators();
+            reporterGroup.get(key)?.disable();
+          }
+        });
+      }
+
+      // Update validity of all controls
+      Object.keys(reporterGroup.controls).forEach(key => {
+        if (key !== 'isDifferentFromInjuredPerson') {
+          reporterGroup.get(key)?.updateValueAndValidity();
+        }
+      });
+    });
+
+    // Trigger initial state
+    this.reportForm.get('accidentInfo.firstAidGiven')?.setValue(false);
+    this.reportForm.get('accidentInfo.accidentDuringMachineOperation')?.setValue(false);
+    this.reportForm.get('reporter.isDifferentFromInjuredPerson')?.setValue(false);
   }
 
   searchCompanyData(): void {
@@ -154,21 +236,21 @@ export class EwypFormComponent implements OnInit {
   initializeForm(): void {
     this.reportForm = this.fb.group({
       injuredPerson: this.fb.group({
-        pesel: ['', Validators.required],
-        idDocumentType: [''],
-        idDocumentNumber: [''],
+        pesel: ['', [Validators.required, Validators.pattern(/^\d{11}$/)]],
+        idDocumentType: ['', Validators.required],
+        idDocumentNumber: ['', Validators.required],
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
-        birthDate: [''],
-        birthPlace: [''],
-        phoneNumber: [''],
+        birthDate: ['', Validators.required],
+        birthPlace: ['', Validators.required],
+        phoneNumber: ['', Validators.required],
         address: this.fb.group({
-          street: [''],
-          houseNumber: [''],
-          apartmentNumber: [''],
-          postalCode: [''],
-          city: [''],
-          country: ['']
+          street: ['', Validators.required],
+          houseNumber: ['', Validators.required],
+          apartmentNumber: [''], // NOT required - może być dom
+          postalCode: ['', Validators.required],
+          city: ['', Validators.required],
+          country: ['', Validators.required]
         }),
         lastPolishAddressOrStay: this.fb.group({
           street: [''],
@@ -205,13 +287,13 @@ export class EwypFormComponent implements OnInit {
       }),
       reporter: this.fb.group({
         isDifferentFromInjuredPerson: [false],
-        pesel: [''],
-        idDocumentType: [''],
-        idDocumentNumber: [''],
-        firstName: [''],
-        lastName: [''],
-        birthDate: [''],
-        phoneNumber: [''],
+        pesel: [{value: '', disabled: true}],
+        idDocumentType: [{value: '', disabled: true}],
+        idDocumentNumber: [{value: '', disabled: true}],
+        firstName: [{value: '', disabled: true}],
+        lastName: [{value: '', disabled: true}],
+        birthDate: [{value: '', disabled: true}],
+        phoneNumber: [{value: '', disabled: true}],
         address: this.fb.group({
           street: [''],
           houseNumber: [''],
@@ -239,17 +321,17 @@ export class EwypFormComponent implements OnInit {
       }),
       accidentInfo: this.fb.group({
         accidentDate: ['', Validators.required],
-        accidentTime: [''],
-        plannedWorkStartTime: [''],
-        plannedWorkEndTime: [''],
-        placeOfAccident: [''],
-        injuriesDescription: [''],
-        circumstancesAndCauses: [''],
+        accidentTime: ['', Validators.required],
+        plannedWorkStartTime: ['', Validators.required],
+        plannedWorkEndTime: ['', Validators.required],
+        placeOfAccident: ['', Validators.required],
+        injuriesDescription: ['', Validators.required],
+        circumstancesAndCauses: ['', Validators.required],
         firstAidGiven: [false],
-        firstAidFacility: [''],
-        investigatingAuthority: [''],
+        firstAidFacility: [{value: '', disabled: true}], // Conditional
+        investigatingAuthority: [{value: '', disabled: true}], // Conditional
         accidentDuringMachineOperation: [false],
-        machineConditionDescription: [''],
+        machineConditionDescription: [{value: '', disabled: true}], // Conditional
         machineHasCertificate: [null],
         machineInFixedAssetsRegister: [null]
       }),

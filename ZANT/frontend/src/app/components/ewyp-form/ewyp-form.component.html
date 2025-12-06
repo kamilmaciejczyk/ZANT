@@ -102,39 +102,60 @@
       <div class="form-row">
         <div class="form-group">
           <label>Data wypadku *</label>
-          <input type="date" formControlName="accidentDate" class="form-control">
+          <input type="date" formControlName="accidentDate" class="form-control" [class.ng-invalid]="reportForm.get('accidentInfo.accidentDate')?.invalid && reportForm.get('accidentInfo.accidentDate')?.touched">
+          <span *ngIf="reportForm.get('accidentInfo.accidentDate')?.invalid && reportForm.get('accidentInfo.accidentDate')?.touched" class="validation-error">
+            To pole jest wymagane
+          </span>
         </div>
         <div class="form-group">
-          <label>Godzina wypadku</label>
-          <input type="time" formControlName="accidentTime" class="form-control">
+          <label>Godzina wypadku *</label>
+          <input type="time" formControlName="accidentTime" class="form-control" [class.ng-invalid]="reportForm.get('accidentInfo.accidentTime')?.invalid && reportForm.get('accidentInfo.accidentTime')?.touched">
+          <span *ngIf="reportForm.get('accidentInfo.accidentTime')?.invalid && reportForm.get('accidentInfo.accidentTime')?.touched" class="validation-error">
+            To pole jest wymagane
+          </span>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Planowana godzina rozpoczęcia pracy</label>
-          <input type="time" formControlName="plannedWorkStartTime" class="form-control">
+          <label>Planowana godzina rozpoczęcia pracy *</label>
+          <input type="time" formControlName="plannedWorkStartTime" class="form-control" [class.ng-invalid]="reportForm.get('accidentInfo.plannedWorkStartTime')?.invalid && reportForm.get('accidentInfo.plannedWorkStartTime')?.touched">
+          <span *ngIf="reportForm.get('accidentInfo.plannedWorkStartTime')?.invalid && reportForm.get('accidentInfo.plannedWorkStartTime')?.touched" class="validation-error">
+            To pole jest wymagane
+          </span>
         </div>
         <div class="form-group">
-          <label>Planowana godzina zakończenia pracy</label>
-          <input type="time" formControlName="plannedWorkEndTime" class="form-control">
+          <label>Planowana godzina zakończenia pracy *</label>
+          <input type="time" formControlName="plannedWorkEndTime" class="form-control" [class.ng-invalid]="reportForm.get('accidentInfo.plannedWorkEndTime')?.invalid && reportForm.get('accidentInfo.plannedWorkEndTime')?.touched">
+          <span *ngIf="reportForm.get('accidentInfo.plannedWorkEndTime')?.invalid && reportForm.get('accidentInfo.plannedWorkEndTime')?.touched" class="validation-error">
+            To pole jest wymagane
+          </span>
         </div>
       </div>
 
       <div class="form-group">
-        <label>Miejsce wypadku</label>
-        <textarea formControlName="placeOfAccident" class="form-control" rows="2"></textarea>
+        <label>Miejsce wypadku *</label>
+        <textarea formControlName="placeOfAccident" class="form-control" rows="2" [class.ng-invalid]="reportForm.get('accidentInfo.placeOfAccident')?.invalid && reportForm.get('accidentInfo.placeOfAccident')?.touched"></textarea>
+        <span *ngIf="reportForm.get('accidentInfo.placeOfAccident')?.invalid && reportForm.get('accidentInfo.placeOfAccident')?.touched" class="validation-error">
+          To pole jest wymagane
+        </span>
       </div>
 
       <div class="form-group">
-        <label>Opis doznanego urazu</label>
-        <textarea formControlName="injuriesDescription" class="form-control" rows="3"></textarea>
+        <label>Opis doznanego urazu *</label>
+        <textarea formControlName="injuriesDescription" class="form-control" rows="3" [class.ng-invalid]="reportForm.get('accidentInfo.injuriesDescription')?.invalid && reportForm.get('accidentInfo.injuriesDescription')?.touched"></textarea>
+        <span *ngIf="reportForm.get('accidentInfo.injuriesDescription')?.invalid && reportForm.get('accidentInfo.injuriesDescription')?.touched" class="validation-error">
+          To pole jest wymagane
+        </span>
       </div>
 
       <div class="form-group">
         <label>Okoliczności i przyczyny zdarzenia *</label>
-        <p class="field-description">Opisz szczegółowo co się stało, jak doszło do wypadku i jakie były jego przyczyny (minimum 50 znaków).</p>
-        <textarea formControlName="circumstancesAndCauses" class="form-control" rows="3"></textarea>
+        <p class="field-description">Opisz szczegółowo co się stało, jak doszło do wypadku i jakie były jego przyczyny.</p>
+        <textarea formControlName="circumstancesAndCauses" class="form-control" rows="3" [class.ng-invalid]="reportForm.get('accidentInfo.circumstancesAndCauses')?.invalid && reportForm.get('accidentInfo.circumstancesAndCauses')?.touched"></textarea>
+        <span *ngIf="reportForm.get('accidentInfo.circumstancesAndCauses')?.invalid && reportForm.get('accidentInfo.circumstancesAndCauses')?.touched" class="validation-error">
+          To pole jest wymagane
+        </span>
 
         <button type="button"
                 (click)="checkCircumstancesDescription()"
@@ -179,13 +200,19 @@
       </div>
 
       <div class="form-group">
-        <label>Miejsce udzielenia pierwszej pomocy</label>
-        <input type="text" formControlName="firstAidFacility" class="form-control">
+        <label>Miejsce udzielenia pierwszej pomocy <span *ngIf="reportForm.get('accidentInfo.firstAidGiven')?.value">*</span></label>
+        <input type="text" formControlName="firstAidFacility" class="form-control" [class.ng-invalid]="reportForm.get('accidentInfo.firstAidFacility')?.invalid && reportForm.get('accidentInfo.firstAidFacility')?.touched">
+        <span *ngIf="reportForm.get('accidentInfo.firstAidFacility')?.invalid && reportForm.get('accidentInfo.firstAidFacility')?.touched" class="validation-error">
+          To pole jest wymagane gdy udzielono pierwszej pomocy
+        </span>
       </div>
 
       <div class="form-group">
-        <label>Organ prowadzący czynności wyjaśniające</label>
-        <input type="text" formControlName="investigatingAuthority" class="form-control">
+        <label>Organ prowadzący czynności wyjaśniające <span *ngIf="reportForm.get('accidentInfo.firstAidGiven')?.value">*</span></label>
+        <input type="text" formControlName="investigatingAuthority" class="form-control" [class.ng-invalid]="reportForm.get('accidentInfo.investigatingAuthority')?.invalid && reportForm.get('accidentInfo.investigatingAuthority')?.touched">
+        <span *ngIf="reportForm.get('accidentInfo.investigatingAuthority')?.invalid && reportForm.get('accidentInfo.investigatingAuthority')?.touched" class="validation-error">
+          To pole jest wymagane gdy udzielono pierwszej pomocy
+        </span>
       </div>
 
       <div class="form-group">
@@ -196,8 +223,11 @@
       </div>
 
       <div class="form-group">
-        <label>Opis stanu technicznego i użytkowania maszyny</label>
-        <textarea formControlName="machineConditionDescription" class="form-control" rows="2"></textarea>
+        <label>Opis stanu technicznego i użytkowania maszyny <span *ngIf="reportForm.get('accidentInfo.accidentDuringMachineOperation')?.value">*</span></label>
+        <textarea formControlName="machineConditionDescription" class="form-control" rows="2" [class.ng-invalid]="reportForm.get('accidentInfo.machineConditionDescription')?.invalid && reportForm.get('accidentInfo.machineConditionDescription')?.touched"></textarea>
+        <span *ngIf="reportForm.get('accidentInfo.machineConditionDescription')?.invalid && reportForm.get('accidentInfo.machineConditionDescription')?.touched" class="validation-error">
+          To pole jest wymagane gdy wypadek nastąpił podczas obsługi maszyny
+        </span>
       </div>
     </div>
 
@@ -207,75 +237,118 @@
 
       <div class="form-group">
         <label>PESEL *</label>
-        <input type="text" formControlName="pesel" class="form-control">
+        <input type="text" formControlName="pesel" class="form-control" [class.ng-invalid]="reportForm.get('injuredPerson.pesel')?.invalid && reportForm.get('injuredPerson.pesel')?.touched">
+        <span *ngIf="reportForm.get('injuredPerson.pesel')?.hasError('required') && reportForm.get('injuredPerson.pesel')?.touched" class="validation-error">
+          To pole jest wymagane
+        </span>
+        <span *ngIf="reportForm.get('injuredPerson.pesel')?.hasError('pattern') && reportForm.get('injuredPerson.pesel')?.touched" class="validation-error">
+          PESEL musi składać się z dokładnie 11 cyfr
+        </span>
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label>Imię *</label>
-          <input type="text" formControlName="firstName" class="form-control">
+          <input type="text" formControlName="firstName" class="form-control" [class.ng-invalid]="reportForm.get('injuredPerson.firstName')?.invalid && reportForm.get('injuredPerson.firstName')?.touched">
+          <span *ngIf="reportForm.get('injuredPerson.firstName')?.invalid && reportForm.get('injuredPerson.firstName')?.touched" class="validation-error">
+            To pole jest wymagane
+          </span>
         </div>
         <div class="form-group">
           <label>Nazwisko *</label>
-          <input type="text" formControlName="lastName" class="form-control">
+          <input type="text" formControlName="lastName" class="form-control" [class.ng-invalid]="reportForm.get('injuredPerson.lastName')?.invalid && reportForm.get('injuredPerson.lastName')?.touched">
+          <span *ngIf="reportForm.get('injuredPerson.lastName')?.invalid && reportForm.get('injuredPerson.lastName')?.touched" class="validation-error">
+            To pole jest wymagane
+          </span>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Rodzaj dokumentu tożsamości</label>
-          <input type="text" formControlName="idDocumentType" class="form-control">
+          <label>Rodzaj dokumentu tożsamości *</label>
+          <input type="text" formControlName="idDocumentType" class="form-control" [class.ng-invalid]="reportForm.get('injuredPerson.idDocumentType')?.invalid && reportForm.get('injuredPerson.idDocumentType')?.touched">
+          <span *ngIf="reportForm.get('injuredPerson.idDocumentType')?.invalid && reportForm.get('injuredPerson.idDocumentType')?.touched" class="validation-error">
+            To pole jest wymagane
+          </span>
         </div>
         <div class="form-group">
-          <label>Numer dokumentu tożsamości</label>
-          <input type="text" formControlName="idDocumentNumber" class="form-control">
+          <label>Numer dokumentu tożsamości *</label>
+          <input type="text" formControlName="idDocumentNumber" class="form-control" [class.ng-invalid]="reportForm.get('injuredPerson.idDocumentNumber')?.invalid && reportForm.get('injuredPerson.idDocumentNumber')?.touched">
+          <span *ngIf="reportForm.get('injuredPerson.idDocumentNumber')?.invalid && reportForm.get('injuredPerson.idDocumentNumber')?.touched" class="validation-error">
+            To pole jest wymagane
+          </span>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Data urodzenia</label>
-          <input type="date" formControlName="birthDate" class="form-control">
+          <label>Data urodzenia *</label>
+          <input type="date" formControlName="birthDate" class="form-control" [class.ng-invalid]="reportForm.get('injuredPerson.birthDate')?.invalid && reportForm.get('injuredPerson.birthDate')?.touched">
+          <span *ngIf="reportForm.get('injuredPerson.birthDate')?.invalid && reportForm.get('injuredPerson.birthDate')?.touched" class="validation-error">
+            To pole jest wymagane
+          </span>
         </div>
         <div class="form-group">
-          <label>Miejsce urodzenia</label>
-          <input type="text" formControlName="birthPlace" class="form-control">
+          <label>Miejsce urodzenia *</label>
+          <input type="text" formControlName="birthPlace" class="form-control" [class.ng-invalid]="reportForm.get('injuredPerson.birthPlace')?.invalid && reportForm.get('injuredPerson.birthPlace')?.touched">
+          <span *ngIf="reportForm.get('injuredPerson.birthPlace')?.invalid && reportForm.get('injuredPerson.birthPlace')?.touched" class="validation-error">
+            To pole jest wymagane
+          </span>
         </div>
       </div>
 
       <div class="form-group">
-        <label>Numer telefonu</label>
-        <input type="tel" formControlName="phoneNumber" class="form-control">
+        <label>Numer telefonu *</label>
+        <input type="tel" formControlName="phoneNumber" class="form-control" [class.ng-invalid]="reportForm.get('injuredPerson.phoneNumber')?.invalid && reportForm.get('injuredPerson.phoneNumber')?.touched">
+        <span *ngIf="reportForm.get('injuredPerson.phoneNumber')?.invalid && reportForm.get('injuredPerson.phoneNumber')?.touched" class="validation-error">
+          To pole jest wymagane
+        </span>
       </div>
 
       <h3>Adres zamieszkania osoby poszkodowanej</h3>
       <div formGroupName="address">
         <div class="form-row">
           <div class="form-group">
-            <label>Ulica</label>
-            <input type="text" formControlName="street" class="form-control">
+            <label>Ulica *</label>
+            <input type="text" formControlName="street" class="form-control" [class.ng-invalid]="reportForm.get('injuredPerson.address.street')?.invalid && reportForm.get('injuredPerson.address.street')?.touched">
+            <span *ngIf="reportForm.get('injuredPerson.address.street')?.invalid && reportForm.get('injuredPerson.address.street')?.touched" class="validation-error">
+              To pole jest wymagane
+            </span>
           </div>
           <div class="form-group">
-            <label>Numer domu</label>
-            <input type="text" formControlName="houseNumber" class="form-control">
+            <label>Numer domu *</label>
+            <input type="text" formControlName="houseNumber" class="form-control" [class.ng-invalid]="reportForm.get('injuredPerson.address.houseNumber')?.invalid && reportForm.get('injuredPerson.address.houseNumber')?.touched">
+            <span *ngIf="reportForm.get('injuredPerson.address.houseNumber')?.invalid && reportForm.get('injuredPerson.address.houseNumber')?.touched" class="validation-error">
+              To pole jest wymagane
+            </span>
           </div>
           <div class="form-group">
             <label>Numer lokalu</label>
             <input type="text" formControlName="apartmentNumber" class="form-control">
+            <span class="field-description">Opcjonalne - może być dom</span>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label>Kod pocztowy</label>
-            <input type="text" formControlName="postalCode" class="form-control">
+            <label>Kod pocztowy *</label>
+            <input type="text" formControlName="postalCode" class="form-control" [class.ng-invalid]="reportForm.get('injuredPerson.address.postalCode')?.invalid && reportForm.get('injuredPerson.address.postalCode')?.touched">
+            <span *ngIf="reportForm.get('injuredPerson.address.postalCode')?.invalid && reportForm.get('injuredPerson.address.postalCode')?.touched" class="validation-error">
+              To pole jest wymagane
+            </span>
           </div>
           <div class="form-group">
-            <label>Miejscowość</label>
-            <input type="text" formControlName="city" class="form-control">
+            <label>Miejscowość *</label>
+            <input type="text" formControlName="city" class="form-control" [class.ng-invalid]="reportForm.get('injuredPerson.address.city')?.invalid && reportForm.get('injuredPerson.address.city')?.touched">
+            <span *ngIf="reportForm.get('injuredPerson.address.city')?.invalid && reportForm.get('injuredPerson.address.city')?.touched" class="validation-error">
+              To pole jest wymagane
+            </span>
           </div>
           <div class="form-group">
-            <label>Nazwa państwa</label>
-            <input type="text" formControlName="country" class="form-control">
+            <label>Nazwa państwa *</label>
+            <input type="text" formControlName="country" class="form-control" [class.ng-invalid]="reportForm.get('injuredPerson.address.country')?.invalid && reportForm.get('injuredPerson.address.country')?.touched">
+            <span *ngIf="reportForm.get('injuredPerson.address.country')?.invalid && reportForm.get('injuredPerson.address.country')?.touched" class="validation-error">
+              To pole jest wymagane
+            </span>
           </div>
         </div>
       </div>
@@ -294,39 +367,63 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label>Imię</label>
-          <input type="text" formControlName="firstName" class="form-control">
+          <label>Imię <span *ngIf="reportForm.get('reporter.isDifferentFromInjuredPerson')?.value">*</span></label>
+          <input type="text" formControlName="firstName" class="form-control" [class.ng-invalid]="reportForm.get('reporter.firstName')?.invalid && reportForm.get('reporter.firstName')?.touched">
+          <span *ngIf="reportForm.get('reporter.firstName')?.invalid && reportForm.get('reporter.firstName')?.touched" class="validation-error">
+            To pole jest wymagane gdy zgłaszający jest inną osobą
+          </span>
         </div>
         <div class="form-group">
-          <label>Nazwisko</label>
-          <input type="text" formControlName="lastName" class="form-control">
+          <label>Nazwisko <span *ngIf="reportForm.get('reporter.isDifferentFromInjuredPerson')?.value">*</span></label>
+          <input type="text" formControlName="lastName" class="form-control" [class.ng-invalid]="reportForm.get('reporter.lastName')?.invalid && reportForm.get('reporter.lastName')?.touched">
+          <span *ngIf="reportForm.get('reporter.lastName')?.invalid && reportForm.get('reporter.lastName')?.touched" class="validation-error">
+            To pole jest wymagane gdy zgłaszający jest inną osobą
+          </span>
         </div>
       </div>
 
       <div class="form-group">
-        <label>PESEL</label>
-        <input type="text" formControlName="pesel" class="form-control">
+        <label>PESEL <span *ngIf="reportForm.get('reporter.isDifferentFromInjuredPerson')?.value">*</span></label>
+        <input type="text" formControlName="pesel" class="form-control" [class.ng-invalid]="reportForm.get('reporter.pesel')?.invalid && reportForm.get('reporter.pesel')?.touched">
+        <span *ngIf="reportForm.get('reporter.pesel')?.hasError('required') && reportForm.get('reporter.pesel')?.touched" class="validation-error">
+          To pole jest wymagane gdy zgłaszający jest inną osobą
+        </span>
+        <span *ngIf="reportForm.get('reporter.pesel')?.hasError('pattern') && reportForm.get('reporter.pesel')?.touched" class="validation-error">
+          PESEL musi składać się z dokładnie 11 cyfr
+        </span>
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Rodzaj dokumentu tożsamości</label>
-          <input type="text" formControlName="idDocumentType" class="form-control">
+          <label>Rodzaj dokumentu tożsamości <span *ngIf="reportForm.get('reporter.isDifferentFromInjuredPerson')?.value">*</span></label>
+          <input type="text" formControlName="idDocumentType" class="form-control" [class.ng-invalid]="reportForm.get('reporter.idDocumentType')?.invalid && reportForm.get('reporter.idDocumentType')?.touched">
+          <span *ngIf="reportForm.get('reporter.idDocumentType')?.invalid && reportForm.get('reporter.idDocumentType')?.touched" class="validation-error">
+            To pole jest wymagane gdy zgłaszający jest inną osobą
+          </span>
         </div>
         <div class="form-group">
-          <label>Numer dokumentu tożsamości</label>
-          <input type="text" formControlName="idDocumentNumber" class="form-control">
+          <label>Numer dokumentu tożsamości <span *ngIf="reportForm.get('reporter.isDifferentFromInjuredPerson')?.value">*</span></label>
+          <input type="text" formControlName="idDocumentNumber" class="form-control" [class.ng-invalid]="reportForm.get('reporter.idDocumentNumber')?.invalid && reportForm.get('reporter.idDocumentNumber')?.touched">
+          <span *ngIf="reportForm.get('reporter.idDocumentNumber')?.invalid && reportForm.get('reporter.idDocumentNumber')?.touched" class="validation-error">
+            To pole jest wymagane gdy zgłaszający jest inną osobą
+          </span>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Data urodzenia</label>
-          <input type="date" formControlName="birthDate" class="form-control">
+          <label>Data urodzenia <span *ngIf="reportForm.get('reporter.isDifferentFromInjuredPerson')?.value">*</span></label>
+          <input type="date" formControlName="birthDate" class="form-control" [class.ng-invalid]="reportForm.get('reporter.birthDate')?.invalid && reportForm.get('reporter.birthDate')?.touched">
+          <span *ngIf="reportForm.get('reporter.birthDate')?.invalid && reportForm.get('reporter.birthDate')?.touched" class="validation-error">
+            To pole jest wymagane gdy zgłaszający jest inną osobą
+          </span>
         </div>
         <div class="form-group">
-          <label>Numer telefonu</label>
-          <input type="tel" formControlName="phoneNumber" class="form-control">
+          <label>Numer telefonu <span *ngIf="reportForm.get('reporter.isDifferentFromInjuredPerson')?.value">*</span></label>
+          <input type="tel" formControlName="phoneNumber" class="form-control" [class.ng-invalid]="reportForm.get('reporter.phoneNumber')?.invalid && reportForm.get('reporter.phoneNumber')?.touched">
+          <span *ngIf="reportForm.get('reporter.phoneNumber')?.invalid && reportForm.get('reporter.phoneNumber')?.touched" class="validation-error">
+            To pole jest wymagane gdy zgłaszający jest inną osobą
+          </span>
         </div>
       </div>
     </div>
