@@ -3,11 +3,22 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EWYPReport } from '../models/ewyp-report';
 
+export interface CircumstancesQuestion {
+  id: number;
+  text: string;
+}
+
+export interface CircumstancesAssistantResponse {
+  questionsCount: number;
+  questions: CircumstancesQuestion[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class EWYPReportService {
   private apiUrl = 'http://localhost:8080/api/ewyp-reports';
+  private assistantUrl = 'http://localhost:8080/api/assistant';
 
   constructor(private http: HttpClient) { }
 
@@ -27,5 +38,12 @@ export class EWYPReportService {
 
   getReportById(id: string): Observable<EWYPReport> {
     return this.http.get<EWYPReport>(`${this.apiUrl}/${id}`);
+  }
+
+  generateCircumstancesQuestions(accidentDescription: string): Observable<CircumstancesAssistantResponse> {
+    return this.http.post<CircumstancesAssistantResponse>(
+      `${this.assistantUrl}/circumstances`,
+      { accidentDescription }
+    );
   }
 }

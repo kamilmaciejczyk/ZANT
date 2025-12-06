@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { EWYPReportService } from '../../services/ewyp-report.service';
+import { EWYPReportService, CircumstancesQuestion } from '../../services/ewyp-report.service';
 import { EWYPReport } from '../../models/ewyp-report';
 
 @Component({
@@ -22,6 +22,11 @@ export class EwypFormComponent implements OnInit {
   isSavingDraft = false;
   errorMessage: string | null = null;
   draftSaveMessage: string | null = null;
+
+  // Circumstances AI Assistant properties
+  circumstancesQuestions: CircumstancesQuestion[] = [];
+  isLoadingQuestions = false;
+  showCircumstancesAssistant = false;
 
   constructor(
     private fb: FormBuilder,
@@ -295,5 +300,33 @@ export class EwypFormComponent implements OnInit {
       case 6: return 'Signature & Submission';
       default: return '';
     }
+  }
+
+  // Circumstances AI Assistant method
+  checkCircumstancesDescription(): void {
+    const circumstancesControl = this.reportForm.get('accidentInfo.circumstancesAndCauses');
+    const description = circumstancesControl?.value;
+
+    // if (!description || description.trim().length < 50) {
+    //   // Description too short, don't call AI
+    //   this.circumstancesQuestions = [];
+    //   this.showCircumstancesAssistant = true;
+    //   return;
+    // }
+
+    this.isLoadingQuestions = true;
+    this.showCircumstancesAssistant = true;
+
+    this.reportService.generateCircumstancesQuestions(description).subscribe({
+      next: (response) => {
+        this.isLoadingQuestions = false;
+        this.circumstancesQuestions = response.questions;
+      },
+      error: (error) => {
+        this.isLoadingQuestions = false;
+        console.error('Error generating circumstances questions:', error);
+        this.circumstancesQuestions = [];
+      }
+    });
   }
 }

@@ -182,8 +182,38 @@
       </div>
 
       <div class="form-group">
-        <label>Okoliczności i przyczyny zdarzenia</label>
+        <label>Okoliczności i przyczyny zdarzenia *</label>
+        <p class="field-description">Opisz szczegółowo co się stało, jak doszło do wypadku i jakie były jego przyczyny (minimum 50 znaków).</p>
         <textarea formControlName="circumstancesAndCauses" class="form-control" rows="3"></textarea>
+
+        <button type="button"
+                (click)="checkCircumstancesDescription()"
+                [disabled]="isLoadingQuestions"
+                class="btn btn-info btn-assistant">
+          <span *ngIf="!isLoadingQuestions">🤖 Asystent AI - sprawdź opis</span>
+          <span *ngIf="isLoadingQuestions">⏳ Trwa sprawdzanie...</span>
+        </button>
+
+        <!-- AI Assistant Suggestions -->
+        <div *ngIf="showCircumstancesAssistant" class="assistant-suggestions">
+          <div *ngIf="isLoadingQuestions" class="loading-message">
+            Asystent AI analizuje opis zdarzenia...
+          </div>
+
+          <div *ngIf="!isLoadingQuestions && circumstancesQuestions.length > 0" class="questions-container">
+            <h4>📋 Sugestie Asystenta AI</h4>
+            <p class="assistant-intro">Aby doprecyzować opis zdarzenia, rozważ odpowiedź na poniższe pytania:</p>
+            <ul class="questions-list">
+              <li *ngFor="let question of circumstancesQuestions" class="question-item">
+                <strong>{{ question.id }}.</strong> {{ question.text }}
+              </li>
+            </ul>
+          </div>
+
+          <div *ngIf="!isLoadingQuestions && circumstancesQuestions.length === 0" class="no-questions-message">
+            ✅ Opis zdarzenia jest wystarczająco szczegółowy. Nie ma dodatkowych pytań.
+          </div>
+        </div>
       </div>
 
       <div class="form-group">
