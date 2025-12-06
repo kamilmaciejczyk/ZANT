@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EWYPReportService, CircumstancesQuestion } from '../../services/ewyp-report.service';
 import { EWYPReport } from '../../models/ewyp-report';
 
@@ -31,7 +31,8 @@ export class EwypFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private reportService: EWYPReportService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -243,16 +244,24 @@ export class EwypFormComponent implements OnInit {
         next: (response) => {
           this.isSubmitting = false;
           this.submittedReportId = response.id || null;
-          alert(`Report submitted successfully! Report ID: ${response.id}`);
+
+          // Redirect to the URL with UUID
+          if (response.id) {
+            this.router.navigate(['/ewyp-form', response.id]).then(() => {
+              alert(`Zgłoszenie zapisane pomyślnie! ID zgłoszenia: ${response.id}`);
+            });
+          } else {
+            alert(`Zgłoszenie zapisane pomyślnie!`);
+          }
         },
         error: (error) => {
           this.isSubmitting = false;
-          this.errorMessage = 'Failed to submit report. Please try again.';
+          this.errorMessage = 'Nie udało się zapisać zgłoszenia. Spróbuj ponownie.';
           console.error('Error submitting report:', error);
         }
       });
     } else {
-      alert('Please fill in all required fields');
+      alert('Proszę wypełnić wszystkie wymagane pola');
     }
   }
 
@@ -270,12 +279,25 @@ export class EwypFormComponent implements OnInit {
       next: (response) => {
         this.isSavingDraft = false;
         this.savedDraftId = response.id || null;
-        this.draftSaveMessage = `Wersja robocza zapisana pomyślnie! ID: ${response.id}`;
 
-        // Clear the message after 3 seconds
-        setTimeout(() => {
-          this.draftSaveMessage = null;
-        }, 3000);
+        // Always redirect to the URL with UUID after saving
+        if (response.id) {
+          this.router.navigate(['/ewyp-form', response.id]).then(() => {
+            this.draftSaveMessage = `Wersja robocza zapisana pomyślnie! ID: ${response.id}`;
+
+            // Clear the message after 3 seconds
+            setTimeout(() => {
+              this.draftSaveMessage = null;
+            }, 3000);
+          });
+        } else {
+          this.draftSaveMessage = `Wersja robocza zapisana pomyślnie!`;
+
+          // Clear the message after 3 seconds
+          setTimeout(() => {
+            this.draftSaveMessage = null;
+          }, 3000);
+        }
       },
       error: (error) => {
         this.isSavingDraft = false;
