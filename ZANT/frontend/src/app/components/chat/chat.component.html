@@ -3,13 +3,13 @@
     <mat-card-header>
       <mat-card-title>Asystent ZANT - Zgłoszenie Wypadku</mat-card-title>
       <mat-card-subtitle>
-        Wypełnienie: {{ completionPercentage }}%
+        Wypełnienie: {{ completionProgress }}%
       </mat-card-subtitle>
     </mat-card-header>
 
     <mat-progress-bar
       mode="determinate"
-      [value]="completionPercentage">
+      [value]="completionProgress">
     </mat-progress-bar>
 
     <mat-card-content>
@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div *ngIf="followUpQuestions.length > 0" class="follow-up-section">
+      <div *ngIf="!!followUpQuestions && followUpQuestions.length > 0" class="follow-up-section">
         <h4>Sugerowane pytania:</h4>
         <mat-chip-set>
           <mat-chip
@@ -40,7 +40,7 @@
         </mat-chip-set>
       </div>
 
-      <div *ngIf="missingFields.length > 0" class="missing-fields-section">
+      <div *ngIf="!!missingFields && missingFields.length > 0" class="missing-fields-section">
         <h4>Brakujące informacje ({{ missingFields.length }}):</h4>
         <mat-list>
           <mat-list-item *ngFor="let field of missingFields">
@@ -70,7 +70,7 @@
         </button>
       </div>
 
-      <div *ngIf="completionPercentage === 100" class="pdf-buttons">
+      <div *ngIf="completionProgress === 100" class="pdf-buttons">
         <button
           mat-raised-button
           color="accent"

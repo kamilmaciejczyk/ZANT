@@ -1,6 +1,6 @@
 export interface AssistantTurn {
-  botMessage: string;
+  response: string;
   followUpQuestions: string[];
   missingFields: string[];
-  completionPercentage: number;
+  completionProgress: number;
 }

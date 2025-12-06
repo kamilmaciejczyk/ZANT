@@ -4,7 +4,7 @@ import com.zant.backend.model.AssistantTurn;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/assistant")
+@RequestMapping("/api/assistant")
 public class AssistantController {
 
     @PostMapping("/{conversationId}/message")

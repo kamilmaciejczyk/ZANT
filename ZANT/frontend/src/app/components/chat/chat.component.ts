@@ -40,7 +40,7 @@ export class ChatComponent implements OnInit {
   userMessage = '';
   conversationId = 'conv-' + Date.now();
   missingFields: string[] = [];
-  completionPercentage = 0;
+  completionProgress = 0;
   followUpQuestions: string[] = [];
   isLoading = false;
   reportId: string | null = null;
@@ -64,13 +64,13 @@ export class ChatComponent implements OnInit {
 
     this.assistantService.sendMessage(this.conversationId, message).subscribe({
       next: (turn: AssistantTurn) => {
-        this.addBotMessage(turn.botMessage);
+        this.addBotMessage(turn.response);
         this.missingFields = turn.missingFields;
-        this.completionPercentage = turn.completionPercentage;
+        this.completionProgress = turn.completionProgress;
         this.followUpQuestions = turn.followUpQuestions;
         this.isLoading = false;
 
-        if (this.completionPercentage === 100) {
+        if (this.completionProgress === 100) {
           this.reportId = this.conversationId;
         }
       },
