@@ -21,9 +21,29 @@ public class EWYPReport {
     private Long id;
     
     @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "pesel", column = @Column(name = "injured_person_pesel")),
+        @AttributeOverride(name = "idDocumentType", column = @Column(name = "injured_person_id_document_type")),
+        @AttributeOverride(name = "idDocumentNumber", column = @Column(name = "injured_person_id_document_number")),
+        @AttributeOverride(name = "firstName", column = @Column(name = "injured_person_first_name")),
+        @AttributeOverride(name = "lastName", column = @Column(name = "injured_person_last_name")),
+        @AttributeOverride(name = "birthDate", column = @Column(name = "injured_person_birth_date")),
+        @AttributeOverride(name = "birthPlace", column = @Column(name = "injured_person_birth_place")),
+        @AttributeOverride(name = "phoneNumber", column = @Column(name = "injured_person_phone_number"))
+    })
     private InjuredPerson injuredPerson;
     
     @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "isDifferentFromInjuredPerson", column = @Column(name = "reporter_is_different")),
+        @AttributeOverride(name = "pesel", column = @Column(name = "reporter_pesel")),
+        @AttributeOverride(name = "idDocumentType", column = @Column(name = "reporter_id_document_type")),
+        @AttributeOverride(name = "idDocumentNumber", column = @Column(name = "reporter_id_document_number")),
+        @AttributeOverride(name = "firstName", column = @Column(name = "reporter_first_name")),
+        @AttributeOverride(name = "lastName", column = @Column(name = "reporter_last_name")),
+        @AttributeOverride(name = "birthDate", column = @Column(name = "reporter_birth_date")),
+        @AttributeOverride(name = "phoneNumber", column = @Column(name = "reporter_phone_number"))
+    })
     private Reporter reporter;
     
     @Embedded
