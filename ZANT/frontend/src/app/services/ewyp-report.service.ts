@@ -11,6 +11,7 @@ export interface CircumstancesQuestion {
 export interface CircumstancesAssistantResponse {
   questionsCount: number;
   questions: CircumstancesQuestion[];
+  error: string;
 }
 
 @Injectable({

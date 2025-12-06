@@ -29,7 +29,7 @@ public class AssistantController {
         String accidentDescription = request.get("accidentDescription");
         if (accidentDescription == null || accidentDescription.trim().isEmpty()) {
             // Return empty response if no description provided
-            return new AiClient.CircumstancesAssistantResponse(0, java.util.Collections.emptyList());
+            return new AiClient.CircumstancesAssistantResponse(0, java.util.Collections.emptyList(), "Brak opisu zdarzenia!");
         }
         return aiClient.generateCircumstancesQuestions(accidentDescription);
     }

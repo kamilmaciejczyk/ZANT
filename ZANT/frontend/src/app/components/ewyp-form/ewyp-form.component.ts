@@ -25,6 +25,7 @@ export class EwypFormComponent implements OnInit {
 
   // Circumstances AI Assistant properties
   circumstancesQuestions: CircumstancesQuestion[] = [];
+  circumstancesQuestionsError: string | null = null;
   isLoadingQuestions = false;
   showCircumstancesAssistant = false;
 
@@ -390,6 +391,7 @@ export class EwypFormComponent implements OnInit {
       next: (response) => {
         this.isLoadingQuestions = false;
         this.circumstancesQuestions = response.questions;
+        this.circumstancesQuestionsError = response.error;
       },
       error: (error) => {
         this.isLoadingQuestions = false;

@@ -200,7 +200,11 @@
             Asystent AI analizuje opis zdarzenia...
           </div>
 
-          <div *ngIf="!isLoadingQuestions && circumstancesQuestions.length > 0" class="questions-container">
+          <div *ngIf="!isLoadingQuestions && !!circumstancesQuestionsError" class="error-message">
+            {{ circumstancesQuestionsError }}
+          </div>
+
+          <div *ngIf="!isLoadingQuestions && !circumstancesQuestionsError && circumstancesQuestions.length > 0" class="questions-container">
             <h4>📋 Sugestie Asystenta AI</h4>
             <p class="assistant-intro">Aby doprecyzować opis zdarzenia, rozważ odpowiedź na poniższe pytania:</p>
             <ul class="questions-list">
@@ -210,9 +214,10 @@
             </ul>
           </div>
 
-          <div *ngIf="!isLoadingQuestions && circumstancesQuestions.length === 0" class="no-questions-message">
+          <div *ngIf="!isLoadingQuestions && circumstancesQuestions.length === 0 && !circumstancesQuestionsError" class="no-questions-message">
             ✅ Opis zdarzenia jest wystarczająco szczegółowy. Nie ma dodatkowych pytań.
           </div>
+
         </div>
       </div>
 
