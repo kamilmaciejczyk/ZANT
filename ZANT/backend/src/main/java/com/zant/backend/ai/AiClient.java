@@ -152,7 +152,7 @@ public class AiClient {
         generationConfig.addProperty("temperature", 0.2);
         generationConfig.addProperty("topK", 40);
         generationConfig.addProperty("topP", 0.95);
-        generationConfig.addProperty("maxOutputTokens", 1024);
+//        generationConfig.addProperty("maxOutputTokens", 1024);
         requestBody.add("generationConfig", generationConfig);
         
         HttpHeaders headers = new HttpHeaders();
