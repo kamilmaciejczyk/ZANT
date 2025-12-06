@@ -1,0 +1,26 @@
+<div class="home-container">
+  <div class="header">
+    <h1>System ZANT ZUS</h1>
+    <p class="subtitle">Wirtualny Asystent Zgłaszania Wypadków</p>
+  </div>
+
+  <div class="menu-cards">
+    <div class="menu-card" (click)="navigateToNewReport()">
+      <mat-icon class="menu-icon">add_box</mat-icon>
+      <h2>Nowe zgłoszenie</h2>
+      <p>Zarejestruj nowy wniosek o wypadek przy pracy</p>
+      <button mat-raised-button color="primary">rozpocznij</button>
+    </div>
+
+    <div class="menu-card" (click)="navigateToSearch()">
+      <mat-icon class="menu-icon">search</mat-icon>
+      <h2>Wyszukiwarka</h2>
+      <p>Przeszukaj zarejestrowane wnioski</p>
+      <button mat-raised-button color="accent">wyszukaj</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Platforma do zgłaszania wypadków przy pracy dla osób prowadzących działalność gospodarczą</p>
+  </div>
+</div>

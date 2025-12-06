@@ -1,0 +1,106 @@
+<div class="ewyp-search-container">
+  <div class="header">
+    <h1>Wyszukiwarka Wniosków EWYP</h1>
+    <button class="btn-primary" (click)="createNewReport()">
+      <span class="icon">+</span> Nowy Wniosek
+    </button>
+  </div>
+
+  <div class="search-filters">
+    <div class="search-bar">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="Szukaj po imieniu, nazwisku lub PESEL..."
+        class="search-input"
+        (keyup.enter)="onSearch()"
+      />
+      <button class="btn-search" (click)="onSearch()">
+        Szukaj
+      </button>
+    </div>
+
+    <div class="filters">
+      <select [(ngModel)]="statusFilter" (change)="onStatusFilterChange()" class="filter-select">
+        <option value="">Wszystkie statusy</option>
+        <option value="DRAFT">Szkic</option>
+        <option value="SUBMITTED">Zgłoszony</option>
+      </select>
+
+      <button class="btn-clear" (click)="clearFilters()">
+        Wyczyść filtry
+      </button>
+    </div>
+  </div>
+
+  <div class="error-message" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <div class="loading-spinner" *ngIf="isLoading">
+    <div class="spinner"></div>
+    <p>Ładowanie...</p>
+  </div>
+
+  <div class="results-container" *ngIf="!isLoading">
+    <div class="results-header">
+      <p class="results-count">
+        Znaleziono wniosków: <strong>{{ filteredReports.length }}</strong>
+      </p>
+    </div>
+
+    <div class="table-responsive">
+      <table class="reports-table" *ngIf="filteredReports.length > 0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Poszkodowany</th>
+            <th>PESEL</th>
+            <th>Data wypadku</th>
+            <th>Miejsce wypadku</th>
+            <th>Status</th>
+            <th>Klasyfikacja Scoringu</th>
+            <th>Data utworzenia</th>
+            <th>Akcje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let report of filteredReports" class="report-row">
+            <td class="id-cell">{{ report.id ? report.id.substring(0, 8) + '...' : '-' }}</td>
+            <td>
+              {{ report.injuredPerson.firstName || '-' }}
+              {{ report.injuredPerson.lastName || '' }}
+            </td>
+            <td>{{ report.injuredPerson.pesel || '-' }}</td>
+            <td>{{ formatDate(report.accidentInfo.accidentDate) }}</td>
+            <td class="location-cell">{{ report.accidentInfo.placeOfAccident || '-' }}</td>
+            <td>
+              <span [class]="'status-badge ' + getStatusClass(report.status || '')">
+                {{ getStatusLabel(report.status || '') }}
+              </span>
+            </td>
+            <td class="scoring-cell">
+              <input
+                type="text"
+                [value]="report.scoringClassification || ''"
+                placeholder="Oczekuje na klasyfikację..."
+                class="scoring-input"
+                readonly
+              />
+            </td>
+            <td>{{ formatDate(report.createdAt) }}</td>
+            <td class="actions-cell">
+              <button class="btn-view" (click)="report.id && viewReport(report.id)" [disabled]="!report.id">
+                Zobacz
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="no-results" *ngIf="filteredReports.length === 0">
+        <p>Nie znaleziono wniosków spełniających kryteria wyszukiwania.</p>
+      </div>
+    </div>
+  </div>
+</div>
