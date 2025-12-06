@@ -1,0 +1,63 @@
+@startuml
+title ZANT - architektura wysokiego poziomu (Etap I + II)
+
+package "Front-end" {
+  [Portal ZUS (Web)] as Web
+  [Angular App - ZANT UI] as Angular
+}
+
+package "Back-end ZANT (Java/Spring)" {
+  [API Gateway / ZANT Backend] as Backend
+
+  package "Moduł Etap I\n(Wirtualny Asystent zgłoszenia)" {
+    [AssistantController]
+    [AssistantService]
+    [MissingFieldsCalculator]
+    [ReportService]
+    [PdfService_Etap1]
+  }
+
+  package "Moduł Etap II\n(Asystent urzędnika ZUS)" {
+    [CaseController]
+    [CaseAnalysisService]
+    [OcrClient]
+    [LegalReasoner]
+    [PdfService_Etap2]
+  }
+
+  package "Integracje / AI" {
+    [AiClient] as AiClient
+    [Vision/OCR API] as OcrApi
+    [LLM API\n(Gemini/OpenAI itp.)] as LlmApi
+  }
+
+  database "Repozytorium spraw\n(DB / storage)" as DB
+}
+
+Web --> Angular
+Angular --> Backend : REST/JSON
+
+Backend --> AssistantController
+Backend --> CaseController
+
+AssistantController --> AssistantService
+CaseController --> CaseAnalysisService
+
+AssistantService --> MissingFieldsCalculator
+AssistantService --> ReportService
+AssistantService --> AiClient
+
+CaseAnalysisService --> OcrClient
+CaseAnalysisService --> LegalReasoner
+CaseAnalysisService --> AiClient
+CaseAnalysisService --> PdfService_Etap2
+
+ReportService --> PdfService_Etap1
+
+AssistantService --> DB : zapis stanu rozmów / raportów
+CaseAnalysisService --> DB : zapis spraw / dokumentów
+
+OcrClient --> OcrApi
+AiClient --> LlmApi
+
+@enduml

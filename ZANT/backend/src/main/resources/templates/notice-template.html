@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zawiadomienie o wypadku</title>
+    <style>
+        body { font-family: 'DejaVu Sans', sans-serif; margin: 40px; }
+        h1 { text-align: center; color: #333; }
+        .section { margin-bottom: 20px; border: 1px solid #eee; padding: 15px; border-radius: 5px; }
+        .section h2 { color: #555; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0; }
+        p { line-height: 1.6; }
+        strong { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Zawiadomienie o wypadku</h1>
+
+    <div class="section">
+        <h2>Dane poszkodowanego</h2>
+        <p><strong>Imię i nazwisko:</strong> <span th:text="${report.victimData?.firstName ?: ''} + ' ' + ${report.victimData?.lastName ?: ''}"></span></p>
+        <p><strong>PESEL:</strong> <span th:text="${report.victimData?.pesel ?: ''}"></span></p>
+        <p><strong>Adres:</strong> <span th:text="${report.victimData?.address ?: ''}"></span></p>
+    </div>
+
+    <div class="section">
+        <h2>Dane działalności gospodarczej</h2>
+        <p><strong>NIP:</strong> <span th:text="${report.businessData?.nip ?: ''}"></span></p>
+        <p><strong>REGON:</strong> <span th:text="${report.businessData?.regon ?: ''}"></span></p>
+        <p><strong>PKD:</strong> <span th:text="${report.businessData?.pkd ?: ''}"></span></p>
+    </div>
+
+    <div class="section">
+        <h2>Dane wypadku</h2>
+        <p><strong>Data i godzina:</strong> <span th:text="${report.accidentData?.accidentDateTime != null ? #temporals.format(report.accidentData.accidentDateTime, 'dd-MM-yyyy HH:mm') : ''}"></span></p>
+        <p><strong>Miejsce:</strong> <span th:text="${report.accidentData?.place ?: ''}"></span></p>
+        <p><strong>Planowane godziny pracy:</strong> <span th:text="${report.accidentData?.plannedWorkHours ?: ''}"></span></p>
+        <p><strong>Czynności przed wypadkiem:</strong> <span th:text="${report.accidentData?.activitiesBefore ?: ''}"></span></p>
+        <p><strong>Okoliczności i przyczyny:</strong> <span th:text="${report.accidentData?.circumstancesAndCauses ?: ''}"></span></p>
+        <p><strong>Urazy:</strong> <span th:text="${report.accidentData?.injuries ?: ''}"></span></p>
+        <p><strong>Udzielona pomoc medyczna:</strong> <span th:text="${report.accidentData?.medicalHelp ?: ''}"></span></p>
+        <p><strong>Informacje o maszynach:</strong> <span th:text="${report.accidentData?.machinesInfo ?: ''}"></span></p>
+        <p><strong>Informacje o BHP:</strong> <span th:text="${report.accidentData?.bhpInfo ?: ''}"></span></p>
+    </div>
+
+    <div class="section" th:if="${report.witnesses != null and not #lists.isEmpty(report.witnesses)}">
+        <h2>Świadkowie</h2>
+        <div th:each="witness : ${report.witnesses}">
+            <p><strong>Imię i nazwisko:</strong> <span th:text="${witness.firstName ?: ''} + ' ' + ${witness.lastName ?: ''}"></span></p>
+            <p><strong>Adres:</strong> <span th:text="${witness.address ?: ''}"></span></p>
+            <hr/>
+        </div>
+    </div>
+
+    <div class="section" th:if="${report.attorneyData != null and (report.attorneyData.firstName != null or report.attorneyData.lastName != null or report.attorneyData.address != null)}">
+        <h2>Dane pełnomocnika</h2>
+        <p><strong>Imię i nazwisko:</strong> <span th:text="${report.attorneyData?.firstName ?: ''} + ' ' + ${report.attorneyData?.lastName ?: ''}"></span></p>
+        <p><strong>Adres:</strong> <span th:text="${report.attorneyData?.address ?: ''}"></span></p>
+    </div>
+
+    <div class="section" th:if="${report.requiredDocuments != null and not #lists.isEmpty(report.requiredDocuments)}">
+        <h2>Wymagane dokumenty</h2>
+        <ul>
+            <li th:each="doc : ${report.requiredDocuments}" th:text="${doc}"></li>
+        </ul>
+    </div>
+
+</body>
+</html>

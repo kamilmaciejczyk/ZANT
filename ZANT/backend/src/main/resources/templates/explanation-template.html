@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wyjaśnienia poszkodowanego</title>
+    <style>
+        body { font-family: 'DejaVu Sans', sans-serif; margin: 40px; }
+        h1 { text-align: center; color: #333; }
+        .section { margin-bottom: 20px; border: 1px solid #eee; padding: 15px; border-radius: 5px; }
+        .section h2 { color: #555; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0; }
+        p { line-height: 1.6; }
+        strong { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Wyjaśnienia poszkodowanego</h1>
+
+    <div class="section">
+        <h2>Dane poszkodowanego</h2>
+        <p><strong>Imię i nazwisko:</strong> <span th:text="${report.victimData?.firstName ?: ''} + ' ' + ${report.victimData?.lastName ?: ''}"></span></p>
+        <p><strong>PESEL:</strong> <span th:text="${report.victimData?.pesel ?: ''}"></span></p>
+        <p><strong>Adres:</strong> <span th:text="${report.victimData?.address ?: ''}"></span></p>
+    </div>
+
+    <div class="section">
+        <h2>Opis wypadku</h2>
+        <p><strong>Data i godzina:</strong> <span th:text="${report.accidentData?.accidentDateTime != null ? #temporals.format(report.accidentData.accidentDateTime, 'dd-MM-yyyy HH:mm') : ''}"></span></p>
+        <p><strong>Miejsce:</strong> <span th:text="${report.accidentData?.place ?: ''}"></span></p>
+        <p><strong>Czynności wykonywane przed wypadkiem:</strong> <span th:text="${report.accidentData?.activitiesBefore ?: ''}"></span></p>
+        <p><strong>Okoliczności i przyczyny:</strong> <span th:text="${report.accidentData?.circumstancesAndCauses ?: ''}"></span></p>
+        <p><strong>Urazy:</strong> <span th:text="${report.accidentData?.injuries ?: ''}"></span></p>
+        <p><strong>Udzielona pomoc medyczna:</strong> <span th:text="${report.accidentData?.medicalHelp ?: ''}"></span></p>
+    </div>
+
+</body>
+</html>
