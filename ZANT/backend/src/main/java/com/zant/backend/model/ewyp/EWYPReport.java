@@ -65,9 +65,9 @@ public class EWYPReport {
     
     @Embedded
     private Signature signature;
-    
+
     @Lob
-    @Column(name = "attachment_file", columnDefinition = "LONGBLOB")
+    @Column(name = "attachment_file")
     private byte[] attachmentFile;
     
     @Column(name = "attachment_filename")
