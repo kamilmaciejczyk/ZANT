@@ -1,1 +1,13 @@
-<app-chat></app-chat>
+<div class="app-container">
+  <div class="header">
+    <h1>ZANT - Accident Reporting System</h1>
+    <button (click)="toggleView()" class="toggle-btn">
+      {{ showEwypForm ? 'Switch to Chat Assistant' : 'Switch to EWYP Form' }}
+    </button>
+  </div>
+
+  <div class="content">
+    <app-ewyp-form *ngIf="showEwypForm"></app-ewyp-form>
+    <app-chat *ngIf="!showEwypForm"></app-chat>
+  </div>
+</div>
