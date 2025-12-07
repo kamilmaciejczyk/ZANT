@@ -7,7 +7,7 @@ import { AssistantTurn } from '../models/assistant-turn';
   providedIn: 'root'
 })
 export class AssistantService {
-  private apiUrl = 'http://localhost:8080/api';
+  private apiUrl = 'http://localhost:8081/api';
 
   constructor(private http: HttpClient) {}
 

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PdfService {
-  private apiUrl = 'http://localhost:8080/api';
+  private apiUrl = 'http://localhost:8081/api';
 
   constructor(private http: HttpClient) {}
 

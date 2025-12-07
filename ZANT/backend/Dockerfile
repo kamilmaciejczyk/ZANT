@@ -23,7 +23,7 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
 # Expose port
-EXPOSE 8080
+EXPOSE 8081
 
 # Set environment variables for database connection
 ENV SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/zant

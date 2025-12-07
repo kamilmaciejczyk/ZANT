@@ -13,13 +13,43 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    networks:
-      - zant-network
+#    networks:
+#      - zant-network
+    network_mode: host
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U zant"]
       interval: 10s
       timeout: 5s
       retries: 5
+
+  # Keycloak
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0
+    container_name: zant-keycloak
+    command: start-dev --import-realm
+    environment:
+      KC_DB: postgres
+      KC_DB_USERNAME: zant
+      KC_DB_PASSWORD: zant123
+
+      KC_DB_URL_HOST: localhost
+      KC_DB_URL_PORT: 5432
+      KC_DB_URL_DATABASE: zant
+
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "8080:8080"
+
+
+
+    volumes:
+      - ./keycloak/realm-export.json:/opt/keycloak/data/import/realm-export.json
+    depends_on:
+      db:
+        condition: service_healthy
+    network_mode: host
+    restart: unless-stopped
 
   # Spring Boot Backend
   backend:
@@ -28,20 +58,24 @@ services:
       dockerfile: Dockerfile
     container_name: zant-backend
     ports:
-      - "8080:8080"
+      - "8081:8081"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/zant
+      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/zant
       SPRING_DATASOURCE_USERNAME: zant
       SPRING_DATASOURCE_PASSWORD: zant123
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       SPRING_JPA_SHOW_SQL: "true"
       PLLUM_API_KEY: ${PLLUM_API_KEY}
       GEMINI_API_KEY: ${GEMINI_API_KEY}
+      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI: http://localhost:8080/realms/zant
+      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI: http://localhost:8080/realms/zant/protocol/openid-connect/certs
     depends_on:
       db:
         condition: service_healthy
-    networks:
-      - zant-network
+      keycloak:
+        condition: service_started
+
+    network_mode: host
     restart: unless-stopped
 
   # Angular Frontend
@@ -54,13 +88,13 @@ services:
       - "4200:80"
     depends_on:
       - backend
-    networks:
-      - zant-network
+#    networks:
+#      - zant-network
     restart: unless-stopped
 
-networks:
-  zant-network:
-    driver: bridge
+#networks:
+#  zant-network:
+#    driver: bridge
 
 volumes:
   postgres_data:

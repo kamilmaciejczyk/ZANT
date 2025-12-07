@@ -3,7 +3,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "moduleResolution": "bundler",
+    "types": ["keycloak-js"]
   },
   "files": [
     "src/main.ts"
