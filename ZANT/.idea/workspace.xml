@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28b01dab-5ce6-41f1-8934-4c46d97420c0" name="Changes" comment="Polskie znaki w PDF">
+    <list default="true" id="28b01dab-5ce6-41f1-8934-4c46d97420c0" name="Changes" comment="Skan pełnomocnictwa (PDF) (wymagany dla pełnomocnika)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/controller/EWYPReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/controller/EWYPReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/dto/ewyp/AttachmentsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/dto/ewyp/AttachmentsDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/mapper/EWYPReportMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/mapper/EWYPReportMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/model/ewyp/Attachments.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/model/ewyp/Attachments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/model/ewyp/EWYPReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/model/ewyp/EWYPReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/service/EWYPDocumentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/service/EWYPDocumentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/models/ewyp-report.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/models/ewyp-report.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/ewyp-report.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/ewyp-report.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +45,7 @@
     &quot;Spring Boot.ZantBackendApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/kamil/Downloads/EWYP wypelnij_i_wydrukuj.pdf&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/kamil/Downloads/zant_ocr&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -74,6 +64,21 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <myKeys>
+      <visibility group="Gradle Tasks" flag="true" />
+      <visibility group="Grunt" flag="true" />
+      <visibility group="Gulp" flag="true" />
+      <visibility group="HTTP Requests" flag="true" />
+      <visibility group="Maven Goals" flag="true" />
+      <visibility group="Node.js" flag="true" />
+      <visibility group="Recent projects" flag="true" />
+      <visibility group="Run configurations" flag="true" />
+      <visibility group="npm" flag="true" />
+      <visibility group="pnpm" flag="true" />
+      <visibility group="yarn" flag="true" />
+    </myKeys>
   </component>
   <component name="RunManager">
     <configuration name="ZantBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -109,7 +114,10 @@
       <workItem from="1765038564722" duration="3852000" />
       <workItem from="1765042436889" duration="3930000" />
       <workItem from="1765046576458" duration="12164000" />
-      <workItem from="1765060983573" duration="1586000" />
+      <workItem from="1765060983573" duration="2878000" />
+      <workItem from="1765066649088" duration="42000" />
+      <workItem from="1765066716363" duration="6000" />
+      <workItem from="1765068675518" duration="455000" />
     </task>
     <task id="LOCAL-00001" summary="dodanie prompta na GEMINI">
       <option name="closed" value="true" />
@@ -215,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765061259923</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Skan pełnomocnictwa (PDF) (wymagany dla pełnomocnika)">
+      <option name="closed" value="true" />
+      <created>1765062796962</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1765062796962</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +275,7 @@
     <MESSAGE value="Walidacja pól" />
     <MESSAGE value="Generowanie docx i PDF" />
     <MESSAGE value="Polskie znaki w PDF" />
-    <option name="LAST_COMMIT_MESSAGE" value="Polskie znaki w PDF" />
+    <MESSAGE value="Skan pełnomocnictwa (PDF) (wymagany dla pełnomocnika)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Skan pełnomocnictwa (PDF) (wymagany dla pełnomocnika)" />
   </component>
 </project>
