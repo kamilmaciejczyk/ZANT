@@ -35,7 +35,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: zant123
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       SPRING_JPA_SHOW_SQL: "true"
-      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      PLLUM_API_KEY: ${PLLUM_API_KEY}
     depends_on:
       db:
         condition: service_healthy
