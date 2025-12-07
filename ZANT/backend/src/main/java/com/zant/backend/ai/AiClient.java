@@ -31,6 +31,9 @@ public class AiClient {
     private final Gson gson;
     private final OkHttpClient httpClient;
 
+    @Value("${ai.provider:pllum}")
+    private String aiProvider;
+
     @Value("${pllum.api.key:}")
     private String pllumApiKey;
 
@@ -45,6 +48,34 @@ public class AiClient {
 
     @Value("${pllum.max.tokens:2048}")
     private Integer pllumMaxTokens;
+
+    @Value("${gemini.api.key:}")
+    private String geminiApiKey;
+
+    @Value("${gemini.model:gemini-1.5-flash}")
+    private String geminiModel;
+
+    @Value("${gemini.api.url:https://generativelanguage.googleapis.com/v1beta/models}")
+    private String geminiApiUrl;
+
+    @Value("${gemini.temperature:0.7}")
+    private Double geminiTemperature;
+
+    @Value("${gemini.max.tokens:2048}")
+    private Integer geminiMaxTokens;
+
+    public String getAiProvider() {
+        return aiProvider;
+    }
+
+    public void setAiProvider(String provider) {
+        if ("pllum".equalsIgnoreCase(provider) || "gemini".equalsIgnoreCase(provider)) {
+            this.aiProvider = provider.toLowerCase();
+            logger.info("AI provider changed to: {}", this.aiProvider);
+        } else {
+            logger.warn("Invalid AI provider: {}. Keeping current: {}", provider, this.aiProvider);
+        }
+    }
 
     public AiClient() {
         this.gson = new GsonBuilder()
@@ -144,7 +175,7 @@ public class AiClient {
         // Budowanie JSON requestu
         JsonObject requestBody = new JsonObject();
         requestBody.addProperty("type", pllumModel);
-        requestBody.addProperty("temperature", 0);
+        requestBody.addProperty("temperature", pllumTemperature);
 
         var responseFormat = new JsonObject();
         responseFormat.addProperty("type", "json_object");
@@ -157,7 +188,60 @@ public class AiClient {
         JsonObject userMessage3 = new JsonObject();
         userMessage3.addProperty("role", "system");
         userMessage3.addProperty("content", """
-                BARDZO WAŻNE: Masz zwrócić WYŁĄCZNIE jeden obiekt JSON o strukturze { "questions_count": liczba, "questions": [ { "id": liczba, "text": "tekst_pytania" } ] }. Nie dodawaj żadnego innego tekstu przed ani po tym obiekcie JSON. Twoje zadanie: na podstawie opisu zdarzenia związanego z pracą przedsiębiorcy prowadzącego jednoosobową działalność gospodarczą (JDG) wygenerować od 0 do 5 prostych pytań pomocniczych, które pomagają lepiej opisać okoliczności, miejsce i przyczyny wypadku. Pytania mają być po polsku, proste językowo, krótkie, konkretne, neutralne i mają się odnosić bezpośrednio do opisu. Nie pomagaj dopasowywać opisu do definicji wypadku przy pracy, pomagasz tylko w ustalaniu faktów. Traktuj opis jako opowieść o wypadku złożoną z trzech faz: przed zdarzeniem (co, gdzie, w jakich warunkach robiła osoba poszkodowana), moment zdarzenia (co dokładnie się stało) oraz bezpośrednio po zdarzeniu (co stało się dalej w kontekście wypadku). Patrzysz na następujące obszary informacji: 1) czas zdarzenia – kiedy doszło do zdarzenia (data, przybliżona godzina, zmiana); 2) miejsce zdarzenia – gdzie dokładnie doszło do wypadku w kontekście pracy w JDG (np. hala produkcyjna, linia montażowa, magazyn, warsztat, zakład klienta, plac budowy, stołówka, biuro, korytarz, zaplecze, konkretne stanowisko, element maszyny); 3) czynność tuż przed zdarzeniem – co dokładnie robiła osoba poszkodowana tuż przed wypadkiem, najlepiej krok po kroku (np. kompletowanie towaru, przenoszenie elementów, układanie detalu w prasie, schodzenie ze skrzyni, wybieranie popiołu z pieca, spawanie elementu); 4) mechanizm zdarzenia / przyczyna zewnętrzna – co dokładnie się stało w momencie wypadku (np. poślizgnięcie, potknięcie, upadek, ześlizgnięcie się ze stopnia, przygniecenie przez maszynę, uderzenie przedmiotem, nagłe zapalenie materiału, porażenie prądem); 5) uraz / skutki zdrowotne – która część ciała została poszkodowana i jaki to rodzaj urazu w podstawowym sensie (np. stłuczenie, złamanie, skręcenie, oparzenie, rana cięta, uraz barku), bez wchodzenia w szczegółowe leczenie; 6) świadkowie i działania bezpośrednio po zdarzeniu – kto widział zdarzenie, kto pomógł, czy była pierwsza pomoc, czy wezwano pomoc i mniej więcej kiedy; 7) warunki szczególne otoczenia – np. śliska podłoga, bałagan, porozrzucane przedmioty, awaria maszyny, brak oświetlenia, nagły ogień, dym, hałas. Dla każdego z tych obszarów wewnętrznie oceniasz, czy w opisie jest: brak informacji, informacja ogólna, czy informacja szczegółowa. Obszary kluczowe dla pola „Szczegółowy opis okoliczności, miejsca i przyczyn wypadku” (czas zdarzenia, miejsce zdarzenia, czynność tuż przed zdarzeniem, mechanizm zdarzenia / przyczyna zewnętrzna, podstawowy opis urazu) mogą być przedmiotem pytań wprost, jeśli informacji w ogóle nie ma albo jest skrajnie ogólna. Obszary dodatkowe (np. świadkowie, działania po zdarzeniu, udzielona pomoc, wezwanie służb) traktuj dwustopniowo: jeżeli opis w ogóle nie wspomina, że coś w tym obszarze się wydarzyło, możesz zadać co najwyżej jedno ogólne pytanie, czy w ogóle coś takiego miało miejsce (np. „Czy po zdarzeniu ktoś udzielił Panu/Pani pomocy lub był świadkiem wypadku?”). Dopiero jeżeli w kolejnej wersji opisu pojawi się informacja, że takie zdarzenia rzeczywiście były (np. była pomoc medyczna, byli świadkowie), przy następnym sprawdzeniu możesz ewentualnie zadać jedno pytanie doprecyzowujące szczegóły, jeśli nadal brakuje ważnych informacji. Nigdy nie zaczynaj od szczegółowego pytania o jakiś element, jeżeli w opisie nie ma nawet wzmianki, że cokolwiek w tym obszarze się wydarzyło. Najpierw jednym prostym pytaniem sprawdź, czy dana rzecz w ogóle miała miejsce, a dopiero potem – przy kolejnych iteracjach – pytaj o szczegóły, jeżeli to rzeczywiście potrzebne do lepszego zrozumienia przebiegu wypadku. Pamiętaj, że użytkownik może wielokrotnie poprawiać opis i ponownie wywoływać sprawdzenie. Za każdym razem traktuj aktualny opis jako kompletny stan wiedzy i zadaj pytania tylko o te elementy, które w tej wersji są faktycznie brakujące lub zbyt ogólne. Nie wracaj do obszarów, które w nowszej wersji opisu są już dopisane jasno i szczegółowo. Liczba pytań: im więcej ważnych obszarów jest opisanych jasno, tym mniej pytań generujesz; im więcej kluczowych obszarów jest pustych lub bardzo ogólnych, tym więcej pytań generujesz, ale maksymalnie 5. Jeżeli opis jest bardzo ogólny (np. jedno–dwa krótkie zdania, bez jasnego czasu, miejsca, czynności, mechanizmu zdarzenia i opisu urazu), zwykle potrzebne są 4–5 pytań. Jeżeli opis jest średnio szczegółowy (brakuje 2–3 ważnych elementów), zwykle wystarczy 1–3 pytania. Jeżeli opis jest szczegółowy i spójny (czas, miejsce, czynność przed, mechanizm, podstawowy uraz oraz podstawowe działania po zdarzeniu są opisane jasno), możesz i powinieneś zwrócić 0 pytań. ZAKAZ POWTARZANIA: nie zadawaj pytań o informacje, które są już jasno i konkretnie napisane w opisie; nie zadawaj pytań, które tylko parafrazują zdanie z opisu; jeżeli nowa wersja opisu doprecyzowuje coś, o co można by pytać, traktuj to jako wyjaśnione i nie wracaj do tego tematu. ZAKAZ PYTAŃ O BHP I ŚRODKI OCHRONY: nie pytaj o szkolenia BHP, o to, czy osoba stosowała rękawice, obuwie ochronne, obuwie antypoślizgowe, kask, okulary ani inne środki ochrony; nie pytaj o zgodność z przepisami ani o wcześniejsze skargi na warunki pracy. Twoim zadaniem jest wyłącznie uszczegółowienie opisu faktycznego przebiegu zdarzenia, bez oceniania i bez sugerowania, co powinno było się wydarzyć. FORMAT PYTAŃ: każdy element w liście "questions" musi zawierać dokładnie jedno pytanie. W polu "text" może być DOKŁADNIE JEDEN znak zapytania „?”. NIE WOLNO używać słowa „Czy” w polu "text". Nie łącz wielu pytań w jedno zdanie. Jedno pytanie = jeden główny wątek. Jeżeli chcesz zasugerować zakres odpowiedzi, używaj nawiasu z maksymalnie 2–3 krótkimi przykładami, bez tworzenia kolejnego pytania, np.: „Co dokładnie robił Pan/Pani w momencie zdarzenia? (np. obsługa maszyny, przenoszenie towaru)”, „Jakie obrażenia ręki zostały stwierdzone? (np. złamanie, stłuczenie, rana cięta)”. Nie twórz nawiasów z długimi listami ani serią „czy…” – nawias ma być tylko pomocą, a nie kolejnym pytaniem. PRZYKŁADOWA LOGIKA: jeśli opis brzmi: „Miałem wypadek, boli mnie ręka. Pracowałem przy maszynie.”, brakuje czasu, dokładnego miejsca, czynności krok po kroku, mechanizmu zdarzenia, opisu urazu, działań po zdarzeniu – sensowne jest ok. 4–5 pytań. Jeśli opis brzmi: „Miałem wypadek, boli mnie ręka. Pracowałem przy maszynie. Działo się to w godzinach pracy, doszło do tego na linii montażowej.”, nie wolno już pytać ogólnie o to, czy zdarzenie miało miejsce w pracy ani gdzie – ale nadal można dopytać np. o datę, przybliżoną godzinę, mechanizm zdarzenia, opis urazu i to, co działo się bezpośrednio po zdarzeniu. Jeżeli opis szczegółowo zawiera kto, gdzie, kiedy, co robił, co się stało, jaki uraz stwierdzono i jakie były podstawowe działania po zdarzeniu, nie dodawaj pytań na siłę – wtedy właściwą odpowiedzią jest "questions_count": 0 i pusta tablica "questions". Na podstawie konkretnego opisu wybierz liczbę pytań zgodnie z tymi zasadami i zwróć WYŁĄCZNIE obiekt JSON w formacie { "questions_count": liczba, "questions": [ { "id": 1, "text": "Tekst pierwszego pytania" }, { "id": 2, "text": "Tekst drugiego pytania" } ] }.                """);
+                Jesteś asystentem BHP weryfikującym kompletność opisu wypadku przy pracy.
+                Twoim zadaniem jest sprawdzenie, czy opis zawiera 5 KLUCZOWYCH ELEMENTÓW.
+                
+                ZASADA NACZELNA: Zwracasz WYŁĄCZNIE obiekt JSON. Żadnego innego tekstu.
+                Struktura JSON: { "questions_count": liczba, "questions": [ { "id": liczba, "text": "tekst_pytania" } ] }
+                
+                ### LISTA KONTROLNA (5 ELEMENTÓW WYMAGANYCH)
+                Musisz zadać pytanie o każdy element z poniższej listy, którego brakuje w opisie lub jest zbyt ogólny:
+                
+                1. CZAS: Data i godzina (Samo "rano" lub "dzisiaj" to za mało – musi być konkret).
+                2. MIEJSCE: Konkretne miejsce zdarzenia (Samo "w pracy" to za mało – musi być np. "na hali", "w biurze", "przy maszynie X").
+                3. CZYNNOŚĆ: Co dokładnie robiła osoba w chwili wypadku? (np. "niosłem karton", "schodziłem z drabiny").
+                4. PRZYCZYNA: Co się wydarzyło? (np. "poślizgnięcie na plamie oleju", "upadek z wysokości", "awaria narzędzia").
+                5. URAZ: Jaka część ciała i jaki skutek? (np. "rana cięta dłoni", "skręcenie kostki").
+                
+                ### ALGORYTM DZIAŁANIA
+                1. Przeczytaj opis użytkownika.
+                2. Sprawdź po kolei każdy z 5 punktów listy kontrolnej.
+                3. Jeżeli w opisie brakuje punktu -> Generujesz pytanie.
+                4. Jeżeli opis punktu jest szczątkowy (np. tylko "boli mnie ręka" bez rodzaju urazu) -> Generujesz pytanie doprecyzowujące.
+                5. Obecność jednego elementu (np. czasu) NIE ZWALNIA z pytania o pozostałe brakujące elementy! To najczęstszy błąd – unikaj go.
+                6. Jeśli opis zawiera wszystkie 5 elementów w sposób konkretny -> Zwróć "questions_count": 0.
+                
+                ### ZASADY PYTAŃ
+                - Maksymalnie 5 pytań.
+                - Pytania muszą być po polsku, krótkie i konkretne.
+                - Nie używaj słowa "Czy" na początku.
+                - Jedno pytanie dotyczy jednego brakującego elementu.
+                - Nie pytaj o BHP, kaski, buty czy szkolenia. Interesują nas tylko fakty o przebiegu zdarzenia.
+                
+                ### PRZYKŁADY (Ucz się na nich)
+                
+                PRZYKŁAD 1 (Opis niekompletny):
+                Opis: "Złamałem nogę dzisiaj rano."
+                Analiza:
+                - Czas: Jest ("dzisiaj rano") -> OK (ewentualnie dopytać o godzinę, ale jest nieźle).
+                - Miejsce: BRAK -> Pytanie 1.
+                - Czynność: BRAK -> Pytanie 2.
+                - Przyczyna: BRAK -> Pytanie 3.
+                - Uraz: Jest ("złamanie nogi") -> OK.
+                Wynik JSON: Ma zawierać 3 pytania (o miejsce, czynność i przyczynę).
+                
+                PRZYKŁAD 2 (Opis kompletny):
+                Opis: "W dniu 12.05 o godzinie 10:00 na magazynie podczas zdejmowania paczki z regału potknąłem się o paletę. Upadłem na lewy bok i stłukłem bark."
+                Analiza:
+                - Czas: Jest (data, godzina) -> OK.
+                - Miejsce: Jest (magazyn) -> OK.
+                - Czynność: Jest (zdejmowanie paczki) -> OK.
+                - Przyczyna: Jest (potknięcie o paletę) -> OK.
+                - Uraz: Jest (stłuczenie barku) -> OK.
+                Wynik JSON: "questions_count": 0, "questions": []
+                
+                ### TERAZ PRZEANALIZUJ PONIŻSZY OPIS UŻYTKOWNIKA I WYGENERUJ JSON:      
+                """);
         messages.add(userMessage3);
 
 
@@ -269,18 +353,161 @@ public class AiClient {
      * @return CircumstancesAssistantResponse with generated questions
      */
     public CircumstancesAssistantResponse generateCircumstancesQuestions(String accidentDescription) {
+        if ("gemini".equalsIgnoreCase(aiProvider)) {
+            return generateCircumstancesQuestionsGemini(accidentDescription);
+        } else {
+            return generateCircumstancesQuestionsPllum(accidentDescription);
+        }
+    }
+
+    private CircumstancesAssistantResponse generateCircumstancesQuestionsPllum(String accidentDescription) {
         if (pllumApiKey == null || pllumApiKey.isEmpty()) {
             logger.warn("PLLUM API key not configured. Using fallback mode.");
-            return new CircumstancesAssistantResponse(0, Collections.emptyList(), "Nie ustawiono klucza API do modelu");
+            return new CircumstancesAssistantResponse(0, Collections.emptyList(), "Nie ustawiono klucza API do modelu Pllum");
         }
 
         try {
-//            String prompt = buildCircumstancesPrompt(accidentDescription);
             String pllumResponse = callPllumApi(accidentDescription);
             return parseCircumstancesResponse(pllumResponse);
         } catch (Exception e) {
             logger.error("Error calling PLLUM API for circumstances questions: {}", e.getMessage(), e);
-            return new CircumstancesAssistantResponse(0, Collections.emptyList(), "Wystąpił znieznany błąd podczas odpytania modelu: " + e.getMessage());
+            return new CircumstancesAssistantResponse(0, Collections.emptyList(), "Wystąpił nieznany błąd podczas odpytania modelu Pllum: " + e.getMessage());
+        }
+    }
+
+    private CircumstancesAssistantResponse generateCircumstancesQuestionsGemini(String accidentDescription) {
+        if (geminiApiKey == null || geminiApiKey.isEmpty()) {
+            logger.warn("Gemini API key not configured.");
+            return new CircumstancesAssistantResponse(0, Collections.emptyList(), "Nie ustawiono klucza API do modelu Gemini");
+        }
+
+        try {
+            String geminiResponse = callGeminiApi(accidentDescription);
+            return parseCircumstancesResponse(geminiResponse);
+        } catch (Exception e) {
+            logger.error("Error calling Gemini API for circumstances questions: {}", e.getMessage(), e);
+            return new CircumstancesAssistantResponse(0, Collections.emptyList(), "Wystąpił nieznany błąd podczas odpytania modelu Gemini: " + e.getMessage());
+        }
+    }
+
+    private String callGeminiApi(String prompt) throws IOException {
+        String systemPrompt = """
+                Jesteś asystentem BHP weryfikującym kompletność opisu wypadku przy pracy.
+                                                                        Twoim zadaniem jest sprawdzenie, czy opis zawiera 5 KLUCZOWYCH ELEMENTÓW.
+                
+                                                                        ZASADA NACZELNA: Zwracasz WYŁĄCZNIE obiekt JSON. Żadnego innego tekstu.
+                                                                        Struktura JSON: { "questions_count": liczba, "questions": [ { "id": liczba, "text": "tekst_pytania" } ] }
+                
+                                                                        ### LISTA KONTROLNA (5 ELEMENTÓW WYMAGANYCH)
+                                                                        Musisz zadać pytanie o każdy element z poniższej listy, którego brakuje w opisie lub jest zbyt ogólny:
+                
+                                                                        1. CZAS: Data i godzina (Samo "rano" lub "dzisiaj" to za mało – musi być konkret).
+                                                                        2. MIEJSCE: Konkretne miejsce zdarzenia (Samo "w pracy" to za mało – musi być np. "na hali", "w biurze", "przy maszynie X").
+                                                                        3. CZYNNOŚĆ: Co dokładnie robiła osoba w chwili wypadku? (np. "niosłem karton", "schodziłem z drabiny").
+                                                                        4. PRZYCZYNA: Co się wydarzyło? (np. "poślizgnięcie na plamie oleju", "upadek z wysokości", "awaria narzędzia").
+                                                                        5. URAZ: Jaka część ciała i jaki skutek? (np. "rana cięta dłoni", "skręcenie kostki").
+                
+                                                                        ### ALGORYTM DZIAŁANIA
+                                                                        1. Przeczytaj opis użytkownika.
+                                                                        2. Sprawdź po kolei każdy z 5 punktów listy kontrolnej.
+                                                                        3. Jeżeli w opisie brakuje punktu -> Generujesz pytanie.
+                                                                        4. Jeżeli opis punktu jest szczątkowy (np. tylko "boli mnie ręka" bez rodzaju urazu) -> Generujesz pytanie doprecyzowujące.
+                                                                        5. Obecność jednego elementu (np. czasu) NIE ZWALNIA z pytania o pozostałe brakujące elementy! To najczęstszy błąd – unikaj go.
+                                                                        6. Jeśli opis zawiera wszystkie 5 elementów w sposób konkretny -> Zwróć "questions_count": 0.
+                
+                                                                        ### ZASADY PYTAŃ
+                                                                        - Maksymalnie 5 pytań.
+                                                                        - Pytania muszą być po polsku, krótkie i konkretne.
+                                                                        - Nie używaj słowa "Czy" na początku.
+                                                                        - Jedno pytanie dotyczy jednego brakującego elementu.
+                                                                        - Nie pytaj o BHP, kaski, buty czy szkolenia. Interesują nas tylko fakty o przebiegu zdarzenia.
+                
+                                                                        ### PRZYKŁADY (Ucz się na nich)
+                
+                                                                        PRZYKŁAD 1 (Opis niekompletny):
+                                                                        Opis: "Złamałem nogę dzisiaj rano."
+                                                                        Analiza:
+                                                                        - Czas: Jest ("dzisiaj rano") -> OK (ewentualnie dopytać o godzinę, ale jest nieźle).
+                                                                        - Miejsce: BRAK -> Pytanie 1.
+                                                                        - Czynność: BRAK -> Pytanie 2.
+                                                                        - Przyczyna: BRAK -> Pytanie 3.
+                                                                        - Uraz: Jest ("złamanie nogi") -> OK.
+                                                                        Wynik JSON: Ma zawierać 3 pytania (o miejsce, czynność i przyczynę).
+                
+                                                                        PRZYKŁAD 2 (Opis kompletny):
+                                                                        Opis: "W dniu 12.05 o godzinie 10:00 na magazynie podczas zdejmowania paczki z regału potknąłem się o paletę. Upadłem na lewy bok i stłukłem bark."
+                                                                        Analiza:
+                                                                        - Czas: Jest (data, godzina) -> OK.
+                                                                        - Miejsce: Jest (magazyn) -> OK.
+                                                                        - Czynność: Jest (zdejmowanie paczki) -> OK.
+                                                                        - Przyczyna: Jest (potknięcie o paletę) -> OK.
+                                                                        - Uraz: Jest (stłuczenie barku) -> OK.
+                                                                        Wynik JSON: "questions_count": 0, "questions": []
+                
+                                                                        ### TERAZ PRZEANALIZUJ PONIŻSZY OPIS UŻYTKOWNIKA I WYGENERUJ JSON:                """;
+
+        String url = geminiApiUrl + "/" + geminiModel + ":generateContent?key=" + geminiApiKey;
+
+        // Build Gemini API request
+        JsonObject requestBody = new JsonObject();
+
+        JsonObject generationConfig = new JsonObject();
+        generationConfig.addProperty("temperature", geminiTemperature);
+        generationConfig.addProperty("maxOutputTokens", geminiMaxTokens);
+        generationConfig.addProperty("responseMimeType", "application/json");
+        requestBody.add("generationConfig", generationConfig);
+
+        JsonArray contents = new JsonArray();
+        JsonObject content = new JsonObject();
+        content.addProperty("role", "user");
+
+        JsonArray parts = new JsonArray();
+        JsonObject systemPart = new JsonObject();
+        systemPart.addProperty("text", systemPrompt + "\n\nOpis zdarzenia:\n" + prompt);
+        parts.add(systemPart);
+
+        content.add("parts", parts);
+        contents.add(content);
+        requestBody.add("contents", contents);
+
+        String jsonBody = gson.toJson(requestBody);
+
+        log.info("Calling Gemini API: {}", url);
+        log.info("Request body: {}", jsonBody);
+
+        RequestBody body = RequestBody.create(jsonBody, JSON);
+        Request request = new Request.Builder()
+                .url(url)
+                .addHeader("Content-Type", "application/json")
+                .post(body)
+                .build();
+
+        try (Response response = httpClient.newCall(request).execute()) {
+            if (!response.isSuccessful()) {
+                String errorBody = response.body() != null ? response.body().string() : "No error body";
+                logger.error("Gemini API error: {} - {}", response.code(), errorBody);
+                throw new IOException("Unexpected code " + response + " - " + errorBody);
+            }
+
+            String responseBody = response.body().string();
+            log.info("Gemini response body: {}", responseBody);
+
+            // Parse Gemini response
+            JsonObject jsonResponse = gson.fromJson(responseBody, JsonObject.class);
+
+            if (jsonResponse.has("candidates") && jsonResponse.getAsJsonArray("candidates").size() > 0) {
+                JsonObject candidate = jsonResponse.getAsJsonArray("candidates").get(0).getAsJsonObject();
+                JsonObject content2 = candidate.getAsJsonObject("content");
+                JsonArray parts2 = content2.getAsJsonArray("parts");
+                if (parts2.size() > 0) {
+                    JsonObject part = parts2.get(0).getAsJsonObject();
+                    String text = part.get("text").getAsString();
+                    log.info("Gemini API response content: {}", text);
+                    return text;
+                }
+            }
+
+            return "{}";
         }
     }
 
