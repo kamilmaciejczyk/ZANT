@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28b01dab-5ce6-41f1-8934-4c46d97420c0" name="Changes" comment="Skan pełnomocnictwa (PDF) (wymagany dla pełnomocnika)">
+    <list default="true" id="28b01dab-5ce6-41f1-8934-4c46d97420c0" name="Changes" comment="Fix czcionek">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-search/ewyp-search.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-search/ewyp-search.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +123,7 @@
       <workItem from="1765060983573" duration="2878000" />
       <workItem from="1765066649088" duration="42000" />
       <workItem from="1765066716363" duration="6000" />
-      <workItem from="1765068675518" duration="455000" />
+      <workItem from="1765068675518" duration="1845000" />
     </task>
     <task id="LOCAL-00001" summary="dodanie prompta na GEMINI">
       <option name="closed" value="true" />
@@ -231,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765062796962</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fix czcionek">
+      <option name="closed" value="true" />
+      <created>1765069276763</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1765069276763</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,6 +290,7 @@
     <MESSAGE value="Generowanie docx i PDF" />
     <MESSAGE value="Polskie znaki w PDF" />
     <MESSAGE value="Skan pełnomocnictwa (PDF) (wymagany dla pełnomocnika)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Skan pełnomocnictwa (PDF) (wymagany dla pełnomocnika)" />
+    <MESSAGE value="Fix czcionek" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix czcionek" />
   </component>
 </project>

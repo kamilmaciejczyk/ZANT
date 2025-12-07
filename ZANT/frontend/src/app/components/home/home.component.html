@@ -1,26 +1,36 @@
-<div class="home-container">
-  <div class="header">
-    <h1>System ZANT ZUS</h1>
-    <p class="subtitle">Wirtualny Asystent Zgłaszania Wypadków</p>
-  </div>
+<div class="home-shell">
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Cyfrowe zgłoszenia wypadków</p>
+      <h1>SSZD — szybka ścieżka do ZUS</h1>
+    </div>
+  </section>
 
-  <div class="menu-cards">
-    <div class="menu-card" (click)="navigateToNewReport()">
-      <mat-icon class="menu-icon">add_box</mat-icon>
-      <h2>Nowe zgłoszenie</h2>
-      <p>Zarejestruj nowy wniosek o wypadek przy pracy</p>
-      <button mat-raised-button color="primary">rozpocznij</button>
+  <section class="modules">
+    <div class="module-card primary" (click)="navigateToNewReport()">
+      <div class="card-icon">
+        <mat-icon>add_task</mat-icon>
+      </div>
+      <div class="module-content">
+        <h3>Nowe zgłoszenie</h3>
+        <p>Formularz zgodny z ZUS i podstawowe podpowiedzi.</p>
+        <span class="cta">Rozpocznij</span>
+      </div>
     </div>
 
-    <div class="menu-card" (click)="navigateToSearch()">
-      <mat-icon class="menu-icon">search</mat-icon>
-      <h2>Wyszukiwarka</h2>
-      <p>Przeszukaj zarejestrowane wnioski</p>
-      <button mat-raised-button color="accent">wyszukaj</button>
+    <div class="module-card" (click)="navigateToSearch()">
+      <div class="card-icon">
+        <mat-icon>manage_search</mat-icon>
+      </div>
+      <div class="module-content">
+        <h3>Zapisane zgłoszenia</h3>
+        <p>Sprawdź listę, status i kontynuuj wypełnianie.</p>
+        <span class="cta">Otwórz</span>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="footer">
-    <p>Platforma do zgłaszania wypadków przy pracy dla osób prowadzących działalność gospodarczą</p>
+  <div class="footer-note">
+    ZANT
   </div>
 </div>
