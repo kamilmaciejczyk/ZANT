@@ -18,6 +18,33 @@
         title="Wybór modelu AI">
         <span class="settings-icon" aria-hidden="true">⚙</span>
       </button>
+      <button
+        class="user-toggle"
+        (click)="toggleUserMenu()"
+        aria-label="Menu użytkownika"
+        title="Użytkownik">
+        <span class="user-icon" aria-hidden="true">👤</span>
+        <span class="user-name">{{ userInfo?.username }}</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="user-menu" *ngIf="showUserMenu" (click)="closeUserMenu()">
+    <div class="user-menu-content" (click)="$event.stopPropagation()">
+      <h2>Profil użytkownika</h2>
+      <div class="user-info">
+        <p><strong>Użytkownik:</strong> {{ userInfo?.username }}</p>
+        <p *ngIf="userInfo?.email"><strong>Email:</strong> {{ userInfo?.email }}</p>
+        <p *ngIf="userInfo?.firstName || userInfo?.lastName">
+          <strong>Imię i nazwisko:</strong> {{ userInfo?.firstName }} {{ userInfo?.lastName }}
+        </p>
+        <p><strong>Role:</strong></p>
+        <ul class="roles-list">
+          <li *ngFor="let role of userInfo?.roles">{{ role }}</li>
+        </ul>
+      </div>
+      <button class="logout-button" (click)="logout()">Wyloguj</button>
+      <button class="close-button" (click)="closeUserMenu()">Zamknij</button>
     </div>
   </div>
 

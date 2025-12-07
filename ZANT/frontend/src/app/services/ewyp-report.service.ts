@@ -18,8 +18,8 @@ export interface CircumstancesAssistantResponse {
   providedIn: 'root'
 })
 export class EWYPReportService {
-  private apiUrl = 'http://localhost:8080/api/ewyp-reports';
-  private assistantUrl = 'http://localhost:8080/api/assistant';
+  private apiUrl = 'http://localhost:8081/api/ewyp-reports';
+  private assistantUrl = 'http://localhost:8081/api/assistant';
 
   constructor(private http: HttpClient) { }
 

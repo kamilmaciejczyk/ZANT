@@ -11,7 +11,7 @@ export interface AiProvider {
   providedIn: 'root'
 })
 export class AiConfigService {
-  private apiUrl = 'http://localhost:8080/api/ai-config';
+  private apiUrl = 'http://localhost:8081/api/ai-config';
   private currentProviderSubject = new BehaviorSubject<string>('pllum');
   public currentProvider$ = this.currentProviderSubject.asObservable();
 

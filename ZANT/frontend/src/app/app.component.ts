@@ -5,6 +5,7 @@ import { EwypFormComponent } from './components/ewyp-form/ewyp-form.component';
 import { CommonModule } from '@angular/common';
 import { ContrastService } from './services/contrast.service';
 import { AiConfigService } from './services/ai-config.service';
+import { KeycloakService } from './services/keycloak.service';
 
 @Component({
   selector: 'app-root',
@@ -18,12 +19,16 @@ export class AppComponent {
   showEwypForm = false;
   isHighContrast = false;
   showSettingsMenu = false;
+  showUserMenu = false;
   currentProvider = 'pllum';
+  userInfo: any = null;
 
   constructor(
     private contrastService: ContrastService,
-    private aiConfigService: AiConfigService
+    private aiConfigService: AiConfigService,
+    public keycloakService: KeycloakService
   ) {
+    this.userInfo = this.keycloakService.getUserInfo();
     this.contrastService.highContrast$.subscribe(
       highContrast => this.isHighContrast = highContrast
     );
@@ -58,5 +63,17 @@ export class AppComponent {
         console.error('Error changing AI provider:', error);
       }
     });
+  }
+
+  toggleUserMenu(): void {
+    this.showUserMenu = !this.showUserMenu;
+  }
+
+  closeUserMenu(): void {
+    this.showUserMenu = false;
+  }
+
+  logout(): void {
+    this.keycloakService.logout();
   }
 }

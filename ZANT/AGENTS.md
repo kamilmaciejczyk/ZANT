@@ -12,7 +12,7 @@
 - Backend package: `cd backend && ./mvnw clean package` (produces JAR under `backend/target/`).
 - Frontend dev server: `cd frontend && npm install && npm run start` (serves on 4200 with live reload).
 - Frontend build: `cd frontend && npm run build` (outputs to `frontend/dist/frontend/`).
-- Full stack via Docker: `docker-compose up --build` (requires `GEMINI_API_KEY` and exposes 8080/4200); tear down with `docker-compose down -v`.
+- Full stack via Docker: `docker-compose up --build` (requires `GEMINI_API_KEY` and exposes 8081/4200); tear down with `docker-compose down -v`.
 
 ## Coding Style & Naming Conventions
 - Java: 4-space indentation, Lombok is available; annotate layers with `@Controller`, `@Service`, `@Repository`; class names `PascalCase`, fields/methods `camelCase`. Prefer constructor injection.
