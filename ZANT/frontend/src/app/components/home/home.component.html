@@ -1,36 +1,45 @@
 <div class="home-shell">
-  <section class="hero">
+  <section class="hero" aria-label="Nagłówek strony głównej">
     <div class="hero-text">
       <p class="eyebrow">Cyfrowe zgłoszenia wypadków</p>
       <h1>SSZD — szybka ścieżka do ZUS</h1>
     </div>
   </section>
 
-  <section class="modules">
-    <div class="module-card primary" (click)="navigateToNewReport()">
-      <div class="card-icon">
+  <section class="modules" aria-label="Główne funkcje systemu">
+    <h2 class="visually-hidden">Wybierz akcję</h2>
+    <button class="module-card primary"
+            (click)="navigateToNewReport()"
+            (keydown.enter)="navigateToNewReport()"
+            (keydown.space)="navigateToNewReport(); $event.preventDefault()"
+            aria-label="Przejdź do formularza nowego zgłoszenia wypadku">
+      <div class="card-icon" aria-hidden="true">
         <mat-icon>add_task</mat-icon>
       </div>
       <div class="module-content">
         <h3>Nowe zgłoszenie</h3>
         <p>Formularz zgodny z ZUS i podstawowe podpowiedzi.</p>
-        <span class="cta">Rozpocznij</span>
+        <span class="cta" aria-hidden="true">Rozpocznij</span>
       </div>
-    </div>
+    </button>
 
-    <div class="module-card" (click)="navigateToSearch()">
-      <div class="card-icon">
+    <button class="module-card"
+            (click)="navigateToSearch()"
+            (keydown.enter)="navigateToSearch()"
+            (keydown.space)="navigateToSearch(); $event.preventDefault()"
+            aria-label="Przejdź do listy zapisanych zgłoszeń">
+      <div class="card-icon" aria-hidden="true">
         <mat-icon>manage_search</mat-icon>
       </div>
       <div class="module-content">
         <h3>Zapisane zgłoszenia</h3>
         <p>Sprawdź listę, status i kontynuuj wypełnianie.</p>
-        <span class="cta">Otwórz</span>
+        <span class="cta" aria-hidden="true">Otwórz</span>
       </div>
-    </div>
+    </button>
   </section>
 
-  <div class="footer-note">
-    ZANT
-  </div>
+  <footer class="footer-note" role="contentinfo">
+    <p>ZANT - System Zgłaszania Wypadków przy Pracy</p>
+  </footer>
 </div>

@@ -1,6 +1,53 @@
 <div class="app-container">
   <div class="header">
     <h1>SSZD</h1>
+    <div class="header-actions">
+      <button
+        class="contrast-toggle"
+        (click)="toggleContrast()"
+        [attr.aria-pressed]="isHighContrast"
+        aria-label="Przełącz tryb wysokiego kontrastu"
+        title="Przełącz tryb wysokiego kontrastu">
+        <span class="contrast-icon" aria-hidden="true">◐</span>
+        <span class="contrast-text">{{ isHighContrast ? 'Kontrast standardowy' : 'Wysoki kontrast' }}</span>
+      </button>
+      <button
+        class="settings-toggle"
+        (click)="toggleSettingsMenu()"
+        aria-label="Ustawienia modelu AI"
+        title="Wybór modelu AI">
+        <span class="settings-icon" aria-hidden="true">⚙</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="settings-menu" *ngIf="showSettingsMenu" (click)="closeSettingsMenu()">
+    <div class="settings-menu-content" (click)="$event.stopPropagation()">
+      <h2>Wybór modelu AI</h2>
+      <div class="ai-provider-options">
+        <label class="radio-option">
+          <input
+            type="radio"
+            name="ai-provider"
+            value="pllum"
+            [checked]="currentProvider === 'pllum'"
+            (change)="selectProvider('pllum')"
+            aria-label="Model Plum">
+          <span>Plum</span>
+        </label>
+        <label class="radio-option">
+          <input
+            type="radio"
+            name="ai-provider"
+            value="gemini"
+            [checked]="currentProvider === 'gemini'"
+            (change)="selectProvider('gemini')"
+            aria-label="Model Gemini">
+          <span>Gemini</span>
+        </label>
+      </div>
+      <button class="close-button" (click)="closeSettingsMenu()">Zamknij</button>
+    </div>
   </div>
 
   <div class="content">

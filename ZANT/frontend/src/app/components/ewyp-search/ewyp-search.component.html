@@ -1,93 +1,147 @@
 <div class="ewyp-search-container">
-  <div class="header">
+  <header class="header">
     <h1>Wyszukiwarka Wniosków EWYP</h1>
-  </div>
+  </header>
 
-  <div class="search-filters">
+  <section class="search-filters" role="search" aria-label="Wyszukiwanie i filtrowanie zgłoszeń">
     <div class="search-bar">
+      <label for="search-input" class="visually-hidden">Wyszukaj zgłoszenie</label>
       <input
-        type="text"
+        type="search"
+        id="search-input"
         [(ngModel)]="searchTerm"
         placeholder="Szukaj po imieniu, nazwisku lub PESEL..."
         class="search-input"
         (keyup.enter)="onSearch()"
+        aria-describedby="search-hint"
       />
-      <button class="btn-search" (click)="onSearch()">
+      <span id="search-hint" class="visually-hidden">
+        Wpisz imię, nazwisko lub numer PESEL aby wyszukać zgłoszenie
+      </span>
+      <button class="btn-search"
+              (click)="onSearch()"
+              aria-label="Wyszukaj zgłoszenia według podanych kryteriów">
         Szukaj
       </button>
     </div>
 
-    <div class="filters">
-      <select [(ngModel)]="statusFilter" (change)="onStatusFilterChange()" class="filter-select">
+    <div class="filters" role="group" aria-label="Filtry wyszukiwania">
+      <label for="status-filter" class="visually-hidden">Filtruj według statusu</label>
+      <select
+        id="status-filter"
+        [(ngModel)]="statusFilter"
+        (change)="onStatusFilterChange()"
+        class="filter-select"
+        aria-label="Wybierz status zgłoszenia">
         <option value="">Wszystkie statusy</option>
         <option value="DRAFT">Szkic</option>
         <option value="SUBMITTED">Zgłoszony</option>
       </select>
 
-      <button class="btn-clear" (click)="clearFilters()">
+      <button class="btn-clear"
+              (click)="clearFilters()"
+              aria-label="Wyczyść wszystkie filtry wyszukiwania">
         Wyczyść filtry
       </button>
     </div>
+  </section>
+
+  <div class="error-message"
+       role="alert"
+       aria-live="assertive"
+       *ngIf="errorMessage">
+    <strong>Błąd:</strong> {{ errorMessage }}
   </div>
 
-  <div class="error-message" *ngIf="errorMessage">
-    {{ errorMessage }}
+  <div class="loading-spinner"
+       role="status"
+       aria-live="polite"
+       *ngIf="isLoading">
+    <div class="spinner" aria-hidden="true"></div>
+    <p>Ładowanie danych...</p>
   </div>
 
-  <div class="loading-spinner" *ngIf="isLoading">
-    <div class="spinner"></div>
-    <p>Ładowanie...</p>
-  </div>
-
-  <div class="results-container" *ngIf="!isLoading">
+  <section class="results-container" *ngIf="!isLoading" aria-label="Wyniki wyszukiwania">
     <div class="results-header">
-      <p class="results-count">
+      <p class="results-count" aria-live="polite">
         Znaleziono wniosków: <strong>{{ filteredReports.length }}</strong>
       </p>
     </div>
 
     <div class="table-responsive">
-      <table class="reports-table" *ngIf="filteredReports.length > 0">
+      <table class="reports-table"
+             *ngIf="filteredReports.length > 0"
+             role="table"
+             aria-label="Tabela zgłoszeń wypadków">
         <thead>
-          <tr>
-            <th>ID</th>
-            <th>Poszkodowany</th>
-            <th>PESEL</th>
-            <th>Data wypadku</th>
-            <th>Miejsce wypadku</th>
-            <th>Status</th>
-            <th>Klasyfikacja Scoringu</th>
-            <th>Data utworzenia</th>
-            <th>Akcje</th>
+          <tr role="row">
+            <th role="columnheader" scope="col">ID</th>
+            <th role="columnheader" scope="col">Poszkodowany</th>
+            <th role="columnheader" scope="col">PESEL</th>
+            <th role="columnheader" scope="col">Data wypadku</th>
+            <th role="columnheader" scope="col">Miejsce wypadku</th>
+            <th role="columnheader" scope="col">Status</th>
+            <th role="columnheader" scope="col">Klasyfikacja Scoringu</th>
+            <th role="columnheader" scope="col">Data utworzenia</th>
+            <th role="columnheader" scope="col">Akcje</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let report of filteredReports" class="report-row">
-            <td class="id-cell">{{ report.id ? report.id.substring(0, 8) + '...' : '-' }}</td>
-            <td>
-              {{ report.injuredPerson.firstName || '-' }}
-              {{ report.injuredPerson.lastName || '' }}
+          <tr *ngFor="let report of filteredReports"
+              class="report-row"
+              role="row">
+            <td role="cell" class="id-cell">
+              <span [attr.aria-label]="'Identyfikator: ' + (report.id ? report.id : 'brak')">
+                {{ report.id ? report.id.substring(0, 8) + '...' : '-' }}
+              </span>
             </td>
-            <td>{{ report.injuredPerson.pesel || '-' }}</td>
-            <td>{{ formatDate(report.accidentInfo.accidentDate) }}</td>
-            <td class="location-cell">{{ report.accidentInfo.placeOfAccident || '-' }}</td>
-            <td>
-              <span [class]="'status-badge ' + getStatusClass(report.status || '')">
+            <td role="cell">
+              <span [attr.aria-label]="'Poszkodowany: ' + (report.injuredPerson.firstName || '') + ' ' + (report.injuredPerson.lastName || '')">
+                {{ report.injuredPerson.firstName || '-' }}
+                {{ report.injuredPerson.lastName || '' }}
+              </span>
+            </td>
+            <td role="cell">
+              <span [attr.aria-label]="'PESEL: ' + (report.injuredPerson.pesel || 'nie podano')">
+                {{ report.injuredPerson.pesel || '-' }}
+              </span>
+            </td>
+            <td role="cell">
+              <span [attr.aria-label]="'Data wypadku: ' + formatDate(report.accidentInfo.accidentDate)">
+                {{ formatDate(report.accidentInfo.accidentDate) }}
+              </span>
+            </td>
+            <td role="cell" class="location-cell">
+              <span [attr.aria-label]="'Miejsce wypadku: ' + (report.accidentInfo.placeOfAccident || 'nie podano')">
+                {{ report.accidentInfo.placeOfAccident || '-' }}
+              </span>
+            </td>
+            <td role="cell">
+              <span [class]="'status-badge ' + getStatusClass(report.status || '')"
+                    [attr.aria-label]="'Status zgłoszenia: ' + getStatusLabel(report.status || '')">
                 {{ getStatusLabel(report.status || '') }}
               </span>
             </td>
-            <td class="scoring-cell">
+            <td role="cell" class="scoring-cell">
               <input
                 type="text"
                 [value]="report.scoringClassification || ''"
                 placeholder="Oczekuje na klasyfikację..."
                 class="scoring-input"
                 readonly
+                [attr.aria-label]="'Klasyfikacja scoringu: ' + (report.scoringClassification || 'oczekuje na klasyfikację')"
               />
             </td>
-            <td>{{ formatDate(report.createdAt) }}</td>
-            <td class="actions-cell">
-              <button class="btn-view" (click)="report.id && viewReport(report.id)" [disabled]="!report.id">
+            <td role="cell">
+              <span [attr.aria-label]="'Data utworzenia: ' + formatDate(report.createdAt)">
+                {{ formatDate(report.createdAt) }}
+              </span>
+            </td>
+            <td role="cell" class="actions-cell">
+              <button class="btn-view"
+                      (click)="report.id && viewReport(report.id)"
+                      [disabled]="!report.id"
+                      [attr.aria-label]="'Zobacz szczegóły zgłoszenia ' + (report.injuredPerson.firstName || '') + ' ' + (report.injuredPerson.lastName || '')">
                 Zobacz
               </button>
             </td>
@@ -95,9 +149,12 @@
         </tbody>
       </table>
 
-      <div class="no-results" *ngIf="filteredReports.length === 0">
+      <div class="no-results"
+           role="status"
+           aria-live="polite"
+           *ngIf="filteredReports.length === 0">
         <p>Nie znaleziono wniosków spełniających kryteria wyszukiwania.</p>
       </div>
     </div>
-  </div>
+  </section>
 </div>

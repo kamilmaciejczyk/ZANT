@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28b01dab-5ce6-41f1-8934-4c46d97420c0" name="Changes" comment="Fix czcionek">
+    <list default="true" id="8b4e143b-f109-459f-bd01-5c833b9552c2" name="Changes" comment="Poprawka kontrast">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/ai/AiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/ai/AiClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-search/ewyp-search.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-search/ewyp-search.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,77 +19,72 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$/.." value="km/nask" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$MAVEN_REPOSITORY$/org/hibernate/orm/hibernate-core/6.5.2.Final/hibernate-core-6.5.2.Final.jar!/org/hibernate/engine/transaction/jta/platform/internal/JtaPlatformInitiator.class" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0
-}</component>
-  <component name="ProjectId" id="36TeThWHgakJ6E9sLtobxPNp13w" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ZantBackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ZantBackendApplication.executor&quot;: &quot;Debug&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/kamil/Downloads/zant_ocr&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/kamil/Documents/zant/ZANT/frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
-    ]
+    &quot;ts.external.directory.path&quot;: &quot;/home/kamil/Documents/zant/ZANT/frontend/node_modules/typescript/lib&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/data" />
-    </key>
-  </component>
-  <component name="RunAnythingCache">
-    <myKeys>
-      <visibility group="Gradle Tasks" flag="true" />
-      <visibility group="Grunt" flag="true" />
-      <visibility group="Gulp" flag="true" />
-      <visibility group="HTTP Requests" flag="true" />
-      <visibility group="Maven Goals" flag="true" />
-      <visibility group="Node.js" flag="true" />
-      <visibility group="Recent projects" flag="true" />
-      <visibility group="Run configurations" flag="true" />
-      <visibility group="npm" flag="true" />
-      <visibility group="pnpm" flag="true" />
-      <visibility group="yarn" flag="true" />
-    </myKeys>
-  </component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="zant-backend" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="zant-backend" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="zant-backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <module name="zant-backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="ZantBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <envs>
-        <env name="GEMINI_API_KEY" value="AIzaSyDWWY7yJFylo_2DcpgTQGTI5BNfYBCDIUA " />
+        <env name="PLLUM_API_KEY" value="a9c185f6e7de4becbd676b1b550b3cfb" />
       </envs>
       <module name="zant-backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.zant.backend.ZantBackendApplication" />
@@ -97,200 +92,79 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
-      </set>
-    </attachedChunks>
-  </component>
-  <component name="StructureViewState">
-    <option name="selectedTab" value="Logical" />
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="zant-backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="28b01dab-5ce6-41f1-8934-4c46d97420c0" name="Changes" comment="" />
-      <created>1765034997563</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1765034997563</updated>
-      <workItem from="1765034998895" duration="3545000" />
-      <workItem from="1765038564722" duration="3852000" />
-      <workItem from="1765042436889" duration="3930000" />
-      <workItem from="1765046576458" duration="12164000" />
-      <workItem from="1765060983573" duration="2878000" />
-      <workItem from="1765066649088" duration="42000" />
-      <workItem from="1765066716363" duration="6000" />
-      <workItem from="1765068675518" duration="1845000" />
-    </task>
-    <task id="LOCAL-00001" summary="dodanie prompta na GEMINI">
+    <task id="LOCAL-00001" summary="Poprawka plumm">
       <option name="closed" value="true" />
-      <created>1765035484468</created>
+      <created>1765078967902</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1765035484468</updated>
+      <updated>1765078967902</updated>
     </task>
-    <task id="LOCAL-00002" summary="nask nie dziala">
+    <task id="LOCAL-00002" summary="Poprawka kontrast">
       <option name="closed" value="true" />
-      <created>1765039785904</created>
+      <created>1765078994202</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1765039785904</updated>
+      <updated>1765078994202</updated>
     </task>
-    <task id="LOCAL-00003" summary="fix">
-      <option name="closed" value="true" />
-      <created>1765040442156</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1765040442156</updated>
-    </task>
-    <task id="LOCAL-00004" summary="wyszukiwarka wnioskow">
-      <option name="closed" value="true" />
-      <created>1765043146137</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1765043146137</updated>
-    </task>
-    <task id="LOCAL-00005" summary="wyszukiwarka wnioskowfix">
-      <option name="closed" value="true" />
-      <created>1765043168549</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1765043168549</updated>
-    </task>
-    <task id="LOCAL-00006" summary="fix parametrow modelu">
-      <option name="closed" value="true" />
-      <created>1765044923104</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1765044923104</updated>
-    </task>
-    <task id="LOCAL-00007" summary="sprzątanko">
-      <option name="closed" value="true" />
-      <created>1765046722960</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1765046722960</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Poprawki zapisu plików">
-      <option name="closed" value="true" />
-      <created>1765050410540</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1765050410540</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Poprawki dodawania załączników">
-      <option name="closed" value="true" />
-      <created>1765053785381</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1765053785381</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Poprawa obslugi bledow promptow">
-      <option name="closed" value="true" />
-      <created>1765055193581</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1765055193581</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Poprawa UX/UI">
-      <option name="closed" value="true" />
-      <created>1765057830102</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1765057830102</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Walidacja pól">
-      <option name="closed" value="true" />
-      <created>1765058607138</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1765058607138</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Polskie znaki w PDF">
-      <option name="closed" value="true" />
-      <created>1765061259923</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1765061259923</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Skan pełnomocnictwa (PDF) (wymagany dla pełnomocnika)">
-      <option name="closed" value="true" />
-      <created>1765062796962</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1765062796962</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Fix czcionek">
-      <option name="closed" value="true" />
-      <created>1765069276763</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1765069276763</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="km/nask" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dodanie prompta na GEMINI" />
-    <MESSAGE value="nask nie dziala" />
-    <MESSAGE value="fix" />
-    <MESSAGE value="wyszukiwarka wnioskow" />
-    <MESSAGE value="wyszukiwarka wnioskowfix" />
-    <MESSAGE value="fix parametrow modelu" />
-    <MESSAGE value="sprzątanko" />
-    <MESSAGE value="Poprawki zapisu plików" />
-    <MESSAGE value="Poprawki dodawania załączników" />
-    <MESSAGE value="Poprawa obslugi bledow promptow" />
-    <MESSAGE value="Poprawa UX/UI" />
-    <MESSAGE value="Walidacja pól" />
-    <MESSAGE value="Generowanie docx i PDF" />
-    <MESSAGE value="Polskie znaki w PDF" />
-    <MESSAGE value="Skan pełnomocnictwa (PDF) (wymagany dla pełnomocnika)" />
-    <MESSAGE value="Fix czcionek" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix czcionek" />
+    <MESSAGE value="Poprawka plumm" />
+    <MESSAGE value="Poprawka kontrast" />
+    <option name="LAST_COMMIT_MESSAGE" value="Poprawka kontrast" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/com/zant/backend/ai/AiClient.java</url>
+          <line>563</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/com/zant/backend/ai/AiClient.java</url>
+          <line>321</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
