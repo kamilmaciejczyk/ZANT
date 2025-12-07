@@ -1,48 +1,71 @@
 <div class="chat-container">
   <mat-card class="chat-card">
     <mat-card-header>
-      <mat-card-title>Asystent ZANT - Zgłoszenie Wypadku</mat-card-title>
+      <mat-card-title>
+        <h1>Asystent ZANT - Zgłoszenie Wypadku</h1>
+      </mat-card-title>
       <mat-card-subtitle>
-        Wypełnienie: {{ completionProgress }}%
+        <span aria-live="polite" aria-atomic="true">Wypełnienie: {{ completionProgress }}%</span>
       </mat-card-subtitle>
     </mat-card-header>
 
     <mat-progress-bar
       mode="determinate"
-      [value]="completionProgress">
+      [value]="completionProgress"
+      role="progressbar"
+      [attr.aria-valuenow]="completionProgress"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      [attr.aria-label]="'Postęp wypełniania formularza: ' + completionProgress + ' procent'">
     </mat-progress-bar>
 
     <mat-card-content>
-      <div class="messages-container">
+      <div class="messages-container"
+           role="log"
+           aria-live="polite"
+           aria-label="Historia rozmowy z asystentem"
+           tabindex="0">
         <div *ngFor="let message of messages"
-             [class]="message.isBot ? 'message bot-message' : 'message user-message'">
+             [class]="message.isBot ? 'message bot-message' : 'message user-message'"
+             [attr.aria-label]="(message.isBot ? 'Wiadomość asystenta: ' : 'Twoja wiadomość: ') + message.text">
           <div class="message-content">
             <p>{{ message.text }}</p>
             <span class="timestamp">{{ message.timestamp | date:'short' }}</span>
           </div>
         </div>
 
-        <div *ngIf="isLoading" class="message bot-message">
+        <div *ngIf="isLoading" class="message bot-message" aria-live="assertive">
           <div class="message-content">
             <p>Asystent pisze...</p>
           </div>
         </div>
       </div>
 
-      <div *ngIf="!!followUpQuestions && followUpQuestions.length > 0" class="follow-up-section">
-        <h4>Sugerowane pytania:</h4>
-        <mat-chip-set>
+      <div *ngIf="!!followUpQuestions && followUpQuestions.length > 0"
+           class="follow-up-section"
+           role="region"
+           aria-label="Sugerowane pytania">
+        <h2 id="suggested-questions-heading">Sugerowane pytania:</h2>
+        <mat-chip-set aria-labelledby="suggested-questions-heading">
           <mat-chip
-            *ngFor="let question of followUpQuestions"
-            (click)="selectQuestion(question)">
+            *ngFor="let question of followUpQuestions; let i = index"
+            (click)="selectQuestion(question)"
+            (keydown.enter)="selectQuestion(question)"
+            (keydown.space)="selectQuestion(question); $event.preventDefault()"
+            role="button"
+            tabindex="0"
+            [attr.aria-label]="'Wybierz pytanie: ' + question">
             {{ question }}
           </mat-chip>
         </mat-chip-set>
       </div>
 
-      <div *ngIf="!!missingFields && missingFields.length > 0" class="missing-fields-section">
-        <h4>Brakujące informacje ({{ missingFields.length }}):</h4>
-        <mat-list>
+      <div *ngIf="!!missingFields && missingFields.length > 0"
+           class="missing-fields-section"
+           role="region"
+           aria-label="Brakujące informacje">
+        <h2 id="missing-fields-heading">Brakujące informacje ({{ missingFields.length }}):</h2>
+        <mat-list aria-labelledby="missing-fields-heading">
           <mat-list-item *ngFor="let field of missingFields">
             {{ field }}
           </mat-list-item>
@@ -56,31 +79,43 @@
           <mat-label>Twoja wiadomość</mat-label>
           <input
             matInput
+            id="user-message-input"
             [(ngModel)]="userMessage"
             (keyup.enter)="sendMessage()"
             [disabled]="isLoading"
-            placeholder="Wpisz swoją wiadomość...">
+            placeholder="Wpisz swoją wiadomość..."
+            aria-required="true"
+            [attr.aria-invalid]="!userMessage.trim() && userMessage.length > 0"
+            aria-describedby="message-hint">
+          <mat-hint id="message-hint">Naciśnij Enter aby wysłać wiadomość</mat-hint>
         </mat-form-field>
         <button
           mat-raised-button
           color="primary"
           (click)="sendMessage()"
-          [disabled]="!userMessage.trim() || isLoading">
+          [disabled]="!userMessage.trim() || isLoading"
+          aria-label="Wyślij wiadomość do asystenta">
           Wyślij
         </button>
       </div>
 
-      <div *ngIf="completionProgress === 100" class="pdf-buttons">
+      <div *ngIf="completionProgress === 100"
+           class="pdf-buttons"
+           role="region"
+           aria-label="Dostępne dokumenty do pobrania">
+        <h2 class="visually-hidden">Pobierz dokumenty</h2>
         <button
           mat-raised-button
           color="accent"
-          (click)="downloadNotice()">
+          (click)="downloadNotice()"
+          aria-label="Pobierz zawiadomienie o wypadku w formacie PDF">
           Pobierz Zawiadomienie (PDF)
         </button>
         <button
           mat-raised-button
           color="accent"
-          (click)="downloadExplanation()">
+          (click)="downloadExplanation()"
+          aria-label="Pobierz wyjaśnienia do zgłoszenia w formacie PDF">
           Pobierz Wyjaśnienia (PDF)
         </button>
       </div>

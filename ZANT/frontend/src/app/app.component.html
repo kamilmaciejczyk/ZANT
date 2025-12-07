@@ -1,6 +1,15 @@
 <div class="app-container">
   <div class="header">
     <h1>SSZD</h1>
+    <button
+      class="contrast-toggle"
+      (click)="toggleContrast()"
+      [attr.aria-pressed]="isHighContrast"
+      aria-label="Przełącz tryb wysokiego kontrastu"
+      title="Przełącz tryb wysokiego kontrastu">
+      <span class="contrast-icon" aria-hidden="true">◐</span>
+      <span class="contrast-text">{{ isHighContrast ? 'Kontrast standardowy' : 'Wysoki kontrast' }}</span>
+    </button>
   </div>
 
   <div class="content">
