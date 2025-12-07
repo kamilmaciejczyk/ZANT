@@ -35,14 +35,14 @@ public class SecurityConfig {
             .csrf(AbstractHttpConfigurer::disable)
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/api/reports/**").hasAnyAuthority("ZANT_USER", "ZANT_CONTROLLER")
-                .requestMatchers("/api/ewyp-reports/**").hasAnyAuthority("ZANT_USER", "ZANT_CONTROLLER")
-                .requestMatchers("/api/assistant/**").hasAnyAuthority("ZANT_USER", "ZANT_CONTROLLER")
-                .requestMatchers("/api/pdf/**").hasAnyAuthority("ZANT_USER", "ZANT_CONTROLLER")
-                .requestMatchers("/api/ewyp/search").hasAnyAuthority("ZANT_CONTROLLER")
-                .requestMatchers("/api/ewyp/all").hasAnyAuthority("ZANT_CONTROLLER")
-                .requestMatchers("/api/ai-config/**").hasAnyAuthority("ZANT_USER", "ZANT_CONTROLLER")
-                .anyRequest().denyAll()
+//                .requestMatchers("/api/reports/**").hasAnyAuthority("ZANT_USER", "ZANT_CONTROLLER")
+//                .requestMatchers("/api/ewyp-reports/**").hasAnyAuthority("ZANT_USER", "ZANT_CONTROLLER")
+//                .requestMatchers("/api/assistant/**").hasAnyAuthority("ZANT_USER", "ZANT_CONTROLLER")
+//                .requestMatchers("/api/pdf/**").hasAnyAuthority("ZANT_USER", "ZANT_CONTROLLER")
+//                .requestMatchers("/api/ewyp/search").hasAnyAuthority("ZANT_CONTROLLER")
+//                .requestMatchers("/api/ewyp/all").hasAnyAuthority("ZANT_CONTROLLER")
+//                .requestMatchers("/api/ai-config/**").hasAnyAuthority("ZANT_USER", "ZANT_CONTROLLER")
+                .anyRequest().permitAll()
             )
             .oauth2ResourceServer(oauth2 -> oauth2
                 .jwt(jwt -> jwt

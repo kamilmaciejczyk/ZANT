@@ -23,5 +23,5 @@ public class EWYPReportDTO {
     private String attachmentFilename;
     private String attachmentContentType;
     private String status;
-    private String scoringClassification;
+    private Double scoringClassification;
 }

@@ -104,7 +104,7 @@ public class EWYPReport {
     private String status; // DRAFT | SUBMITTED
     
     @Column(name = "scoring_classification")
-    private String scoringClassification; // Placeholder dla klasyfikacji scoringu
+    private Double scoringClassification; // Prawdopodobieństwo wypadku przy pracy (0.0-1.0)
     
     @Column(name = "created_at")
     private LocalDateTime createdAt;

@@ -40,6 +40,7 @@ public class EWYPReportMapper {
         dto.setDocumentsToDeliverLater(toDocumentsToDeliverLaterDTO(entity.getDocumentsToDeliverLater()));
         dto.setResponseDeliveryMethod(entity.getResponseDeliveryMethod());
         dto.setSignature(toSignatureDTO(entity.getSignature()));
+        dto.setScoringClassification(entity.getScoringClassification());
         
         return dto;
     }

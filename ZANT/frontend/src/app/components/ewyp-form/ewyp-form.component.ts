@@ -81,11 +81,11 @@ export class EwypFormComponent implements OnInit {
 
     // Check if there's a draft ID in the route
     this.route.params.subscribe(params => {
-      const draftId = params['id'];
-      if (draftId) {
-        this.loadDraft(draftId);
+      const id = params['id'];
+      if (id) {
+        this.loadDraft(id);
         // Restore current step from localStorage for this draft
-        const savedStep = localStorage.getItem(`ewyp-form-step-${draftId}`);
+        const savedStep = localStorage.getItem(`ewyp-form-step-${id}`);
         if (savedStep) {
           this.currentStep = parseInt(savedStep, 10);
         }
@@ -441,8 +441,12 @@ export class EwypFormComponent implements OnInit {
       this.isSubmitting = true;
       this.errorMessage = null;
 
-      const report: EWYPReport = this.reportForm.value;
+      const report: EWYPReport = {
+        ...this.reportForm.value,
+        id: this.savedDraftId || undefined
+      };
 
+      console.log(report);
       this.reportService.submitReport(report).subscribe({
         next: (response) => {
           this.isSubmitting = false;

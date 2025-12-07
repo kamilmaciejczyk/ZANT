@@ -4,34 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b4e143b-f109-459f-bd01-5c833b9552c2" name="Changes" comment="Wymienny model plum/gemini fix">
-      <change afterPath="$PROJECT_DIR$/OAUTH2_SETUP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/interceptors/auth.interceptor.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/services/keycloak.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak/realm-export.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="ff124006-d49b-46b9-9c39-b5bff21d1387" name="Changes" comment="Wymienny model plum/gemini fix">
+      <change afterPath="$PROJECT_DIR$/ONNX_INTEGRATION.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PYTHON_INTEGRATION.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/service/OnnxScoringService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-scoring-api.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AGENTS.md" beforeDir="false" afterPath="$PROJECT_DIR$/AGENTS.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/controller/EWYPReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/controller/EWYPReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/dto/ewyp/EWYPReportDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/dto/ewyp/EWYPReportDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/mapper/EWYPReportMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/mapper/EWYPReportMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/model/ewyp/EWYPReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/zant/backend/model/ewyp/EWYPReport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/ai-config.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/ai-config.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/assistant.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/assistant.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/ewyp-form/ewyp-form.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/services/ewyp-report.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/ewyp-report.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/pdf.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/pdf.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,63 +30,41 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
+  &quot;associatedIndex&quot;: 4
 }</component>
-  <component name="ProjectId" id="36VCVVqj70Acv5tDDPrOrGvp3zN" />
+  <component name="ProjectId" id="36VOAB6JW0xBEzLzNRFVFQdMGfp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ZantBackendApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/kamil/Documents/zant/ZANT/frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHELLCHECK.PATH": "I do mind",
+    "Spring Boot.ZantBackendApplication.executor": "Debug",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/home/kamil/Documents/zant/ZANT/frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="ZantBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <envs>
-        <env name="PLLUM_API_KEY" value="a9c185f6e7de4becbd676b1b550b3cfb" />
-      </envs>
       <module name="zant-backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.zant.backend.ZantBackendApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method v="2" />
     </configuration>
   </component>
   <component name="SharedIndexes">
@@ -110,72 +76,49 @@
     </attachedChunks>
   </component>
   <component name="TaskManager">
-    <task id="LOCAL-00001" summary="Poprawka plumm">
+    <task id="LOCAL-00001" summary="Fix UX/UI">
       <option name="closed" value="true" />
-      <created>1765078967902</created>
+      <created>1765087888061</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1765078967902</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Poprawka kontrast">
-      <option name="closed" value="true" />
-      <created>1765078994202</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1765078994202</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Wymienny model plum/gemini">
-      <option name="closed" value="true" />
-      <created>1765080797503</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1765080797503</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Wymienny model plum/gemini fix">
-      <option name="closed" value="true" />
-      <created>1765080812499</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1765080812499</updated>
+      <updated>1765087888062</updated>
     </task>
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8b4e143b-f109-459f-bd01-5c833b9552c2" name="Changes" comment="Wymienny model plum/gemini fix" />
-      <created>1765082377431</created>
+      <changelist id="ff124006-d49b-46b9-9c39-b5bff21d1387" name="Changes" comment="Fix UX/UI" />
+      <created>1765088128590</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1765082377431</updated>
-      <workItem from="1765082379916" duration="3057000" />
-      <workItem from="1765085459230" duration="1309000" />
+      <updated>1765088128590</updated>
+      <workItem from="1765088130689" duration="933000" />
     </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Poprawka plumm" />
-    <MESSAGE value="Poprawka kontrast" />
-    <MESSAGE value="Wymienny model plum/gemini" />
-    <MESSAGE value="Wymienny model plum/gemini fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wymienny model plum/gemini fix" />
+    <MESSAGE value="Fix UX/UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix UX/UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/com/zant/backend/ai/AiClient.java</url>
-          <line>563</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/backend/src/main/java/com/zant/backend/service/OnnxScoringService.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/com/zant/backend/ai/AiClient.java</url>
-          <line>321</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/backend/src/main/java/com/zant/backend/controller/EWYPReportController.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/com/zant/backend/controller/EWYPReportController.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

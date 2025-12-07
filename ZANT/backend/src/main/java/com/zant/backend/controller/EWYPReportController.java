@@ -5,6 +5,7 @@ import com.zant.backend.mapper.EWYPReportMapper;
 import com.zant.backend.model.ewyp.EWYPReport;
 import com.zant.backend.repository.EWYPReportRepository;
 import com.zant.backend.service.EWYPDocumentService;
+import com.zant.backend.service.OnnxScoringService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -25,12 +26,14 @@ public class EWYPReportController {
     private final EWYPReportRepository repository;
     private final EWYPReportMapper mapper;
     private final EWYPDocumentService documentService;
+    private final OnnxScoringService onnxScoringService;
     
     public EWYPReportController(EWYPReportRepository repository, EWYPReportMapper mapper, 
-                                EWYPDocumentService documentService) {
+                                EWYPDocumentService documentService, OnnxScoringService onnxScoringService) {
         this.repository = repository;
         this.mapper = mapper;
         this.documentService = documentService;
+        this.onnxScoringService = onnxScoringService;
     }
     
     @PostMapping
@@ -91,6 +94,11 @@ public class EWYPReportController {
         return repository.findById(id)
                 .map(report -> {
                     report.setStatus("SUBMITTED");
+                    
+                    // Wykonaj scoring przy użyciu modelu ONNX
+                    Double scoringResult = onnxScoringService.scoreReport(report);
+                    report.setScoringClassification(scoringResult);
+                    
                     EWYPReport savedEntity = repository.save(report);
                     return ResponseEntity.ok(mapper.toDTO(savedEntity));
                 })
@@ -120,6 +128,8 @@ public class EWYPReportController {
                             String firstName = report.getInjuredPerson().getFirstName();
                             String lastName = report.getInjuredPerson().getLastName();
                             String pesel = report.getInjuredPerson().getPesel();
+
+
                             
                             return (firstName != null && firstName.toLowerCase().contains(searchLower)) ||
                                    (lastName != null && lastName.toLowerCase().contains(searchLower)) ||

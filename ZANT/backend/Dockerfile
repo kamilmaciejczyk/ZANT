@@ -7,17 +7,28 @@ WORKDIR /app
 RUN apk add --no-cache maven
 
 # Copy pom.xml and download dependencies
-COPY pom.xml .
+COPY backend/pom.xml .
 RUN mvn dependency:go-offline -B
 
 # Copy source code and build
-COPY src ./src
+COPY backend/src ./src
 RUN mvn clean package -DskipTests
 
 # Runtime stage
 FROM eclipse-temurin:17-jre-alpine
 
 WORKDIR /app
+
+# Install Python3 and pip for ML scoring service, plus build dependencies
+RUN apk add --no-cache python3 py3-pip gcc g++ musl-dev python3-dev py3-numpy py3-scipy libgomp
+
+# Copy Python scripts and models
+COPY Python/predictor.py /app/Python/predictor.py
+COPY MODELS/wniosek_model.joblib /app/MODELS/wniosek_model.joblib
+
+# Install Python dependencies for predictor
+RUN pip3 install --no-cache-dir --break-system-packages joblib scikit-learn && \
+    apk del gcc g++ musl-dev python3-dev
 
 # Copy the built jar from build stage
 COPY --from=build /app/target/*.jar app.jar

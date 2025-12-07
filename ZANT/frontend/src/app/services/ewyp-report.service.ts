@@ -24,7 +24,7 @@ export class EWYPReportService {
   constructor(private http: HttpClient) { }
 
   submitReport(report: EWYPReport): Observable<EWYPReport> {
-    return this.http.post<EWYPReport>(this.apiUrl, report);
+    return this.http.post<EWYPReport>(`${this.apiUrl}/${report.id}/submit`, report);
   }
 
   saveDraft(report: EWYPReport): Observable<EWYPReport> {
