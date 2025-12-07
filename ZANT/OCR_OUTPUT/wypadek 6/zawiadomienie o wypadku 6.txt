@@ -1,0 +1,151 @@
+
+
+===== STRONA 1 =====
+
+zUs
+ZAKtAD
+UBEZPIECZEN
+EWYP
+SPOLECZNYCH
+Zawiadomienieo wypadku
+Instrukcja wypelnianla
+ulegla osoba,klora:
+-prowadzi pozarolnicza dzialalnosc,
+wspolpracujeprzyprowadzeniupozarolniczej dzialalnosci,
+wykonujepracenapodstawie umowyuaklywniajacej (jakoniania).
+Ustalimywowczas okolicznoscii przyczyny wypadku.
+ob:
+lehnglo
+1.WypelnilWIELKIMI LITERAMI
+12-12-
+1OBD
+20126
+2.Pola wyboru zaznaczznakiemX
+L.zal.
+3.Wypelnij kolorem czarnym.lub niebieskim(nie olowkiem)
+0300010009553/1029
+Dane osoby poszkodowanej
+PESEL
+Rodzaj,seriainumer.dokumentu
+polwierdzajacego.lozsamosc
+Imie
+Nazwisko
+TozsamosCwnloskodawey
+ustalono.na podstawie
+Data urodzenia
+dokumentu .to2samoscl
+da.ndm...oaboleye
+Mlejsce urodzenla
+Numer.telefonu
+Topolejesldobrowolno
+2024-12-12
+Adres zamieszkenla osoby poszkodowanej
+Ullca
+ST
+Numer domu
+Kodipoczlowy.
+Nazwa panstwa
+Poda],Je6ll adros Jostlnny.nlzpolskl
+Adres do korespondencll osoby poszkodowanej
+PodalJelladreedokorespondencllJlestInynz adroszamloszkanla
+Ulica
+Numer domu
+Numerlokalu
+Kod pocztowy
+Mlelscowosc
+Nozwaipanstwa
+Poda);jesliadros:jestinnynizpolakl
+ZakladiUbezploczen Spolecznychw.inlamecle-www.zua:p
+Stronaizi6
+
+===== STRONA 2 =====
+
+EWYP
+Adres dokorespondencjl osoby,ktorazawiadamla owypadku
+Numerdomu
+Numer-lokalu
+Kod poczlowy
+Miejscowosc
+Nazwa paristwa
+4
+Informacjaowypadku
+1.Dala wypadku
+07111024
+Godzina wypadku
+dd/mm
+E
+Mlejsce wypadku
+ololicea
+3.
+Planowana godzlna rozpoczecia pracy
+6#
+A1.36
+wdniuwypadku
+wdnlu wypadku
+4.Rodzaj doznanych urazow
+URAZ PRLEDRAMIENIA -boLeSNOi
+a1090
+PoU.GRBIETOUE1
+PeTEDRAHIENIA PRAUEGO
+1#
+SRODKOUET
+DdLONE DGRANICLENIE
+7
+PALCOU.
+5.
+Szczegolowy opis okolicznoscl,mlejsca Iprzyczynwypadku
+DNIA
+09..2200
+loslacm
+00
+mnU200
+huR
+L
+amieho0
+mahegeiUfa
+SOR
+LaoroAmunomnee
+1
+pneno
+Podajszczegolowy.opls.okollcznoscl;mlojscalprzyazyniwypadku
+区
+TAK
+SOR
+m
+ZakladiUbozploczon SpolecznychwInlemaclo-wwwzug
+
+===== STRONA 3 =====
+
+EWYP
+Swiadekwypadku-3
+Imie
+.Nazwisko
+Ulica
+Numier.domu
+Numer.lokalu
+Kodpoczlowy
+Miejscowosc
+Nazwa panstwa
+Podaj,jasliadros swladka jestinny nizpolskl
+Zalaczniki
+kserokopia karty Informacynej.ze szpitala/zaswladczenla o udzleleniu pierwsze] pomocy zpogotowla ratunkowego wraz
+zwywladem
+kserokoplepostanowlenia prokuralury owszczeciu postepowanla kamego lubzawleszenlu/umorzenlu postepowanla
+kserokopla stalyslycznel karty zgonu lubzaswiadczenie lekarskie stwlerdzajace przyczynezgonu,skrocony odpls aktu
+zgonu(wprzypadkuwypadkuzeskuikiem.smiertelnym)
+dokumenty potwierdzajgce prawo do wydaniakarly wypadku osobie inne)nizposzkodowany (m lnskrocony odpis aklu
+urodzenia,skroconyodplsaktumalzenstwa,pelnomocnictwo)
+innedokumienty:
+WyPIS 2 CEIDGOSWIADCIEmIESPRHuCoWeD#Bku
+Poda]Jakio,np.dokumenly.dolyczaco udzlelono]pomocy.medyczno],umowanawykonywangusluge.faklura,rachunoknolataz,polici
+kseromandaluksmego itp.
+Do
+zobowlazule sle.doslarczycnastepujqce.dokumenty:
+dd.mm
+TT.
+2
+3
+6:
+6:
+Zaklad Ubezpleczen Spolecznych wInlemeclo-
+lrona5z6

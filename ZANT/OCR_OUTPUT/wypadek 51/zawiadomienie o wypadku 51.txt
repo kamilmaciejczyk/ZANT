@@ -1,0 +1,251 @@
+
+
+===== STRONA 1 =====
+
+ZAKLAD
+EWYP
+UBEZPIECZEN
+SPOLECZNYCH
+Wplyncloi
+2025-09-22
+al
+zawiadomienie.o,wypadku
+Instrukcjawypelnlania
+Wypelnijtenfolraren
+py
+ulegla osoba,klora:
+-prowadzi pozarolnicza dzialalnosc,
+V
+-wspolpracujeprzy prowadzeniupozarolniczejdzialalnosci,
+-wykonujepracenapodstawieumowyuaklywniajacej(jakoniania).
+Ustalimywpwczasokolicznosciiprzyczynywypadku.
+Nr
+Zanimwypelniszformularz,zapoznaj siez dolaczona donlego Informacja.
+1.WypelnijWIELKIMI LITERAM!
+JNO
+2.PolawyboruzaznaczznakiemX
+3.Wypelnijkoloremczarnymlubniebleskim(nleolowkiem)
+Daneosobyposzkodowanej
+PESEL
+Rodzaj.seriaInumerdokumenlu
+potwierdzajacegotozsamosc
+Imie
+Nazwisko
+Data urodzenia
+DP
+ww
+CSR
+Jeslipodasznamteinformacje,ulatwinamtokontaktwTwojejsprawio.
+Topolejesl dobrowolne
+Adreszamieszkaniaosobyposzkodowanej
+Ulica
+Numerdomu
+Numerlokalu
+Kod poczlowy
+Mleiscowosc
+Nazwapanslwa
+Podaj.jesliadresjestinnynlzpolski
+Adresdokorespondencji osobyposzkodowanej
+ee
+Numerdomu
+Numerlokalu
+Kod poczlowy
+Miejscowosc
+Nazwapanistwa
+Podaj.jesli adresJestinnynizpolskl
+ZakladUbezpleczenSpolecznychwinlemecie-www.zus.pl
+Strona 1z6
+
+===== STRONA 2 =====
+
+EWYP
+Podaj,jesli poszkodowanyprowadzipozarolniczadzialalnoscalbowspolpracujeprzyprowadzeniu takiej dzialalnosci
+Ulica
+Numerdomu
+Numer lokalu
+Kod pocztowy
+Miejscowosc
+Numer telefonu
+Jesllpodasznamteinformacje,ulatwinam tokontaktwTwojejsprawie.
+Topolejestdobrowolne
+Adres sprawowania opieki nad dzieckiem wwieku do lat3
+Podaj,jesliposzkodowanywykonujepracenapodstawie umowyuaktywnlajacej (jakonlania)
+Ulica
+0
+Numerlokalu
+Kod pocztowy
+Miejscowosc
+Numertelefonu
+s
+Topolejestdobrowolne
+Dane osoby,ktora zawiadamia owypadku
+Wypelnll,jesll jestesinnaosobanizposzkodowany
+PESEL
+Rodzaj,seriainumerdokamentu
+potwierdzajacegotozsamosc
+Podaj,jesli niemasznadanegonumeruPEsEL
+Infq
+μrodzenia
+1PP
+mm
+rrrr
+Numer telefonu
+Jesllpodasznamteintormacje,ulatwlnam tokoniaktwTwoje]sprawie.
+TopoleJestdobrowalne
+Adreszamieszkanlaosoby,ktorazawladamiaowypadku
+Wypelnll,jeslijestes inna osobanizposzkodowany
+erdomu
+merlokalu
+Kodpocztowy
+Miejscowosc
+Nazwapanistwa
+Podaj,jesli Twojadresjest innynizpolski
+Sktad:PoligrafaZUS/W-wa;zam.nr2488/23
+ZaktadUbezpieczen Spolecznychwinternecie-www.zus.pl
+Strona2z6
+
+===== STRONA 3 =====
+
+EWYP
+Adres dokorespondencji osoby,ktora zawiadamiaowypadku
+WypelnlijeslljestesInnaosobanizposzkodowanyITwdjadresdokorespondencjljeslinnynizadreszamieszkanla
+Ulica
+Numerdomu
+Numerlokalu
+Kodpocztowy
+Miejscowosc
+Nazwapanstwa
+Podal,Jesli TwojadresJest Innynizpolskl
+Informacjaowypadku
+1.Data wypadku
+13092025
+Godzina wypadku
+w/pp
+Miejscewypadku
+3.
+Planowanagodzinarozpoczeciapracy
+9
+Planowanagodzinazakoriczeniapracy
+QokV
+wdniuwypadku
+4.Rodzaj doznanych urazow
+QWICHNIECIR
+UO
+Szczegolowyopisokolicznosci,mleleneiynzyrwhd
+dg
+mgid
+p
+v
+7
+ae
+m
+5L
+og
+vwaupcdem
+Sis
+SC
+aeae
+wsne
+i
+SM
+Podajszczegolowyoplsokblicznosci,mlejscaIprzyczynwypadku
+TAK
+ds
+ZakladUbezpleczenSpolecznychwinlernecie-www.zus.pl
+Strona3z6
+
+===== STRONA 4 =====
+
+EWYP
+7.Organ,ktoryprowadzilpostepowaniewsprawiewypadku
+8.Czywypadekpowstal podczasobslugimaszyn,urzadzen：
+TAK
+NIE
+JesliTAKpodaczymaszynaurzadzeniebylysprawneiuzytkowanezgodniezasadamiproducentaiwjakisposob
+NIE
+TAK
+NIE
+Daneswiadkowwypadku
+Swiadek wypadku- 1
+Imie
+Nazwisko
+Ullca
+Numerdomu
+Numerlokalu
+Kod pocztowy
+Miejscowosc
+Nazwapanstwa
+Podaj,jesfi adres swiadkajestlnnynizpolski
+Swiadekwypadku-2
+Imie
+Nazwisko
+Ulica
+Numerdomu
+Numer lokalu
+Kodpocztowy
+MieJscowosc
+Nazwapanstwa
+Podal,jesli adres swiadka Jestinnynizpolski
+Skad:PoligrafiaZUS/W-we;zam.nr24B8/23
+ZakladUbezpleczenSpolecznychwinternecie-www.zus.pl
+Strona4z6
+
+===== STRONA 5 =====
+
+EWYP
+Swiadekwypadku-3
+Imie
+Nazwisko
+Ulica
+Numerdomu
+Numerlokalu
+Kodpoczlowy
+Miejscowosc
+Nazwapansiwa
+Podaj,jesliadresswladkajeslinnynlzpolski
+alaczniki
+kserokopiakarty informacyinel ze szpitala/zaswladczeniaoudzielenlupierwszej pomocyzpogotowia ralunkowego wraz
+zwywiadem
+kserokopia postanowieniaprokuratury owszczeciuposlepowania karnego lubzawieszeniu/umorzeniu poslepowania
+kserokopia stalystycznejkartyzgonu lubzaswiadczenie lekarskie stwierdzajaceprzyczynezgonu,skroconyodpis aklu
+zgonu(wprzypadkuwypadkuzeskutkiemsmiertelnym)
+urodzenia,skroconyodpisaktumalzenstwa,pelnomocnictwo)
+inne dokumenly:
+kseromandalukamegoilp.
+Do
+zobowiazujesiedoslarczycnaslepujacedokumenty:
+pp
+mm
+rrr
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+ZakladUbezpleczenSpolacznych wIntemecie-www.zus.pl
+Strona5z6
+
+===== STRONA 6 =====
+
+EWYP
+Sposobodbioruodpowiedzi
+wplacowce ZUS (osobiscie lub
+poczta na adres do korespondencji
+namoimkoncienaPlatformie
+przezosobeupowazniona)
+wskazanywewniosku
+UslugElektronicznych(PuEZus)
+Oswiadczam,ze danezawarte wzawiadomieniu podaje zgodnie zprawda,co potwierdzam zlozonym podpisem.
+Data
+A6092025
+ddmm
+JCzytelnypodpis
+Informacje,oktorychmowa w art.13ust.112RozporzadzenlaParlamentuEuropejsklegoi Rady(UE)2016/679z dnia27kwletnia2016r.
+wsprawieochrony os6bflzycznychwzwlazkuzprzetwarzanlemdanych osobowychIwsprawie swobodnegoprzeplywu takich danych
+orazuchylenia dyrektywy95/46/WE(RoDO),sa dostepne w central lub terenowychjednostkachorganizacyjnychZUSoraz na stronie
+internetowe)ZuSpodadresem:https://bip.zus.pl/rodo
+Sklad:Poligrafi Z
+ZakladUbezpieczenSpotecznychwinternecie-www.zus.pl
+Strona626

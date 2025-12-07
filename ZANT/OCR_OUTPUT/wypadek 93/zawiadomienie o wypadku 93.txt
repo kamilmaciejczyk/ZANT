@@ -1,0 +1,290 @@
+
+
+===== STRONA 1 =====
+
+ZUS
+ZAKEAD
+EWYP
+UBEZPIECZEN
+SPOEECZNYCH
+Zawiadomienie owypadku
+Instrukcja wypelnianla
+Wypelnij tenformularziprzekazgo donas,jesll wypadkowlprzypracy/wypadkowiwdrodze dopracylubzpracy
+uleglaosoba,ktora:
+-prowadzipozarolniczadzialalnosc,
+-wspolpracujeprzyprowadzeniupozarolniczejdzialalnosci,
+wykonujepracenapodstawieumowyuaktywniajacej (jakoniania).
+Ustalimywowczasokollcznosci lprzyczynywypadku.
+Zanimwypelnlszformularz,zapoznaj siez dolaczona do niego Infi
+1.WypelnijWIELKIMI LITERAMI
+2.PolawyboruzaznaczznakiemX
+3.Wypelnij kolorem czarnym lub niebieskim (nieolowkiem)
+Dane osobyposzkodowanej
+PESEL
+Rodzaj,seriainumer dokumentu
+potwierdzajacego tozsamosc
+Imle
+Nazwisko
+Dala urodzenia
+Miejsceurodzenia
+Numertelefonu
+Alnuniann1saIaindn
+Adreszamieszkania osobyposzkodowanej
+Ulica
+Numerdomu
+Kod pocztowy
+Nazwapanstwa
+Podaj,Jeslladresjestlnnynipolski
+Adres ostatniego miejscazamieszkaniawPolsce/adresmiejscapobytu
+Podaj adres osiatnlego mjejsca zamleszkanla wPolsce,jesll obecnlemieszkaszza granlca,ale wczesniejmleszkaleswPolsce.Jesll nle masz
+adresu zamleszkanla,podaj adresmlejsca pobylu lubadres ostalniegomlejsca zamieszkanla wPolsce
+Ulica
+Numerdomu
+Numer lokalu
+Kod pocztowy
+Mlejscowosc
+Zaklad Ubezpleczen Spolecznychw Internecle-www.zus.pl
+Strona1z6
+
+===== STRONA 2 =====
+
+EWYP
+Adres do korespondencji osobyposzkodowanej
+Podaj,jesliadresdokorespondencjl jestinnynlz adreszamieszkania/adresostatniego mleiscazamleszkanla wPolsce/adres miejscapobylu
+adres
+posterestante
+skryika pocztowa
+przegrodkapocztowa
+Jesli jako sposobkorespondencji wybierzesz:
+-poste restante,podaj jedyniekodpocztowy plac6wki pocztowel orazw polu Miejscowosc wpisz nazwe te} plac6wki
+skrytkepocztowa/przegrodkepocztowa,wpoluNumer domuwpisznumerskrytki/przegrodki,wpoluKodpocztowy wpisz
+kodpocztowy placowki orazwpoluMiejscowoscwpisznazwe placowki pocztowej.
+Ulica
+Numer domu
+Numerlokalu
+Kod pocztowy
+Miejscowosc
+Nazwa panistwa
+Podaj.jesliTw6j adresjestInnynlzpolski
+Adres miejsca prowadzeniapozarolniczej dzialalnosci
+Podaj,jesliposzkodowanyprowadzipozarolniczadzialalnosc albowspolpracujeprzyprowadzenlu takiej dzialalnosci
+Ulica
+Numerdomu
+Kod pocztowy
+Numer telefonu
+Adressprawowania opieki nad dzieckiem wwieku do lat3
+Podaj,jesli poszkodowanywykonujepracenapodstawieumowyuaktywnlajacej (jakonlania)
+Ulica
+Numer domu
+Numerlokalu
+Kod pocztowy
+Miejscowost
+Numertelefonu
+Jesllipodaszteinfomacje.ulatwinamtokontaktwTwojelsprawie.
+Topolejestdobrowolne
+Daneosoby,ktorazawiadamiaowypadku
+Wypelnij,jesll jestes inna osobanizposzkodowany
+PESEL
+Rodzaj,seriaInumerdokumentu
+potwierdzajacegotozsamosc
+Podaj,Jesil niemasznadanego numeruPESEL
+Imie
+Nazwisko
+Sklad:PollgrafaZUsw-wa;zam.nr3069/24(E)ZakladUbezpieczenSpolecznychwinlernecie-www.zus.pl
+Strona2z6
+
+===== STRONA 3 =====
+
+EWYP
+Dala urodzenla
+1PP
+mm
+Jesllpodaszteinformacje.ulatwinamtokontaktwTwole)sprawie.
+Topolejestdobrowolne
+Adreszamieszkaniaosoby,ktorazawiadamiaowypadku
+Wypelnij.jesliJesles inna osoba nizposzkodowany
+Ullca
+Numerdomu
+Numerlokalu
+Kod pocztowy
+Mlejscowost
+Nazwa panistwa
+Poda),jesli Tw6]adresjestInnynizpolski
+Adres ostatniego miejsca zamieszkania w Polsce/ adresmiejsca pobytu osoby,ktora zawiadamla owypadku
+Wypelnijjeslijeslesinna osobanizposzkodowany.Podaj adresostalniegomiejscazamieszkaniawPolsce,jesliobecniemieszkaszzagranica
+ale wczesniejmieszkaleswPolsce.Jesllniemasz adresuzamieszkania,podaj adresmiejsca pobylu fub adres oslatniegomiejsca zamieszkania
+wPolsce
+Ulica
+Numer domu
+Numerlokalu
+Kodpocztowy
+Miejscowosc
+Adresdokorespondencji osoby,ktora zawiadamia owypadku
+Wypelnij,jeslijesles inna osobanizposzkodowany ITwoj adres do korespondencjiJestInnynizadreszamieszkania/adres oslatniego miejsca
+zamleszkaniawPolsce/adresmiejscapobytu
+adres
+poste restante
+skrytkapocztowa
+przegrodkapoczlowa
+Jeslijakosposobkorespondencji wybierzesz:
+skrytkepoczlowa/przegrddkepocztowa,wpoluNumer domuwpisznumerskrytkiprzegrodkiwpoluKodpoczlowywpis
+Ulica
+Numerlokalu
+Kod pocztowy
+Miejscowost
+Nazwapanstwa
+Podaj,Jesli Twd]adresJestinnynlzpoiskl
+Informacja owypadku
+1.Data wypadku
+1
+2
+0
+3
+2
+o
+2
+Godzina wypadku
+OKOLO11:00
+PP
+1
+mm
+rrrr
+2.
+Miejsce wypadku
+3.
+Planowana godzina rozpoczecia pracy
+Planowanagodzinazakonczenlapracy
+8:00
+16:00
+wdniuwypadku
+wdniuwypadku
+Skad:PollgrallaZus/W-wazam.nr3069/24(E)ZakladUbezpleczanSpolecznychwinternecie-www.zus.pl
+Strona3z6
+
+===== STRONA 4 =====
+
+EWYP
+4.Rodzaj doznanych uraz6w
+URAZPRAWEGOLOKCIAIROZCIECIETWARZY
+5.Szczegolowy opisokolicznosci,miejsca1przyczynwypadku
+gospodarczym.Pracebylywykonywanewpomieszczeniu owysokosci 2,70m.Zuwagi nawysokoscpomieszczenia do
+pracywykorzystalem typowekozlymurarskieowysokosci 0,8m,nakozlypolozylemdeskigrubosci4cmina tak
+przygotowanypodestpolozylemkalfas(pojemnikna zaprawe tynkarska).Pozrobieniu zaprawy tynkarskiejijejnalozeniu
+dokalfasu przystapilem do nazucania tynkuna sufit.W miarepostepupracprzestawialem podestkontynuowalem
+bol wprawejrecewokolicy lokcia.Zobaczylemrowniezkrewlecacaztwarzy.Podnioslemsieowlasnychsilachiudatem
+s
+)soba zarejestrowanana dzialainosci gospodarczej.
+zawiozl mniedo
+szpitalaw
+oodo
+Podajszczegolowyoplsokolicznosci,miejscaiprzyczynwypadku
+6.
+Czybyla udzielona pierwszapomocmedyczna:
+TAK
+NIE
+Szpital Miejski w
+oddziatSOR
+JesliTAK,podajnazweiadresplacowkisluzbyzdrowia
+7.Organ,kt6ryprowadzilpostepowaniewsprawiewypadku
+Niebylozgtaszane organom zewnetrznym
+ddesmdd
+TAK
+NIE
+Narzedzia murarskie(kielnia)nie wymagaja certyfikatow,Nie znalaztem instrukcji
+obslugikielni.Jestmiznana zasada postugiwania siekielnia murarska,posiadam
+umiejetnosci postugiwania siekielnia nabyta popoprzez lata wykonywania zawodu
+murarza/tynkarza.
+Jesli TAKpodal czymaszyna,urzadzeniebylysprawneiuzytkowanezgodnlezzasadaml producentawjaki sposob
+9.Czy maszyna,urzadzenie posiada atest deklaracje zgodnoscl:
+TAK
+NIE
+10.Czy maszyna,urzadzeniezostata wpisanedo ewidencji srodkow trwalych:
+TAK
+NIE
+Skiad:PoligranlaZUsw-wa;zam.nr3069/24(E)ZakladUbezpleczef Spolecznych wInternecie-www.zus.pl
+Strona4z6
+
+===== STRONA 5 =====
+
+EWYP
+DaneSwiadkowwypadku
+Swladek wypadku-1
+Imie
+Brakbezposredniegoswiadka zdarzenla
+Nazwisko
+Ulica
+Numerdomu
+Numerlokalu
+Kod poczlowy
+Miejscowosc
+Nazwa panstwa
+Podal,jesli adresswiadka jest innynlzpolski
+Swiadekwypadku-2
+Imle
+Nazwisko
+Ullca
+Numerdomu
+Numer lokalu
+Kod poczlowy
+Mlejscowose
+Nazwapanistwa
+Podal,jesliadresswiadka jest innynizpoiski
+Swiadek wypadku-3
+Imle
+Nazwisko
+Ulica
+Numerdomu
+Numerlokalu
+Kod pocztowy
+Miejscowosc
+Nazwaparistwa
+Podaj.jeslladresswladkajestinnynizpolski
+Zalaczniki
+zwywiadem
+kserokopia postanowienia prokuralury owszczeciupostepowania karnego lubzawieszeniu/umorzeniupostepowania
+kserokopia statystycznej karty zgonu lubzaswiadczenle lekarskle stwlerdzajace przyczyne zgonu,skrocony odpis aklu
+zgonu(wprzypadkuwypadkuzeskutkiemsmiertelnym)
+
+===== STRONA 6 =====
+
+EWYP.
+dokumentypotwierdzajaceprawo do wydaniakarty wypadku osobieinne]nlzposzkodowany(m.in.skrocony odpis aktu
+urodzenia,skroconyodpis aktumalzenstwa,pelnomocnictwo)
+inne dokumenty:
+1) Karta wypadku-sporzadzona na wniosek poszkodowanegoprzezspecjaliste BHP
+dzialalnosc gospodarcza zgloszona do ubezpleczeniazkodem 059000 tytur ubezpieczenia spolecznego art.3ust.3
+pkt8（Dz.U.z2009r.Nr167,poz1322,zp6zn.zm.)
+Podaj jakie,np.dakumenty dotyczaceudzielonejpomocymedycznejumowanawykonywana usluge.faktura,rachunek,nolalkazpolicji
+ksero mandalukarnego itp.
+Do
+zobowiazuje sle dostarczycnastepujace dokumenty:
+PP
+mm
+山
+7
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+Sposob odbioruodpowiedzi
+wplacowceZUs(osobiscie lub
+poczta na adres
+na moimkoncie naPlatformle
+wskazanywe wniosku
+Uslug Elektronicznych (PUE ZUS)
+Oswiadczam,ze danezawarte wzawiadomieniu podaje zgodnie z prawda,co potwierdzam zlozonym podpisem.
+Data
+2
+。。3
+22
+5
+rrrr
+Informacje,okt6rych mowa wart.13 ust.1i2 Rozporzadzenia Parlamentu Europejskiego1 Rady (UE)2016/679z dnla 27kwletnia 2016 r.
+w sprawle ochrony osob fizycznych wzwlazku zprzetwarzanlem danych osobowych I wsprawle swobodnego przeplywu takich danych
+oraz uchylenla dyrektywy 95/46/WE(RODO), sa dostepne wcentrall lub terenowych Jednostkach organlzacylnych ZuS oraz na stronle
+internetowejZuSpodadresem:htlps://bip.zus.pl/rodo
+Skad:Polgralazus/W-wa;zam.nr3069/24（E)ZakiadUbezpleczen Spotecznychwinlemecle-www.zus.pl
+Strona6z6

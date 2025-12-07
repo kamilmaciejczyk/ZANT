@@ -1,0 +1,266 @@
+
+
+===== STRONA 1 =====
+
+CER-
+NIEZWERYFIKOWANO
+EWYP
+ZAKEAD
+USEZPIECZEN
+SPOEECZINICH
+ZAWIADOMIENIEOWYPADKU
+Instrukcja wypelnianla
+uleglaosoba,klora:
+—prowadzi pozarolnicza dzialalnosc gospodarcza,
+11..!
+wspolpracujeprzyprowadzeniupozarolniczejdzialalnosci.
+200-2025
+ALA
+—wykonujepracenapodstawieumowyuaklywniajacel (jakoniania).
+Ustalimywowczasokolicznosciiprzyczynywypadku.
+Zanimwypelnisz formularz,zapoznaj sie z dolaczona do niego Informacja.
+1.WypeInijWIELKIMI LITERAMI
+2.Wypeinij kolorem czarnyni lub niebiesklim (nie olowkiem)
+3.PolawyboruzaznaczznakiemX
+Dane osoby poszkodowanej
+PESEL
+Rodzaj.seriainumerdokumentu
+DOWdD OSOBISTY
+potwierdzajacego lozsamosc
+Jeslinie ma nunieruPESEL.poda] serleInumerInnego dokunenlu
+Imie
+Nazwisko
+Plec
+Dala urodzenia
+(K-kobleta/M-mezczyzna)
+PP
+EE
+rrrr
+Miajsce urodzenia
+Adreszamleszkania
+Ulica
+Numerlokalu
+Numerdomu
+MieJscowosc
+Kod poczlowy
+Gmina/dzielnica
+Oi
+POLSKA
+wa
+Podaj,Jeslladrqc iaellnoynlznolskl
+el
+Adresuunuicopy
+Ulica
+WptywdoSER-1
+Numer lokalu
+Numerdomu
+2025 -05-2. 9
+Mlejscowosc
+Kodpoczlowy
+Nie figurujewewideneji
+sarrtalan-rentwel
+Gmina/dzielnica
+POLSKA
+Nazwa panstwa
+Podal.JeslladresJestlnnynlzpolski
+Strona1z6
+ZakladUbezpieczenSpolecznychwInlernecle-www.zus.pl
+
+===== STRONA 2 =====
+
+EWYP
+Adres miejsca prowadzenia pozarolniczej dzialalnosci
+Podal,jesllposzkodowanyprowadzlalbowspdlpracujeprzyprowadzeniupozarolnicze|dzialainosci
+Ulica
+Numerdomu
+Numer lokalu
+Kod pocztowy
+Miejscowosc
+Gmina/ dzielnica
+Numer telefonu
+POLSKA
+Podajnumerlelefonu-toulatwinamkonlaklwtejsprawie
+Adressprawowania oplekl naddzleckiem wwieku dolat3
+Podaj,jesliposzkodowanywykonujepracenapodstawle unowy uaklywniajacej(jakoniania)
+Ullca
+Numerdomu
+Numer lokalu
+Kodpocztowy
+Miejscowosc
+Gmina/dzlelnica
+Numertelefonu
+Podajnumerlelefonu-loulatwinamkonlaktwtejsprawie
+Dane osoby,ktora zawiadamia o wypadku
+Wypelnij Jeslljesles inna osoba nizposzkodowany
+PESEL
+Rodzaj,seriainumer dokumentu
+potwierdzajacego tozsamosc
+JesliniemasznumeruPESEL,podajserieinumerinnegodokunientu
+Imie
+Nazwisko
+Data urodzenia
+Plec
+(K-kobieta/M-mezczyzna)
+pp
+mm
+rrrr
+Numer telefonu
+Podajnumertelefonu-loulatwinankontaktwte]sprawle
+Adres zamieszkania
+Wypelnij jeslljeslesinna osobanizposzkodowany
+Ulica
+Numer domu
+Numerlokalu
+Kodpocztawy
+Miejscowost
+Gmina/dzielnica
+Nazwa panstwa
+Podal,jesll Twdjadresjesl Innynlzpoiski
+ZakladUbezpleczenSpolecznychwInlernecle-www.zus.pt
+Strona2z6
+
+===== STRONA 3 =====
+
+EWYP
+Adros dokorespondencjl
+WypelnijjeslijeslesInnaosobanlzposzkodowany
+Ulica
+Nuner lokalu
+Numerdomu
+Miejscowosc
+Kod poczlowy
+Gmina/dzlelnica
+Nazwapanstwa
+Podal,jesllTwd)adresJeslinnynlzpolskl
+Informacjaowypadku
+Λ5.00
+A605202 5
+Godzina wypadku
+1.Data wypadku
+w/pp
+Miejsce wypadku
+Planowana godzina zakonczenla pracy
+16.00
+3.
+Planowanagodzinarozpoczeciapracy
+8.00
+wdniuwypadku
+wdniuwypadku
+RAMIENNEGO
+4.
+Rodza)doznanych urazow
+ZLdLHNiGCiESTAWu
+S.430
+S2.2AANIENASADYBL1SZE
+KOSCIRAMIENNE?
+5.
+Szczegolowy opisokolicznosci,nejscaiprzyczynwypadku
+ISYSIADASAC2AUTA CiEAROWEGO NABA21E
+FIRMY,UPADEEM1 u5ZKOD2IEEA LEWY BARK
+TAK
+6.
+Czybylaudzielonaplerwszapomocmedyczna:
+JeliTAKpodalnazweiadrespiacowki sluzbyzdrowla
+2
+Strona3z6
+ZakladUbezpieczenSpolecznychwlnlernecle-www.zus.pl
+
+===== STRONA 4 =====
+
+EWYP
+7.Organ,ktbryprowadzlpostepowaniewsprawiewypadku
+TAK
+NIE
+9.Czymaszyna,urzadzenie posiada ates/ deklaracje zgodnosci:
+NIE
+10.Czymaszyna,urzadzenie zostalo wpisane do ewidencji srodkow trwalych:
+TAK
+NIE
+Daneswiadkowwypadku
+Swladekwypadku-1
+Imie
+Nazwisko
+Ulica
+Numerdomu
+Numer lokalu
+Kod pocztowy
+Miejscowosc
+Nazwapanistwa
+r5T00
+Podai,Jesliadresswiadkajestinnynizpoiski
+Imie
+Nazwisko
+Ulica
+Numerdomu
+Numer lokalu
+Kod pocztowy
+Miejscowosc
+Nazwapanstwa
+POLSVA
+Podai,jesliadresswiadka jestinnynipolski
+ZakladUbezpieczenSpotecznychwinternecie-www.zus.pl
+Strona4z6
+
+===== STRONA 5 =====
+
+EWYP
+Swiadekwypadku-3
+Imia
+Nazwisk.o
+Ulica
+Numerlokalu
+Numer donu
+Miejscowosc
+Kodpoczlowy
+Nazwapaiistwa
+Podal.JeslladresswladkaJesi lnnynizpolskl
+Zalaczniki
+kserokopiakarlyinformacyinelzeszpilala/zaswiadczenlaoudzieleniuplerwszejpomocyzpogolowiaratunkowego wraz
+zwywiadem
+kserokopia poslanowienia prokuratury owszczeciupostepowaniakarnego lubzawleszeniu/unorzeniupostepowania
+kserokopia slalystycznejkarlyzgonulubzaswiadczenielekarskie stwierdzajace przyczynezgonu,skrocony odplsaklu
+zgonu(wprzypadkuwypadkuzeskulkiemsniertelnym)
+dokumenty polwierdzalace prawo do wydania karly wypadku osoble Inne)nlzposzkodowany(m.in.skroconyodpis aklu
+urodzenia,skroconyodpisaklumalzenstwa,pelnomocnictwo)
+Inne dokumenty:
+KneroopiafalcturzauMuqiKtonebilyyukonaepoiardeuwcuiu
+wyaedku
+kseromandalukarnego,llp.
+01
+zobowiazujesle doslarczycnaslepujace dokumenty
+Do
+rrrr
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+Strona5z6
+ZakladUbezpleczenSpolecznychwInlernecle-www.zus,pl
+
+===== STRONA 6 =====
+
+EWYP
+Sposob odbloru odpowiedzl
+wplacowce Zus(osobiscle lub
+pocztanaadresdokorespondencjil
+przezosobe upowazniona)
+na moimkoncle naPlatformie
+wskazanywewniosku
+UslugElektronicznych(PuEZUs)
+Swladomy odpowiedzialnoscl karnej za skladanie nieprawdziwych zeznan,oswiadczam,ze dane zawarte
+wzawiadomieniupodatemzgodnie zprawda,copotwierdzam zlozonym podpisem.
+Dala
+24052025
+lpp
+山
+Czyleinypodpis
+Informacle,oktorychmowa wart.13ust.112RozporzadzeniaParlamenluEuropejskiego1Rady(UE)2016/679zdnia27kwielnia2016r.
+w sprawieochronyosobfizycznychwzwlazkuzprzelwarzaniem danychosobowychiwsprawieswobodnegoprzeplywu taklch danych
+orazuchylenla dyrektywy 95/46/WE(RoDo),sa doslepnewcentralilub terenowych jednos(kachorganizacyjnychZUSoraz na slronie
+Internetowe)ZuSpodadresem:http://blp.zus.plrodo/rodo-klauzule-informacylne
+Sklad:PoligrafiaZUSW-wa:zam.nr2741/18
+ZakladUbezpieczenSpolecznychwinlernecie-www,zus.pl
+Strona6z6

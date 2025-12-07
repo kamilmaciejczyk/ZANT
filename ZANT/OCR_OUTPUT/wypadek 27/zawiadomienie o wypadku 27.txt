@@ -1,0 +1,235 @@
+
+
+===== STRONA 1 =====
+
+ZUS
+ZAKLAD
+UGEZPIECZEN
+SFOLECZNYCH
+EWYP
+ZAWIADOMIENIEOWYPADKU
+Instrukeja wypoinlanla
+WypelnlllenformularzIprokagodonasJellwypadkowiprzypracy..
+ulegla osoba,klbra:
+-prowadzl pozarolniczq dzialalnotcgospodarczq,
+wspolpracujeprzy prowadzenlupozarolnlczo]dzlalalnoscl
+Uslalimywawczasokollcznoscllprzyczynywypadku.
+Zanim wypolniszformularz,zopozna] slqzdolqczonq donlogo lnfor
+1.WypeInlWIELKIMILITERAMI
+2.Wypolnll koloromczamymlubniobloskim(nlaolowkiem)
+3.Pola wyboru zaznocz znaklem X
+Dano osoby poezkodowanoj
+PESEL
+Rodza],soraInumerdokumonlu
+potwlordzojjcega to2somosc
+Imig
+Nazwisko
+Dnta urodzenia
+Pp
+mm
+Adroszamleszkanlo osobyposzkodowan
+Ulica
+m
+Osyeano
+Numerlokalu
+2325 -03-
+MloJscowosc
+Gmina/dzleinica
+Nazwoponshva
+Podal.losll odraelostlnnynlpalskl
+Adres do korospondoncjl osoby poszkodowano]
+uulpoleo
+Numar lokalu
+Kodipgczlovy
+MloJscowosc
+i
+：
+
+===== STRONA 2 =====
+
+EWYP
+Adresmiojsca prowadzenla pozarolniczo) dzlalalnosci
+Podasdywdparcdlawrajpywdniud
+Ulica
+Numerdomu
+Numerlokalu
+Kodpocziowy
+Miojscowosc
+Gmina/dzlelnica
+Numartelefonu
+Jesipodasznamtinlomacje.ulahdnam lokontakt wTwojejsprawio.
+TopoleJast dobrowoina
+Adressprawowanla opleki nad dzlecklemwwleku do lat3
+Podaljastlposzkodowanywykonujepracqnapodstawleumowyuaktywnlajaco](akoniania)
+ullica
+Numerdomu
+Numerlokalu
+Kodpocztowy
+Miejscowosc
+Gmins/dzielnica
+Numer telefonu
+JoslpodasznomlqInlormaclo.ulanam lokontakl wTwojolsprawio,
+TopolaJostdobrowolne
+Dana osoby,ktora zawiadamia o wypadku
+PESEL
+Rodza],serlaInumerdokumentu
+potwlerdzajacega lozsamo5c
+Podal,jotlinie masz nadanego numoru PESEL
+Imie
+Nazwisko
+Data urodzenla
+PP
+mm
+Numartelefonu
+Adreszamleszkanla osoby,ktora zawladamla owypadku
+WypoinJellJasta6lnngosobqniposzkodowany
+Ullce
+Numerdomu
+Numorlokalu
+Kodpoczlowy
+MleJscowosc
+Gmina/dzieinica
+Nazwa pahstwa
+ZekladUbazploczanSpolocznychwinlamoclo-www.zus.pl
+
+===== STRONA 3 =====
+
+EWYP
+Adrosdokorespondoncliosoby,ktorazawladamlaowypadku
+Wyponijstoblosodownyddokorpondonnyndrzmlkn
+Numerdomu
+Numorlokalu
+Mlojscowoso
+Gmina/dzioinlca
+tnformacjaowypadku
+Godzinawypadku
+wlpp
+E
+2,Mlojsco wypadku
+JEONOSTKAWOTSOW
+3.
+Planowanagodzinarozpoczqcia pracy
+:00
+Planowonagodzlna zakonczonia pracy
+wdnluwypadku
+wdnluwypadku
+4.Rodza) daznanych urazov
+AMPUTACJA
+6lEugosci
+PALICKA
+PACCA
+()
+Szczegolowyopisakolicznosci,mlejscalprzyczynwypadku
+NOTSLOWE]:LL.PACENLONUWHEEMWAZZINNHIZECENOBIOQCAmi.
+DNi25.O.2SROZPOCInM6WOJPeALEOGODZIUEgOOPEZCTOWANANAeTEOLI
+CAESGO SPeZETU DOWUEONUWANIA PZAC.CZESC
+NmEowejSZyNwymterotot1mxaBom.srumBt.
+2NICH ZAJDOWnEnSE
+UMIGJSCOUIONAWKONiENECECUOWLUNHMETdeY USADOWIONY JGTTNATEENk
+WAJOWAEYEeSTCeNNEOSYtoCEEdUNiESuLoWHtYLBEO1g
+GNTENEONUNONENCE CEOI POOHAEM VOLSJNENAZLEOLA EUEGOM VIEC
+SLOZHNI(METALONA BLACIANZNOCNIONCONTOWNICAHI STANDWIOCAZAHENIECIC
+XaZUNOTUENNANYCNECDGEY)OPADbOJA2OETOWAEESEE
+SEECNEMAH YALNEYO RALCN
+Podazczogolowyoplaokolcznosdmlajsca|przyczynwypodku
+6.Czy byla udzlolonaplarwsza pomocmodycznn:
+NIE
+JadTAK,podenawgIadrosplsodwd elutbyzdrowia
+Zaklad UbazplaczonSpolacznychwIntomocla-
+
+===== STRONA 4 =====
+
+EWYP
+Organrywdla
+PUEDOTYCZY
+B
+TAK
+、
+2
+JesTAKpodacymazazdzonlebyypawouyowanegodnizasdamlproducenasosob
+9.Czymaszyma,urzedzenle poslada atesV dekaraclozgodnosd:
+TAK.
+NIE
+10.Czymeszyna,urzqdzonlozostolowpisane do ewidencllsrodkow trwalych:
+TAK
+NIE
+Dane swladkowwypadku
+Swladek wypadku-1
+mlo
+Nazwisko
+Ullca
+Numerdomu
+Numer lokalu
+Kodpoczlowy
+Mlelscowosc
+Nazwa panstwa
+Poda]jelladres swlodka jeslinnynlpoiskl
+Swladekwypadku-2
+Ime
+Nazwisko
+Ulica
+Numerdomu
+Numar lokalu
+Kod pocztowy
+Miejscowobc
+Nazwa panstwa
+d
+
+===== STRONA 5 =====
+
+EWYP
+Sivladekwypadku-3
+Imlq
+Nazvisko
+Ullica
+Numordomu
+Numorlokalu
+Kod poczlovy
+Miojgcowosc
+Nazwa panstwa
+Zalqcznlkl
+kserokoplakortyInlomacyjnolzoszpltala/zoswladczeniaoudzlcloniuplenvszo)pomocyzpogolowlaralunkowogowraz
+zwyvadam
+ksorakopla postanowlonio prokuralury owszczqciu poslqpowanla komogo lubzawoszenlwumorzonluposiopowanla
+ksorokopla stalystycznolkartyzgonulubzoswadczonio lokarskloswlrdzalgcoprzyczyngzgonu,skrdconyodplsoktu
+zgonu(wprzypadkwwypadkuzoakulkiom smlertolnym)
+dokumonly pohvlardzajqco prawo do wydanla karty wypadku osobio lnne] nlzposzkodowany(m.in.skrocony odplsaktu
+urodzenla,6krocony odpls oktu mallonstwa,palnomocnlctwo)
+inno dokumonty:
+KOPIAUNOWYOSUIAOCEEIGCSbUGPOTWIEROONPORYGINRLEm)
+Podaadokmnytyczqcolnpmocyodc]ownwykonywanqakahoknool
+ksoromandatukamego llp.
+5702151021
+Do
+zobovlazujgsiqdastarczycnastopujacu dokumonty:
+/pp
+1.
+24v2510
+ZEZNAPIA SO(nOLO
+B+1P
+3.
+5.
+8.
+7.
+ZaldadUbazplaczenSpolocznychwInlarnoclo
+
+===== STRONA 6 =====
+
+EWYP
+Sposob odbloru odpowledzl
+w plechvco Zus (osobtscolub
+pocztana adresdokorespondencgi
+namolm koncie na Platfomlo
+przezosobeupowaznlonq)
+wskezany we wnlosku.
+UshugEloktronlcznych(PUEZUS)
+Swiadomydpwedlnoskmzasadanlnlprawdlwychzeznanwladezam,edanezawart
+wzawiadomlenlu podalem zgodnlez prawda,co potwlerdzam zlozonym podplsem.
+0403120215
+TTT
+Czytoinypodpls
+IntarnolowelzuSpoddrosem:hltpsJ/bip.zus.plrodo
+Sidad:Pop
+aZUSMmtzamne1702/21
+Zaklad UbazpleczonSpolecznychwInlomocle-www.xus.pl
+Strona6z6

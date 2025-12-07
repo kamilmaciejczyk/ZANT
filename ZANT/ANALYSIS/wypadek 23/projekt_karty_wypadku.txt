@@ -1,0 +1,33 @@
+KARTA WYPADKU – PROJEKT
+----------------------------------------
+
+A. Dane identyfikacyjne zdarzenia
+1. Data zdarzenia: 07.08.2025
+2. Godzina zdarzenia: między godz. 12:00 a 12:30, 12:05
+3. Miejsce zdarzenia: P, r, z, e, d,  , b, i, u, r, e, m,  , r, a, c, h, u, n, k, o, w, y, m,  , w,  , m, i, e, j, s, c, o, w, o, ś, c, i,  , [, a, n, o, n, y, m, o, u, s,  , l, o, c, a, t, i, o, n, ], ,,  , p, r, z, y,  , w, y, s, o, k, i, m,  , k, r, a, w, ę, ż, n, i, k, u, .
+
+B. Dane poszkodowanego
+1. Dane poszkodowanego (zanonimizowane): Osoba samozatrudniona, prowadząca działalność gospodarczą w zakresie audytorstwa gospodarsw hodowli zwierzęcej, na podstawie umowy rocznej z firmą na dokonywanie audytów. W zawiadomieniu oznaczona jako [OSOBA_4].
+
+C. Okoliczności i przyczyny wypadku
+1. Opis zdarzenia: Poszkodowany, po zakończeniu audytów, udał się do biura rachunkowego w celu dostarczenia dokumentacji księgowej. Wchodząc na wysoki krawężnik przed biurem, stracił/a równowagę, źle postawił/a lewą nogę, co spowodowało 'strzelenie' w kostce. Poszkodowany wezwał/a pomoc z biura, a następnie samodzielnie udał/a się do szpitala na izbę przyjęć.
+2. Dane świadków: [OSOBA_25] (Świadek wypadku-1). Adres: [OSOBA_26], [OSOBA_5], [OSOBA_27]. Brak opisu, co widział/a., [OSOBA_15] (Świadek wypadku-2). Adres: [OSOBA_7], [OSOBA_9], [OSOBA_6]. Brak opisu, co widział/a., [OSOBA_15] (Świadek wypadku-3). Adres: [OSOBA_28], [OSOBA_29]. Brak opisu, co widział/a. Należy zweryfikować, czy to ta sama osoba co Świadek 2.
+
+D. Skutki wypadku
+1. Rodzaj urazu: Powierzchowny uraz stawu skokowego i stopy lewej nogi ('strzelenie w kostce nogi lewej').
+2. Dokumenty medyczne: RTG (wykonane w szpitalu), kserokopia karty informacyjnej z zaszpitala/zaświadczenia o udzieleniu pierwszej pomocy z pogotowia ratunkowego wraz z wywiadem (do dostarczenia)
+
+E. Kwalifikacja prawna zdarzenia
+- Nagłość zdarzenia: nagłe (uzasadnienie: Zdarzenie miało charakter nagły – poszkodowany 'poczulem strzelenie w kostce' w wyniku utraty równowagi i złego postawienia nogi. Uraz nastąpił w konkretnym, krótkim momencie.)
+- Przyczyna zewnętrzna: tak (uzasadnienie: Przyczyną zewnętrzną było wejście na 'wysoki krawężnik' i związane z tym potknięcie/utrata równowagi, co doprowadziło do złego postawienia stopy i urazu. Krawężnik jest elementem otoczenia pracy.)
+- Skutek w postaci urazu: tak (uzasadnienie: Poszkodowany natychmiast odczuł 'strzelenie w kostce nogi lewej', co potwierdzono w dokumentacji medycznej jako 'powierzchowny uraz stawu skokowego i stopy'. Poszkodowany nie mógł/mogła od razu stanąć na nodze.)
+- Związek z pracą: tak (uzasadnienie: Zdarzenie miało miejsce podczas wykonywania obowiązków służbowych – dostarczania dokumentacji księgowej do biura rachunkowego, co było miesięcznym obowiązkiem poszkodowanego, prowadzącego działalność audytorską. Czynność ta jest bezpośrednio związana z prowadzoną działalnością gospodarczą i stanowi jej integralną część.)
+
+F. Ustalenia podmiotu sporządzającego kartę
+1. Stanowisko: wypadek przy pracy – uznać
+2. Wniosek: Wnoszę o uznanie zdarzenia z dnia 07.08.2025 za wypadek przy pracy w rozumieniu art. 3 ustawy o ubezpieczeniu społecznym z tytułu wypadków przy pracy i chorób zawodowych, po uzupełnieniu wskazanych braków w dokumentacji i uzyskaniu opinii Głównego Lekarza Orzecznika ZUS.
+
+G. Uwagi / kwestie do wyjaśnienia
+- Potwierdzenie faktycznego charakteru urazu i jego związku ze zdarzeniem na podstawie pełnej dokumentacji medycznej.
+- Weryfikacja danych świadków i pozyskanie ich oświadczeń co do okoliczności zdarzenia.
+- Pozyskanie kopii umowy o świadczenie usług audytorskich, wspomnianej w wyjaśnieniach poszkodowanego.

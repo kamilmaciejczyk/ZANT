@@ -1,0 +1,273 @@
+
+
+===== STRONA 1 =====
+
+ZUS
+ZAKLAD
+EWYP
+UBEZPIECZEN
+SPOEECZNYCH
+Zawiadomienie owypadku
+Instrukcjawypetniania
+1
+-wspolpracujeprzyprowadzeniupozarolniczej dziatalnosci,
+-wykonujepracenapodstawieumowyuaktywniajacej (jakoniania).
+Ustalimywowczasokolicznosciiprzyczynywypadku.
+Zanim wypelnisz formularz,zapoznaj siez dolaczona do niego Informa
+1.WypetnijWIELKIMI LITERAMI
+2.PolawyboruzaznaczznakiemX
+3.Wypelnijkoloremczarnym lubniebieskim(nieotowkiem)
+sv
+Dane osoby poszkodowanej
+PESEL
+Rodzaj,seriainumerdokumentu
+potwierdzajacegotozsamosc
+Imie
+Nazwisko
+Data urodzenia
+pp
+mm
+rrrr
+Miejsce urodzenia
+Numertelefonu
+Jesllpodaszteinformacje,ulatwinamtokontaktwTwojejsprawie.
+TopoleJest dobrowolne
+Adreszamieszkaniaosobyposzkodowanej
+Ulica
+Numerdomu
+Numer lokalu
+Kodpocztowy
+）
+Nazwapanistwa
+Podaj,jesliadresjest innynizpolski
+Adres ostatniegomiejsca zamleszkania wPolsce / adres miejscapobytu
+Poda]adresostatniegomiejscazamleszkaniawPolsce,jesllobecnlemieszkaszzagranica,alewczesniejmieszkaleswPolsce.Jesliniemasz
+adresuzamieszkania,podajadresmiejscapobylulubadresostatniegomiejscazamieszkanlawPalsce
+padl.uben
+Ulica
+比
+Numerlokalu
+RRCJAUSTA
+Kod pocztowy
+Mlejscowosc
+Strona1z6
+C.
+ZakladUbezpleczenSpotecznychwinternecie-www.zus.pl
+
+===== STRONA 2 =====
+
+EWYP
+Adres dokorespondencji osobyposzkodowanej
+Podajjesliadresdokorespondencjijestinnynizadreszamieszkania/adresostatniegomiejscazamieszkaniawPolsce/adresmiejscapobytu
+adres
+posterestante
+skrytkapocztowa
+przegrodkapocztowa
+Jeslijakosposobkorespondencjiwybierzesz:
+posterestante,podajjedyniekodpocztowy placowkipocztowej orazwpolu Miejscowoscwpisznazwe tej placowkl,
+skrytkepocztowa/przegrodkepocztowa,wpoluNumerdomuwpisznumerskrytki/przegr6dki,wpoluKodpocztowywpisz
+Ulica
+Numerdomu
+Numerlokalu
+Kod pocztowy
+Miejscowosc
+Nazwapanstwa
+Podaj,jesli Twojadresjestinnynizpolski
+Adresmiejscaprowadzeniapozarolniczej dziatalnosci
+Podajjesliposzkodowanyprowadzipozarolniczadzialalnoscalbowspolpracujeprzyprowadzeniu takiejdziatalnosci
+Ulica
+Numerdomu
+Numerlokalu
+Miejscowosc
+Numertelefonu
+Jeslipodaszteinformacje,ulatwinamtokontaktwTwojejsprawie.
+Topolejest dobrowolne
+Adressprawowania opieki naddzieckiemwwiekudolat3
+Podaj.jesliposzkodowanywykonujepracenapodstawie umowyuaktywniajacej(jakoniania)
+Ulica
+Numerdomu
+Numerlokalu
+Kodpocztowy
+Miejscowosc
+Numertelefonu
+Jeslipodaszteinformacje.ulatwinamtokontaktwTwojejsprawie.
+Topolejestdobrowolne
+Daneosoby,ktorazawiadamiaowypadku
+Wypelnij,jeslijestesinnaosobanizposzkodowany
+PESEL
+Rodzaj,seriainumerdokumentu
+potwierdzajacegotozsamosc
+Podaj.jeslinie masznadanego numeruPESEL
+Imie
+Nazwisko
+Sklad:PoligrafiaZUS/W-wa;zam.nr3069/24
+ZaktadUbezpieczenSpotecznychwinternecie-www.zus.pl
+Strona2z6
+
+===== STRONA 3 =====
+
+EWYP
+Dataurodzenia
+wwIpp
+Jeslipodaszteinformacje,ulatwinamtokontaktwTwojejsprawie.
+Topolejesl dobrowolne
+Adreszamieszkaniaosoby,ktorazawiadamiaowypadku
+Wypelnij,jeslijestesInnaosobanizposzkodowany
+Ulica
+Numerdomu
+Numerlokalu
+Kod pocztowy
+Miejscowosc
+Nazwapanistwa
+Podaj,jesliTwdjadresjestinnynizpolski
+AdresostatniegomiejscazamieszkaniawPolsce/adresmiejscapobytuosoby,ktorazawiadamiaowypadku
+Wypelni,jeslijestesinnaosobanizposzkodowany.PodajadresostatnlegomlejscazamieszkaniawPolsce,jesliobecniemieszkaszzagranica,
+alewczesnlejmieszkaleswPolsce.Jesliniemaszadresuzamieszkania,podajadresmiejscapobytulub adresostatniegomiejscazamieszkania
+wPolsce
+Ulica
+Numerdomu
+Numerlokalu
+Kodpocztowy
+Miejscowosc
+Adresdokorespondencji osoby,ktorazawiadamiaowypadku
+Wypelnij,jeslijestesinnaosobanlzposzkodowanyiTwojadresdokorespondencjijestinnynizadreszamieszkania/adresostatniegomiejsca
+zamieszkanlawPolsce/adresmiejscapobytu
+adres
+posterestante
+skrytkapocztowa
+przegrodkapocztowa
+Jeslijakosposobkorespondencjiwybierzesz:
+posterestante,podajjedyniekodpocztowyplacowkipocztowej orazwpoluMiejscowoscwpisznazwetejplacowki,
+skrytkepocztowa/przegr6dkepocztowa,wpoluNumerdomuwpisznumerskrytkl/przegrodki,wpoluKodpocztowywpisz
+kodpocztowyplacowkiorazwpoluMiejscowoscwpisznazweplacowkipocztowej.
+Ulica
+Numerdomu
+Numerlokalu
+Kod pocztowy
+Mlejscowosc
+Nazwapanstwa
+Podaj.jesll Twojadresjestinnynizpolskl
+Informacjaowypadku
+1.Data wypadku
+08092029
+Godzina wypadku
+ZPO
+mm
+/
+2.
+Miejscewypadku
+3.
+Planowana godzinarozpoczeciapracy
+n2
+Planowanagodzinazakonczenlapracy
+1?
+wdniuwypadku
+Sklad:PollgrafiaZUS/W-wa:zam.nr3069/24
+ZakladUbezpieczenSpolecznychwInternecle-www.zus.pl
+Strona3z6
+
+===== STRONA 4 =====
+
+EWYP
+4.Rodzajdoznanych urazow
+57ECC2ENIABIODPA
+ZLAIANIEPRANEEOORODCZYKA
+Szczegbtowyopisokolicznosci,miejscaiprzyczynwypadku
+SAKN2AtAC2ONYHyJAsNIENIUPOsuOOOMAnRB
+DOtAC2ONEGODO 2ANIADOMIENITA
+Podajszczegolowyopisokolicznoscimiejscaiprzyczynwypadku
+6.Czybyha udzielonapierwszapomocmedyczna:
+TAK
+NIE
+JesliTAk,podajnazweIadresplacowkisluzbyzdrowia
+7.Organ,ktoryprowadzipostepowaniewsprawiewypadku
+TAK
+NIE
+JesliTAKodajczymaszyna,zadzeniebyysprawneiuzytkowanezgodnieasadamiproducentawjakisposob
+9.Czy maszyna,urzadzenieposiada atest/ deklaracje zgodnosci:
+TAK
+NIE
+10.Czy maszyna,urzadzeniezostatowpisanedoewidencji srodkow trwalych:
+TAK
+NIE
+Sklad:PoligrafiaZUS/W-wa;zam.nr3069/24
+ZaktadUbezpieczenSpotecznychwinternecie-www.zus.pl
+Strona4z6
+
+===== STRONA 5 =====
+
+EWYP
+Daneswiadkowwypadku
+Swiadekwypadku-1
+Imie
+Nazwisko
+Ulica
+Numerdomu
+Numerlokalu
+Kodpocztowy
+Miejscowosc
+Nazwapanstwa
+Podai,jesliadresswiadkajestinnynizpolski
+Swiadek wypadku-2
+Imie
+Nazwisko
+Ulica
+Numerdomu
+Numerlokalu
+Kod pocztowy
+Miejscowosc
+Nazwapanstwa
+Podaj.joslladres swladka jest Innynizpolski
+Swiadek wypadku-3
+Imie
+Nazwisko
+Ulica
+Numerdomu
+Numerlokalu
+Kodpocztowy
+Miejscowosc
+Nazwapanstwa
+Podaj,jesliadresswiadkajestinnynizpolski
+Zalaczniki
+kserokopiakartyinformacyjnej zeszpitala/zaswiadczeniaoudzieleniupierwszej pomocyzpogotowiaratunkowegowraz
+zwywiadem
+kserokopia postanowieniaprokuratury owszczeciu postepowania karnego lubzawieszeniu/ umorzeniupostepowania
+kserokopia statystycznej kartyzgonu lubzaswiadczenie lekarskie stwierdzajqce przyczynezgonu,skrocony odpis aktu
+zgonu(wprzypadkuwypadkuzeskutkiemsmiertelnym)
+Strona5z6
+Sklad:PoligrafiaZUS/W-wa;zam.nr3069/24
+ZakladUbezpleczenSpolecznychwinternecie-www.zus.pl
+
+===== STRONA 6 =====
+
+EWYP
+dokumentypotwierdzajaceprawodowydaniakartywypadkuosobieinnej nizposzkodowany(m.in.skroconyodpisaktu
+uradzenia,skroconyodpisaktumalzenistwa,petnomocnictwo)
+inne dokumenty:
+Do
+zobowiazuje sie dostarczycnastepujace dokumenty:
+1pp
+mm
+2.
+4.
+5.
+6.
+7.
+8.
+Sposobodbioru odpowiedzi
+WplacowceZuS(osobiscie lub
+poczta na adres
+przez osobe upowazniona)
+namoimkoncienaPlatformie
+wskazanywewniosku
+UstugElektronicznych(PUEZUS)
+Oswiadczam,zedanezawartewzawladomieniupodajezgodnlezprawda,copotwierdzamztozonympodplsem.
+Data
+03022025
+dd1mm
+7Czytelnypodpis
+Infarmacje,okiorychmowawart.13ust.112RozporzadzeniaParlamentu Europejsklego|Rady(UE)2016/679zdnla27kwletnia2016r.
+orazuchyleniadyrektywy95/46/WE(RoDO),sadostepnewcentrali lubterenawychjednostkachorganizacyjnychZUSoraznastronie
+internatowejZuspodadresem:https://blp.zus.pl/rodo
+ZaktadUbezpieczeniSpolecznychwInternecle-www.zus.pl
+Strona6z6

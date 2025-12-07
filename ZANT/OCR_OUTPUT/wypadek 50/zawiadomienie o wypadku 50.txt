@@ -1,0 +1,263 @@
+
+
+===== STRONA 1 =====
+
+ZAKtAD
+UBEZPIECZEN
+EWYP
+SPOLECZNYCH
+romy
+ZAWIADOMIENIEOWYPADKU
+Instrukcjawypelniania
+Wypetnij tenfotmularziprzekazgodonas,jesliwypadkowiprzypracy/wypadkowiwdrodzedopracylubzpracy
+ulegtaosoba,ktora:
+—prowadzipozarolnicza dzialalnosc gospodarcza,
+wspolpracujeprzyprowadzeniupozarolniczejdzialalnosci,
+zal.
+Ustalimywowczasokolicznosciiprzyczynywypadku.
+30-07-2025
+Zanimwypelnisz formularz,zapoznaj siez dotaczona doniego Informacj.
+3
+WPLYNELO
+1.WypelnijWIELKIMILITERAMI
+Numor:17000d
+2.Wypeinijkolorem czarnym lubniebieskim(nie otowkiem)
+3.Pola wyboruzaznaczznakiemx
+Dane osobyposzkodowanej
+PESE
+Rodzaj,seriainumerdokumentu
+DandOsdoisM
+potwierdzajacegotozsamosc
+Imie
+Nazwisko
+Dala urodzenia
+dd
+1
+mm
+rrrr
+Miejsce urodzenia
+Adreszamieszkaniaosobyposzkodowanej
+Ulica
+Numerdomu
+Numer lokalu
+Kod pocztowy
+Miejscowosc
+Gmina/dzielnica
+Nazwapanstwa
+Podaj,jesliadresjestinnynizpolski
+Adres dokorespondencji osobyposzkodowanej
+Podaj,jesli adresdokorespondencjilJestinnynizadreszamieszkania
+Ulica
+Numerdomu
+Numerlokalu
+Kodpocztowy
+Miejscowosc
+Gmina/dzielnica
+Nazwapanstwa
+Podaj,jesliadresjestinnynizpolski
+ZakladUbezpieczenSpolecznychwintermecie-www.zus.pl
+Strona1z6
+
+===== STRONA 2 =====
+
+EWYP
+Adres miejsca prowadzeniapozarolniczej dziatalnosci
+Numerdomu
+Numerlokalu
+Kodpocztowy
+Miejscowosc
+Gmina/dzielnica
+Numertelefonu
+Jeslipodasznamteinformacje,utatwinamtokontaktwTwojejsprawie
+Topolejest dobrowolne
+Adressprawowaniaopiekinaddzieckiemwwiekudolat3
+Podaj.jesliposzkodowanywykonujepracenapodstawieumowyuaktywniajace)(jakoniania)
+Ulica
+Numer domu
+Numerlokalu
+Kod pocztowy
+Miejscowosc
+Gmina/dzielnica
+Numer telefonu
+amteinformacje,ulatwinamtokontaktwTwojejsprawie
+polejesrebbrowoine
+Daneosoby,ktorazawiadamiaowypadku
+Wypelnijjeslijestesinnaosobanizposzkodowany
+PESEL
+Rodzaj,seriainumerdokumentu
+potwierdzajacegotozsamosc
+odal:
+gonumeruPESEL
+Imie
+Nazwisko
+Data urodzenia
+pp
+/
+Numertelefonu
+Topole jest dobrowolne
+Adreszamieszkaniaosoby,ktorazawiadamiaowypadku
+Wypelnijjeslijestesinnaosobanizposzkodowany
+Ulica
+Numerdomu
+Numerlokalu
+Kodpocztowy
+Miejscowosc
+Gmina/dzielnica
+Nazwapanstwa
+Podaj.jesli Twojadresjestinnynizpolski
+ZakladUbezpieczenSpotecznychwinternecie-www.zus.pl
+Strona2z6
+
+===== STRONA 3 =====
+
+EWYP
+Adres dokorespondencji osoby,ktorazawiadamiaowypadku
+Ulica
+Numerdomu
+Numer lokalu
+Kod pocztowy
+Miejscowosc
+Gmina/dzielnica
+Nazwapanstwa
+Podaj,jesliTw6jadresjestinnynizpolski
+Informacja owypadku
+Data wypadku
+29
+OC202 5
+Godzinawypadku
+700
+PP
+mm
+rrr
+2.
+Miejscewypadku
+3.
+Planowanagodzinarozpoczeciapracy
+09:00
+Planowanagodzinazakonczeniapracy
+Ag00
+wdniuwypadku
+wdniuwypadku
+4.Rodzaj doznanych urazow
+UlaZEBERORAZKREGOStVPH
+5.
+Szczegolowy opisokolicznoscimiejscaiprzyczynwypadku
+WTRAUCLEPRACYBTOJECNANAJWyESZYM
+S2LLEBLV DRABINY OLoTO
+N5m_modziemig(poadhe)
+diabina stractaShebilnosei
+hopalzan
+Se
+upadel.trelieupedlu udenylen
+ttoneb
+?
+upadluwsteeeu
+Sosienego
+ppomoC
+mmieha
+Podajszczegolowyopisokolicznoscimiejscaiprzyczynwypadku
+6.
+Czybylaudzielonapierwszapomocmedyczna:
+TAK
+NIE
+JesliTAk,podajnazweiadresplacowkisluzbyzdrowia
+ZakladUbezpieczenSpolecznychwinternecle-www.zus.pl
+Strona3z6
+
+===== STRONA 4 =====
+
+EWYP
+7.Organ,ktoryprowadzilpostepowaniewsprawiewypadku
+8.Czywypadekpowstalpodczasobstugimaszyn,urzadzen;
+TAK
+X
+NIE
+JesliTAKpodajczymaszyna,urzadzeniebylysprawneiuzytkowanezgodniezasadamiproducentawjakisposob
+9.Czymaszyna,urzadzenieposiada atestdeklaracjezgodnosci:
+TAK
+NIE
+10.Czymaszyna,urzadzeniezostatowpisanedoewidencji srodkowtrwalych:
+TAK
+NIE
+Daneswiadkowwypadku
+Swiadekwypadku-1
+Imie
+Nazwisko
+Ulica
+Numerdomu
+Numerlokalu
+Kodpocztowy
+Miejscowosc
+Nazwapanstwa
+Podaj,jesliadresswiadkajestinnynizpolski
+Swiadekwypadku-2
+Imie
+Nazwisko
+Ulica
+Numerdomu
+Numerlokalu
+Kod pocztowy
+Miejscowosc
+Nazwapanstwa
+Podaj,jesliadresswiadkajestinnynizpolski
+ZaktadUbezpieczenSpolecznychwinternecie-www.zus.pl
+Strona4z6
+
+===== STRONA 5 =====
+
+EWYP
+Swiadekwypadku-3
+Imie
+Nazwisko
+Ulica
+Numerdomu
+Numerlokalu
+Kodpocztowy
+Miejscowosc
+Nazwaparistwa
+Podaj.jesliadresswiadka jest innynizpolski
+Zalaczniki
+kserokopiakarty informacyinejze szpltala/zaswiadczenla oudzieleniupierwszej pomocyzpogotowia ratunkowegowraz
+zwywiadem
+kserokopiapostanowieniaprokuratury owszczeciupostepowaniakarnego lubzawieszeniu/umorzeniupostepowania
+kserokopiastatystycznejkartyzgonulubzaswiadczenielekarskiestwierdzajaceprzyczynezgonu,skrbconyodpisaktu
+zgonu(wprzypadkuwypadkuzeskutkiemSmiertelnym)
+urodzenia,skroconyodpisaklumalzenstwa,pelnomocnictwo)
+inne dokumenty:
+lunolwadecenie
+Podajjakiep.dokumentydotyczaceudzielonejpomocymedycznejmowanawykonywanaulugefakturarachunek,notatkapolicji
+kseromandatukamegoitp.
+zobowiazujesiedostarczycnastepujacedokumenty:
+dd
+mm
+rrrr
+1.
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+ZakladUbezpieczenSpolecznychwinternecie-www.zus.pl
+Strona5z6
+
+===== STRONA 6 =====
+
+EWYP
+Sposobodbioru odpowiedzi
+wplacowceZUS(osobiscie lub
+pocztana adresdokorespondencji
+namoimkoncienaPlatformie
+przezosobe upowazniona)
+wskazanywewniosku
+UstugElektronicznych(PUEZUS)
+Data
+D
+mm
+Czytelnypodpis
+ooom
+orazuchylenla dyrektywy95/46/WE(RoDO),sa dostepnewcentrali lubterenowychjednostkachorganizacyjnychZUSorazna stronie
+Skad:PoligrafiaZUS/W-wa;zam.nr1762/21
+ZakladUbezpieczenSpotecznychwinternecie-www.zus.pl
+Strona6z6

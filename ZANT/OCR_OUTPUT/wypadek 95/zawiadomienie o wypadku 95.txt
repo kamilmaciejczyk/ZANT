@@ -1,0 +1,273 @@
+
+
+===== STRONA 1 =====
+
+ZAKEAD
+17. C9. 23
+UBEZPIECZEN
+EWYP
+SPOtECZNYCH
+Zawiadomienieowypadku
+Instrukcjawypelniania
+ulegla osoba,ktora:
+-prowadzl pozarolnicza dzialalnosc,
+wspolpracujeprzyprowadzeniupozarolnicze) dzialalnoscl,
+-wykonujeprace napodstawie umowy uaklywnialace) (jako nlanla).
+Ustalimywowczasokolicznosciiprzyczynywypadku.
+Zanim wypelnisz formularz,zapoznaj slez dolaczona do nlego Int
+1.WypelnijWIELKIMILITERAMI
+2.PolawyboruzaznaczznakiemX
+3.Wypelnllkolorem czarnym lubniebiesklm(nleolowklem)
+Dane osobyposzkodowanej
+PES
+Rodzaj,seriaInumerdokume
+potwierdzajacegotozsam
+lr
+Nazwit
+Dala urodze
+Mlejsce uradze
+Numertelefc
+TopoleJesl dobrowolno
+Adreszamleszkanla osobyposzkodowanej
+Ullca
+Numerdomu
+Kod poczlowy
+Nazwapanstwa
+Podo],Jasli adros jest lnnynlz polsk
+AdresostatnlegomlejscazamleszkaniawPolsce/adresmlejscapobytu
+Podajadros oslalnlegomiajsca zamieszkanlawPolsco,jesli obecnle mioszkaszzagranica,ale wczosnle mloszkaleswPolsce.Jelinio masz
+adresuzamleszkanla,podajadresmiejscapobylu lub adresoslalnlagomlejscazamioszkaniawPolace
+Ulica
+Numerdomu
+Numerlokalu
+Kodpocztowy
+Mlejscowosc
+ZakiadUbezpleczenSpolecznychwInlemoclo-www.zu6.pl
+Strona1z6
+
+===== STRONA 2 =====
+
+EWYP
+Adres dokorespondencjl osoby poszkodowanej
+Podajlsliadresdokorespondencjlfesnynladeszamleszkanla/adresoslalnegomlascazameszkaniawPolsce/adresmlescapobyu
+adres
+posterestante
+skrytka.pocztowa
+przegrodkapocztowa
+Jeslijako sposobkorespondencll wyblerzasz:
+-poste restante,podaj jedynlekod pocztowy placowkl pocztowe] orazw polu Mlejscowosc wpisz nazwe tej placowkl,
+skrytke poczlowa/przegr6dkepocztowa,wpoluNumer domuwpisznumer skrytki/przegrbdkl,wpoluKod pocztowy wpisz
+Ullica
+Numer domu
+Numer lokalu
+Kod pocztowy
+Mlejscowosc
+Nazwa panstwa
+Podal,jesllTwd]adresjestnnynizpolsk
+Adresmiejscaprowadzeniapozaroinlcze]dzlatalnosci
+Podal,jasllposzkadowanyprowadzi pozarolnicza dzlalainoscalbowspblpracujepryprowadzenlu taklej dzlalalnoscl
+Ullca
+Numerdomu
+Kod pocztowy
+Numer teletonu
+Adres sprawowanla opieki nad dzlecklem wwleku dolat3
+(d
+nopown
+Kod pocztowy
+Miejscowosc
+Numer telefonu
+Jeslipodaszteinformacje.ulatwinam tokontaklwTwojejsprawle.
+Topolajest dobrowolne
+Dane osoby,ktora zawladamla owypadku
+Wypeinli,jeslijestes innaosaba nlzposzkodowany
+PESEL
+Rodzal,serla Inumer dokumentu
+potwlerdzalacegotozsamosc
+imie
+Nazwisko
+Sxlad:PollgraaZUSW-wa;2am.nr3089/24
+ZakladUbezpleczen SpolecznychwIntemecie-www.zut.pl
+Strona2z6
+
+===== STRONA 3 =====
+
+EWYP
+Data urodzonla
+Numertelefonu
+Adreszamieszkanla osoby,ktora zawladamlaowypadku
+Wypelnij,JeslljestesInnaosobanizposzkodowany
+Ullca
+Numerdomu
+Numerlokalu
+Kod pocztowy
+Mlejscowosc
+Nazwa panstwa
+Wypelnlj,jeslljestas Inna osoba nizposzkadowany.Podaj adres ostatnlago mlejsca zamleszkanla wPolsco,josll obecniemloszkaszza granicq.
+olo wczesnle) mleszkalos wPolsce.Jesll nia masz adrosu zamleszkanla,podaj adros miejsca pobylu lub adres oslatnlego miojsca zamleszkania
+wPolsce
+Ulica
+Numer domu
+Numerlokalu
+Kod poczlowy
+MleJscowosc
+Adros do korospondoncjl osoby,ktora zawiadamia o wypadku
+Wypelnli jesll Jostes Inng osobanlzposzkodowany ITwd adres dokorospondoncll Jost Inny nlz adroszamleszkanla/adras oslalnlagomlejsca
+zamleszkaniawPolsce/adrosmlojscapobytu
+adres
+poslereslanlo
+skrylka poczlowa
+przegrbdka pocztowa
+Jesiljakospos6bkorespondencjl wyblerzosz:
+skrylkepoczlowa/przegrodkqpoczlowa,wpoluNumerdomuwpisznumerskryikl/przogrodkl.wpoluKodpoczlowywplsz
+Ullca
+Numerdomu
+Numerlokalu
+1Rha
+Kod poczlowy
+lejscowosc
+Nazwa panstwa
+2025
+Podal,fesllTw6).adros jost inny nl2polskl
+Informacjaowypadku
+AA0AO区
+1.Dala wypadku
+Godzina wypadku
+d1mm
+rrrr
+2.
+Miejsco wypadku
+3.
+Planowana godzinarozpoczecla pracy
+Planowana godzina zakonczenla pracy
+Q
+wdnluwypadku
+Skad:PolgronaZUsW-wa;zam.nr3069/24
+ZakladUbozploczenSpolecznychwIntemecle-www.zue.pl
+Strona3z6
+
+===== STRONA 4 =====
+
+EWYP
+4.Rodzaj doznanych urazow
+Sheceuieimodenocvestoutskokocd
+leweqo
+5.Szczeg6lowy opis okolicznoscl,miejsca1przyozynwypadku
+Wdiu M.09.8025~,
+moteeme
+WctatusowoclodlougoFnmy
+ZMOI
+podlooleseu
+QineoQoaden
+m
+Podoy
+deosol
+neeeu,
+Zaboteweec
+tog&.Viuleqoduin
+C
+hm2
+MaSORw
+Podalszczegblowy opisokolicznosclmlejscaIprzyczynwypadku
+6.
+Czybyla udzielonapierwsza pomocmedyczna:
+TAK
+NIE
+JasllTAK,podafnazweIadresplacowki stuzbyzdrowia
+7.Organ,ktoryprowadzil postepowanlewsprawlewypadku
+Podaj nazweIadresorganu,ktory prowadzllpastepowaniewsprawle wypedku(np.policla,prokuratura)
+8.Czy wypadek powstal podozas obslugi maszyn,urzadzen:
+TAK
+NIE
+JesiApodaczymaszynauzadzenlebyiysprawneuykwanezgodnlzasadamlpraducenlawaksposb
+9.Czy maszyna,urzadzenie poslada atest/ deklaracle zgodnoscl:
+TAK
+NIE
+10.Czymaszyna,urzadzenie zostala wpisane do ewidencjl srodkow trwalych：
+TAK
+NIE
+Shad:PollgrafeZUS/-a;zam.nr3068/24
+ZakladUbezpiaczanSpolecznychwInternecie-www.zue.pl
+Strona4z6
+
+===== STRONA 5 =====
+
+EWYP
+Daneswladkowwypadku
+Swiadek wypadku-1
+Imle
+Nazwisko
+Ullica
+Numerdomu
+Numer lokalu
+Kod poczlowy
+Mlejscowo6c
+Nazwa panstwa
+Podo],Joslladros Swiadko Jost Innynlzpolaki
+Swiadekwypadku-2
+Imie
+Nazwisko
+Ullica
+Numerdomu
+Numer lokalu
+Kod pocztowy
+Mlejscowose
+Nazwa panswa
+Podal.josli adrosswladka jest Innynizpolskl
+Swiadek wypadku-3
+Imie
+Nazwisko
+Ullca
+Numerdomu
+Numerlokalu
+Kod poczlowy
+Miajscowotc
+Nazwa panislwa
+Poda],jesliadres swladkajostinnynipoiskl
+Zalacznlkl
+kserokoplakarty Informacyjnejze szpilala/zaswiadczenlaoudzlelenlupierwszaj pomocyzpogolowlaralunkowego wraz
+zwywladem
+kserokoplaposlanowlenla prokuralury owszczeciu postepowaniakarnego lub zawleszenlu/umorzenlu poslepowanla
+kserokopla statyslyczne]karty zgonu lubzaswladczenie lokarskie stwlerdzajace przyczynq zgonu,skrbcony odpls aklu
+zgonu(wprzypadkuwypadkuzeskulklemSmlertelnym)
+Sklad:PollgraaZUSWwznm.nr3069/24
+ZakladUbozploczonSpolecznychwIntomecle-www.zus.pl
+Strona5z6
+
+===== STRONA 6 =====
+
+EWYP
+urodzenia,skroconyodplsaktumalzahstwa,pelnomocnictwo)
+Inne dokumenty:
+CEIDC
+Podajjakie,np.dokumenty datyczaceudzielonejpomocymedycznel,umawana wykonywanauslugefaxlurarachunek,nolaikazpolicji,
+kseromandatukamegolla.
+3p10312021s
+Da
+zobowlazujesle dostarczycnastepujace dokumenty:
+mm
+Dscacxoceerie
+lieuta
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+Sposob odbioru odpowiedzi
+wplacowce ZUS(osobiscielub
+pocztana adres
+na maimkoncie na Platformle
+przezosobeupowazniona)
+wskazany we wniosku
+Uslug Elektronlcznych(PUEZUS)
+Otwiadczam,ze dane zawarte w zawiadomieniu podaje zgodnie z prawda, co potwierdzam zlozonym podpisem.
+Dala
+N5103120125
+dd/mm1
+waprawle ochrony osob flzycznychwzwlazku z przatwarzaniem danych osobowychlwsprawle swobodnego przeplywu taklch danych
+orazuchylenla dyrektywy 95/46/WE(RODo),sa dostepne wcentrallub terenowych Jednostkach organizacylnych ZUS orazna stronie
+Internetowe)ZUSpodadresem:hltps://blp.zus.pl/rodo
+Sklad:PolgrafaZUSW-4a,zam.3069/24
+ZakladUbezplaczenSpolacznychwInlernecie-www.zus.pl
+Strona6z6

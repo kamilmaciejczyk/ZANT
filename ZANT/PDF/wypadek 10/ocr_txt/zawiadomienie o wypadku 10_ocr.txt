@@ -1,0 +1,411 @@
+ZAKLAD
+
+EWYP
+
+UBEZPIECZEN
+
+D-
+
+ZAKEANOE
+
+SPOLECZINYCH
+
+OKKDzarnnrPodwcy
+
+Komcry
+
+SeE3
+
+2025-09-24
+
+## Zawiadomienieowypadku
+
+Ra.
+
+WPEYNStO
+
+公
+
+Podsh
+
+## Instrukcja wypeiniania
+
+NE.060000
+
+Wypeinlj tenformularzi przekazgodonas,jesli wypadkowiprzypracy/wypadkowiwdrodze dopracylubzpracy ulegla osoba,ktora:
+
+- -prowadzipozarolnicza dzialalnosc,
+
+- -wspolpracuje przy prowadzeniupozarolniczej dziatalnosci.
+
+- wykonujepracenapodstawieumowyuaktywniajacej(jakoniania).
+
+Ustalinywowczasokollcznosciiprzyczynywypadku.
+
+Zanlmwypelniszformularz;zapoznaj siezdotaczonadoniegoInformacja
+
+- 1.WypelnijWIELKIMI LITERAMI
+
+- 2.Pola wyboru zaznacz znakiemX
+
+- 3.Wypeinijkoloremczarnymlubniebieskim(nieolowkiem)
+
+## Dane osobyposzkodowanej
+
+PESEL
+
+Rodza],seriainumerdokumentu potwierdzajacegotozsamose
+
+Imle
+
+Nazwisko
+
+Dala urodzenia
+
+Miejsce urodzenia
+
+Numertelefonu
+
+Adreszamieszkaniaosoby.poszkodowanel
+
+Ulica
+
+Numerdomu
+
+Kodpocztowy
+
+Nazwapanstwa
+
+## AdresostatniegomlejscazamieszkaniawPolsce/adresmiejscapobytu
+
+Podajadres oslalniego mlejscazamleszkanlawPolsce,jeslilobecniemleszkaszza granlca,alewczesniejmleszkaleswPolsce.Jeslinlemasz adresuzamieszkanla,podaj adresmlejscepobytu lubadres oslalnlegonilejsca zanlieszkaniawPolsce
+
+Ulica
+
+Numerdomu
+
+Numerlokalu
+
+Kodpocztowy
+
+Mielscowosc
+
+## Adresdokorespondencji osobyposzkodowanej
+
+Podaj,jesliadres dokorespondencliJestinnynizadreszamleszkania/adresostatniegomlejscazamieszkanlawPolsce/adresmiejsca pobytu
+
+- [ ] adres
+
+- [ ] posterestante
+
+- [ ] skrytkapocztowa
+
+- [ ] przegrodkapocztowa
+
+Jesli jakosposobkorespondencji wybierzesz:
+
+- -posterestante,podaj jedyniekodpocztowyplacowkl pocztowej oraz wpolu Miejscowoscwpisznazwe tej placowki. skrytkepocztowa/przegr6dkepocztowa,wpoluNumer domuwpisznumerskrytkl/przegrodki,wpoluKodpocztowywpisz kodpocztowyplacowkl orazwpoluMiejscowoscwplsznazweplacowkipocztowej.
+
+Ulica
+
+Numerdomu
+
+Numer lokalu
+
+Kod pocztowy
+
+Miejscowosc
+
+Nazwa panstwa
+
+Podal,jesllTwojadresjest Innynizpolski
+
+## Adresmiejscaprowadzenla pozarolniczej dziatalnosci
+
+Podaj.jesliposzkodowanyprowadzl pozarolniczadzialalnoscalbowspolpracujeprzyprowadzeniutakieldziaialnoscl
+
+Ulica
+
+Numerdomu
+
+Numer lokalu
+
+Kodpocztowy
+
+Miejscowosc
+
+Numertelefonu
+
+Jeslipodaszte lnformacje,ulatwinam tokonlaktwTwojej sprawie. Topolejestdobrowolne
+
+## Adressprawowaniaopiekinaddzieckiemwwieku dolat3
+
+Podaj,jesliposzkodowanywykonujepracenapodstawleumowyuaktywniajace)(Jakonianla)
+
+Ulica
+
+Numerdomu
+
+Numer lokalu
+
+Kodpocztowy
+
+Miejscowosc
+
+Numertelefonu
+
+## Daneosoby,ktorazawiadamiaowypadku
+
+Wypelnij.jeslijeslesinnaosobanizposzkodowany
+
+PESEL
+
+Rodzaj,seriainumerdokumentu potwierdzajacego tozsamosc
+
+Imie
+
+Nazwisko
+
+SWad:PoligrafaZUS/Wwa;zam.nr306/24
+
+- 4.Rodzaj doznanych uraz6w
+
+lewsegodeolia pa证enie
+
+- 6 Szczegolowy opisokolicznosci,miejscaIprzyczynwypadku
+
+WdhivX0.251. Rxyaccem.do dicxp/enwep. Xiripxane 2k AoOh. nieu. iem uzobiee mnie Rpamyro.
+
+Podajszczegdlowyopisokolicznoscl,miejscaIprzyczynwypadku
+
+- Czybyla udzielonaplerwszapomocmedyczna:
+
+- [x] TAK
+
+- [ ] NIE
+
+Centrem lec2en.ia paraen
+
+JesllTAK,podajnazweiadresplacowkistuzbyzdrowia
+
+- 7.Organ,ktory prowadzilpostepowanlewsprawie wypadku
+
+BAD
+
+(se
+
+- [x] 内
+
+- [ ] NIE
+
+Diec oielbamieey
+
+d
+
+- 9.Czymaszyna,urzadzenie posiada atest/ deklaracje zgodnosci:
+
+- [ ] NIE
+
+- 10.Czymaszyna,urzadzeniezostalowpisanedoewldenclisrodkowtrwalych：
+
+- [ ] TAK
+
+- [ ] NIE
+
+Data urodzenia
+
+Numertelefonu
+
+JesllpodaszteInformacje,utatwnam tokonlaktwTwojejsprawe. Topolejest dobrowoine
+
+## Adreszamieszkaniaosoby,ktorazawiadamiaowypadku
+
+Wypeinlf,jeslljestesinnaosobanlzposzkodowany
+
+Ulica
+
+Numer domu
+
+Kod pocztowy
+
+Nazwapanstwa
+
+Fuuaj,jesil woj aares jestnny nlzpolski
+
+AdresostatniegomiejscazamieszkaniawPolsce/adresmiejscapobytuosoby,ktora zawiadamiaowypadku Wypelnlf,jeslljestes inna osoba nizposzkodowany.Podaj adres oslatnlego miejsca zamleszkaniawPoisce,jesli obecnlemleszkaszzagranica, alewczesnlej mleszkales wPolsce.Jesli nle maszadresu zamleszkanla,podaj adresmlejsca pobytu lub adres oslalnlego miejsca zamieszkania wPolsce
+
+Ulica
+
+Numerdomu
+
+Numer lokalu
+
+Kod pocztowy.
+
+Miejscowosc
+
+Adresdokorespondencjlosoby,ktorazawiadamiaowypadku
+
+zamieszkaniawPolsce/adres miejsca pobytu
+
+- [ ] adres
+
+- [ ] posterestante'
+
+- [ ] skrytkapocztowa
+
+- [ ] przegrodkapocztowa
+
+Jeslijakosposobkorespondencji wybierzesz:
+
+- -posterestante,podajjedyniekodpocztowyplacowkipocztowej orazwpoluMiejscowoscwpisznazwe.te]placowiki, skrytkepocztowa/przegrodkepocztowa,wpoluNumer domuwpisznumerskrytkl/przegrodki,wpoluKodpocztowywpisz kodpocztowyplacowklorazwpoluMiejscowoscwpisznazweplacowkipocztowej.
+
+Ullica
+
+Numerdomu
+
+Numer lokalu
+
+Kod pocztowy
+
+Miejscowosc
+
+Nazwapanstwa
+
+Podal,jesllTw6jadresjestinnynlzpolskl
+
+## Informacjaowypadku
+
+- 1.Data wypadku
+
+27082025
+
+Godzina wypadku
+
+730
+
+dd/mm
+
+rrrr
+
+2. Miejscewypadku
+
+3. Planowanagodzinarozpoczeclapracy
+
+Planowana godzina zakonczenia pracy wdniuwypadku
+
+## Daneswiadkowwypadku
+
+Swiadek wypadku-1
+
+Imie
+
+Nazwisko
+
+Ulica
+
+Numerdomu
+
+Kod pocztowy
+
+Nazwapanstwa
+
+Podaj,jesliadresswladkaJestInnynizpolski
+
+Swiadekwypadku-2
+
+Imle
+
+Nazwisko
+
+Ulica
+
+Numerdomu
+
+Numerlokalu
+
+Kod poczlowy
+
+Miejscowosc
+
+Nazwapanstwa
+
+Podaj,JeslladresSwiadkajest Innynizpolskl
+
+Swiadekwypadku-3
+
+Imle
+
+Nazwisko
+
+Ulica
+
+Numerdomu
+
+Numerlokalu
+
+Kod poczlowy
+
+Miejscowosd
+
+Nazwapanstwa
+
+Poda).jesll adresSwladkaJest innynizpoiski
+
+## Zataczniki
+
+- [ ] ksarokopia karty informacyjnejze szpitala/zaswiadczeniaoudzieleniuplerwszelpomocyzpogotowla·ratunkowegowraz zwywiadem
+
+- [ ] kserokopiapostanowieniaprokuraturyowszczeciupostepowaniakarnego lubzawieszeniu/umorzeniupostepowania
+
+- [ ] kserokopia statystycznejkartyzgonulubzaswladczenlelekarskie stwierdzajace przyczyne zgonu,skrocony odpis aktu zgonu(wprzypadkuwypadkuze skutkiem smierteinym)
+
+- [ ] dokumentypotwierdzajace prawo dowydaniakartywypadkuosobie innej nizposzkodowany(m.in.skroconyodpis aktu urodzenla,skrcconyodpisaktumalzenistwa,peinomocnictwo)
+
+- [ ] inne dokumenty:
+
+Podaj Jakienp.dokumentydotyczaceudzielonepomocymedycznej,owanawykonywanausluge,faktura,rachunek,notakazpolij kseromandatukarnego llp.
+
+Do
+
+zobowiazuje sie dostarczyc nastepujace dokumenty:
+
+pp
+
+mm
+
+rrr
+
+2.
+
+3.
+
+4,
+
+5.
+
+6.
+
+7.
+
+8.
+
+Sposobodbioruodpowiedzi
+
+- [ ] WplacowceZuS (osobiscle lub przezosobe upowazniona)
+
+- [x] poczta na adres wskazanywewniosku
+
+- [ ] namoim koncie naPlatformie UslugElektronicznych(PUEZUS)
+
+Oswiadczam,ze danezawartewzawiadomlenlupodajezgodniezprawda,copotwierdzamztozonympodpisem，
+
+Data
+
+23022025
+
+lpp
+
+rrr
+
+InternetowejZUSpodadresem:htlps://bip.zus.pl/rodo

@@ -1,0 +1,245 @@
+
+
+===== STRONA 1 =====
+
+ZUS
+ZAKEAD
+UDEZPIECZEN
+SPOLECZNYCH
+EWYP
+ZAWIADOMIENIEO WYPADKU
+Inatrukcja wypolnlanlo
+Wypolnl tenformularzIprzokazgo donasot
+ulogla osoba,ktbra:
+wiwdrodzodopracy lubzpracy
+-prowadzlpozarolnlczadzialalnoscgospodarc
+wykonujopracqnapodstawleumowyunkywnlajqcol
+jau
+Ustalimywowczasokolleznoscl l przyczynywypadku.
+10.GRU. 20243
+Zanlm wypolniszformulaz,zapozne}slodolczonq donlogo lnl
+1.WypolnlWIELKIMI LITERAMI
+2.Wypolnijkoloramczamymlubnloblesklm(nieolowklem)
+3.PolawyboruzaznaczznaklemX
+Dano osoby poszkodowano]
+PESEL
+Rodzo],sodaInumardokumentu
+polwordzalacogototsamosc
+Imiq
+Nazwlsko
+Data urodzonlo
+Plac
+(K-kobiola/M-mq2cryzna)
+pp
+mm
+Mliosco urodzonta
+Adrou zamloszkanla
+Numordomu
+Numerlokalu
+Kadpoczlowy
+Miolscowosc
+Gmlna/dzlolnlca
+Nazwn pansiwa
+Podal,fotndrasJenl lnnynlzpo
+loncjl
+Podaj,lasllodrsdakoraspondoncji lostinnynlodroszumluszkanla
+!
+Ullica
+Numordomu
+Numorlokalu
+<odpoczlovry
+Mlolscowosc
+hina/dzlolnlca
+zwapanswa
+Poddosynlpsk
+ZokladUbozploczonSpolocznychwInlomoclo-www.zus.pl
+Strona1z6
+
+===== STRONA 2 =====
+
+EWYP
+Adres,mlejscaprowadzenia pozarolnlcze] dzialalnoscl
+Ullca
+Numerdomu
+Numer lakalu
+Mlejscowosc
+Gmina/dzielnl
+Numer lelefonu
+Poda]numer lelofonu-toulahyinamkonlakiwto]sprawio
+Adressprawowanla opiekl nad dzlecklem wwieku do lat3
+Podaljeslposzkodowanywykonujepracgnopodstawle umowy uaktywnlalace)(ako nionia)
+Ullca
+Numerdonu
+Numer lokalu
+Kod pocztowy
+Mlejscowose
+Gmlna/dzielnica
+Numar lalefonu
+Poda]numer tolelonu-{oulatwinamkonlaktwte]sprawle
+Dane osoby.ktora.zawladamia o.wypadku
+PESEL
+Rodzal,sera.Inumerdokumantu
+potwiordzajecegotozsamosc
+JaslinlemasznumaruPESEL,podaj sorleInumar lnnogodokumontu
+Imle
+Nazwisko
+Dala urodzenla
+Plec
+(K-kobiela/M~mezczyzna)
+PP
+mm
+Numerlelefonu
+Podajnumerlelofonu-lo ulatrlnam kontakt wto] sprawie
+Adres zamleszkanla
+WypetnJetjesledInna osobentzposzkodowany
+Ullca
+Numer.domu
+Numer lokalu
+Kodpoczlowy
+Mlejscowosc
+Gmina/dzieinica
+Nazwa panstwa
+Poda),JosllTwdadrosJestinnynlpoiskd
+ZokledUbozploczon Spolocznych winlamoclo-www.zua.pl
+Strona2z6
+
+===== STRONA 3 =====
+
+EWYP
+Adros do koraopondoncli
+Podallarodokorpondondoalnylndzamlszkaa
+WypolnJesllJaslosInngocobanltpoazkodowuny
+ullica
+Numordomu
+Numorlokalu
+Kod pocztovy
+MloJscowosc
+Gmina/dzlolnlca
+Nazwa panstvra
+Podal.
+JosuTwdjadrosjastInnynilpolsl
+Informacjaowypadku
+1.Dala wypadku
+0b11202
+Godzina wypadku
+rm
+2.Miojsco vrypodku
+3.Planowana godzina rozpoczqcla pracy
+t0
+Plonowana godzinozakonczenlapracy
+wdnluwypadku
+22折
+wdnlu wypadku
+n
+gs
+palcaWohoeiis
+g2iokcia
+5.
+Szczoglowyopfsokolicznoscmlalscalprzyczynwypadku
+p
+pyc
+Nemmecony.
+mm
+3
+6.Czy byla udzlelona plarwszn pomocmodyczno:
+区
+TAK
+NIE
+SoR
+Joslpdaaqldwdsuyd
+ZakladUbazploczonSpalocznychwInlomoca-www.zus.pl
+Btrona3z6
+
+===== STRONA 4 =====
+
+EWYP
+sprawriewypadku
+Podajnazwe
+ndresorganukioryprowadzilposlppowaniewsprawio wypadku(Policje,Prokuratura,Inne)
+czas obslugi meszyn,urzadzen:
+TAK
+NIE
+JeslTAKpodaj czymuszyra,urzndzonio byty sprawmoluzytkawanezgodniezzasodaml produconta Iwjakl sposob
+9.Czy maszyna,urzadzenle posiada alest deklaraclo zgodnosci:
+TAK
+NIE
+10.Czy maszyna,urzadzoniozostalo wpisanedo ewidencjlsrodkdwtrwalych:
+TAK
+NIE
+Dane swiadkow wypadku
+Swiadek wypadku-
+Imle
+Nazwisko
+Ulica
+Numerdomu
+Numerlokalu
+Kod poczlowy
+Mlejscowosc
+Nazwapanstwa
+Podalolfodres swindka jostinny nipolski
+Swladekwypadku-2
+Imle
+Nazwisko
+ullca
+Numerdomu
+Numerlakalu
+Kodpoczlowy
+Mielscowosc
+Nazwapanstwa
+ZakadUbozplaczonSpolocznychwlnlemocla-www.zus.pt
+Strona4z6
+
+===== STRONA 5 =====
+
+EWYP
+Swladokwypadku-3
+Imlo
+Nazwiako
+Ullca
+Numordomu
+Numar lokalu
+Kodpocztowy
+MiajscowosG
+Nazwapanotwo
+Podal,JoslladresSwiadkafosl Innynipolslu
+Zalacznlki
+ksorokoplakarty Informiacyjno]zo szpltola/znswiadczenlaoudzialanluplenwszo pomocyzpogotowlaratunkowegawraz
+zwyviadom
+kiorokaplapostanowlenla prokuraluryowazczqciupostqpowonlnkarnogolubzawlaszanlwumorzonluposlqpowanla
+ksarokoplaolalystycznokortyzgonu lubzoswiodczonlo lokoraklestwordzojncopryczynqzgonu,skrdconyodpisnklu
+zgonu(wprzypadkuwypodkuzaskuklem smlortolnym)
+dokumenly polwiardzajqcoprawo dowydanlakarlywypadkuosoblo inno]nlzposzkodowany(m.ln.ekriconyodplsaktu
+urodzonla,skroconyodplsoktumallanstwo,pelnomocnictwo)
+Inno dokumanty.
+keramandatu kamego,ltp.
+zobovrlazujoslodoslarczycnaslepulacn dokumonty
+Pp
+mm
+2.
+3.
+4.
+5.
+6.
+7.
+0.
+Strona5x6
+
+===== STRONA 6 =====
+
+EWYP
+Spos6b adbloru odpowledzi
+pocztana adres dokorespondencji
+namoimkoncionaPlatfomle
+wplacowcsZUBosobiscelub
+UslugElektronicznych(PUEZUS)
+przezosobe upowazniona)
+wskazany.we wnlosku
+Wzawiadomienlu podalemzgodnlezprawda,copotwlerdzamzlozonympodplsem.
+Dalo
+Czyielnypodpis
+dd/mm
+TT
+用
+PogaaZUSW-wa,Dmr2741K8
+ZaklaoUbozpleczenSpolecznychwnlomecle-ww.zus.pl
+Stona6z6

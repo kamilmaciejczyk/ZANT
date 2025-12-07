@@ -1,0 +1,65 @@
+{
+  "case_id": "wypadek 23",
+  "dane_podstawowe": {
+    "data_zdarzenia": [
+      "07.08.2025"
+    ],
+    "godzina_zdarzenia": [
+      "między godz. 12:00 a 12:30",
+      "12:05"
+    ],
+    "miejsce_zdarzenia": "Przed biurem rachunkowym w miejscowości [anonymous location], przy wysokim krawężniku.",
+    "dane_poszkodowanego": "Osoba samozatrudniona, prowadząca działalność gospodarczą w zakresie audytorstwa gospodarsw hodowli zwierzęcej, na podstawie umowy rocznej z firmą na dokonywanie audytów. W zawiadomieniu oznaczona jako [OSOBA_4].",
+    "dane_swiadkow": [
+      "[OSOBA_25] (Świadek wypadku-1). Adres: [OSOBA_26], [OSOBA_5], [OSOBA_27]. Brak opisu, co widział/a.",
+      "[OSOBA_15] (Świadek wypadku-2). Adres: [OSOBA_7], [OSOBA_9], [OSOBA_6]. Brak opisu, co widział/a.",
+      "[OSOBA_15] (Świadek wypadku-3). Adres: [OSOBA_28], [OSOBA_29]. Brak opisu, co widział/a. Należy zweryfikować, czy to ta sama osoba co Świadek 2."
+    ],
+    "opis_zdarzenia": "Poszkodowany, po zakończeniu audytów, udał się do biura rachunkowego w celu dostarczenia dokumentacji księgowej. Wchodząc na wysoki krawężnik przed biurem, stracił/a równowagę, źle postawił/a lewą nogę, co spowodowało 'strzelenie' w kostce. Poszkodowany wezwał/a pomoc z biura, a następnie samodzielnie udał/a się do szpitala na izbę przyjęć.",
+    "rodzaj_urazu": "Powierzchowny uraz stawu skokowego i stopy lewej nogi ('strzelenie w kostce nogi lewej').",
+    "dokumenty_medyczne": [
+      "RTG (wykonane w szpitalu)",
+      "kserokopia karty informacyjnej z zaszpitala/zaświadczenia o udzieleniu pierwszej pomocy z pogotowia ratunkowego wraz z wywiadem (do dostarczenia)"
+    ]
+  },
+  "rozbieznosci": [
+    "Planowana godzina rozpoczęcia pracy: poszkodowany podaje ok. 06:00, zawiadomienie 7:00.",
+    "Planowana godzina zakończenia pracy: poszkodowany podaje ok. 14:00, zawiadomienie 17:00.",
+    "Identyfikacja świadków: [OSOBA_15] wymieniona dwukrotnie jako Świadek wypadku-2 i Świadek wypadku-3, co może być błędem lub wymaga weryfikacji tożsamości."
+  ],
+  "ocena_definicji": {
+    "naglosc": {
+      "ocena": "nagłe",
+      "uzasadnienie": "Zdarzenie miało charakter nagły – poszkodowany 'poczulem strzelenie w kostce' w wyniku utraty równowagi i złego postawienia nogi. Uraz nastąpił w konkretnym, krótkim momencie."
+    },
+    "przyczyna_zewnetrzna": {
+      "ocena": "tak",
+      "uzasadnienie": "Przyczyną zewnętrzną było wejście na 'wysoki krawężnik' i związane z tym potknięcie/utrata równowagi, co doprowadziło do złego postawienia stopy i urazu. Krawężnik jest elementem otoczenia pracy."
+    },
+    "uraz": {
+      "ocena": "tak",
+      "uzasadnienie": "Poszkodowany natychmiast odczuł 'strzelenie w kostce nogi lewej', co potwierdzono w dokumentacji medycznej jako 'powierzchowny uraz stawu skokowego i stopy'. Poszkodowany nie mógł/mogła od razu stanąć na nodze."
+    },
+    "zwiazek_z_praca": {
+      "ocena": "tak",
+      "uzasadnienie": "Zdarzenie miało miejsce podczas wykonywania obowiązków służbowych – dostarczania dokumentacji księgowej do biura rachunkowego, co było miesięcznym obowiązkiem poszkodowanego, prowadzącego działalność audytorską. Czynność ta jest bezpośrednio związana z prowadzoną działalnością gospodarczą i stanowi jej integralną część."
+    }
+  },
+  "braki": [
+    "Brak kopii umowy rocznej z firmą na dokonywanie audytów (wspomniana w wyjaśnieniach poszkodowanego). Propozycja: Pozyskać kopię umowy z poszkodowanym w celu potwierdzenia charakteru prowadzonej działalności i obowiązków.",
+    "Brak szczegółowych oświadczeń świadków ([OSOBA_25], [OSOBA_15]) oraz weryfikacji, co dokładnie widzieli. Propozycja: Pozyskać pisemne oświadczenia od wymienionych świadków, zawierające opis okoliczności zdarzenia, zwłaszcza momentu wezwania pomocy i ewentualnego widzenia poszkodowanego bezpośrednio po zdarzeniu.",
+    "Brak załączonej karty informacyjnej ze szpitala / zaświadczenia o udzieleniu pierwszej pomocy wraz z opisem RTG. Propozycja: Pozyskać pełną dokumentację medyczną z Izby Przyjęć w celu dokładnej oceny urazu i okoliczności jego powstania."
+  ],
+  "czy_potrzebna_opinia_lekarza": true,
+  "uzasadnienie_potrzebnej_opinii": "Mimo jasnego opisu okoliczności zdarzenia, pełna ocena związku urazu ('powierzchowny uraz stawu skokowego i stopy') ze zdarzeniem wymaga analizy pełnej dokumentacji medycznej (karta informacyjna, opis RTG, ew. dalsze leczenie). Opinia Głównego Lekarza Orzecznika ZUS jest standardowo pomocna w precyzyjnym ustaleniu charakteru urazu i jego ewentualnych następstw.",
+  "projekt_opinii": {
+    "stanowisko": "wypadek przy pracy – uznać",
+    "uzasadnienie_prawne": "1. **Nagłość zdarzenia**: Zdarzenie, w którym poszkodowany, wchodząc na wysoki krawężnik, stracił/a równowagę i doznał/a urazu stopy, miało charakter nagły, co potwierdzają wyjaśnienia poszkodowanego oraz jednolity opis okoliczności w dokumentach. Uraz nastąpił w krótkim, określonym czasie.\n2. **Przyczyna zewnętrzna**: Bezpośrednią przyczyną urazu było potknięcie/utrata równowagi spowodowana wejściem na 'wysoki krawężnik' znajdujący się w miejscu zdarzenia. Krawężnik ten stanowił element otoczenia, niezależny od wewnętrznych procesów organizmu poszkodowanego.\n3. **Skutek w postaci urazu**: Poszkodowany odczuł/a natychmiastowe 'strzelenie w kostce nogi lewej', co skutkowało niemożnością samodzielnego stanięcia na nodze i koniecznością wezwania pomocy oraz udania się na izbę przyjęć. Wstępna diagnoza lekarska wskazuje na 'powierzchowny uraz stawu skokowego i stopy'.\n4. **Związek z pracą**: Zdarzenie miało miejsce podczas wykonywania typowych obowiązków zawodowych poszkodowanego – dostarczania dokumentacji księgowej do biura rachunkowego. Czynność ta jest integralnie związana z prowadzoną działalnością gospodarczą w zakresie audytorstwa i jest rutynowym miesięcznym obowiązkiem poszkodowanego. Okoliczności zdarzenia wyraźnie wskazują, że poszkodowany wykonywał/a czynności w interesie prowadzonej działalności gospodarczej.",
+    "kwestie_do_rozstrzygniecia": [
+      "Potwierdzenie faktycznego charakteru urazu i jego związku ze zdarzeniem na podstawie pełnej dokumentacji medycznej.",
+      "Weryfikacja danych świadków i pozyskanie ich oświadczeń co do okoliczności zdarzenia.",
+      "Pozyskanie kopii umowy o świadczenie usług audytorskich, wspomnianej w wyjaśnieniach poszkodowanego."
+    ],
+    "wniosek": "Wnoszę o uznanie zdarzenia z dnia 07.08.2025 za wypadek przy pracy w rozumieniu art. 3 ustawy o ubezpieczeniu społecznym z tytułu wypadków przy pracy i chorób zawodowych, po uzupełnieniu wskazanych braków w dokumentacji i uzyskaniu opinii Głównego Lekarza Orzecznika ZUS."
+  }
+}
