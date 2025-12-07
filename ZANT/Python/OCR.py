@@ -17,7 +17,7 @@ BASE_DIR = SCRIPT_DIR.parent / "PDF"             # ...\HackNation\PDF
 OUTPUT_DIR = SCRIPT_DIR.parent / "OCR_OUTPUT"
 
 # Minimalny próg pewności OCR – niższe linie odrzucamy (często pismo odręczne / szum)
-MIN_SCORE = 0.70
+MIN_SCORE = 0.50
 
 OCR_ENGINE = RapidOCR(
     params={
@@ -63,23 +63,24 @@ def infer_output_filename(pdf_path: Path, case_number: str) -> str:
     return base + ".txt"
 
 
+import json  # upewnij się, że jest na górze pliku
+
 def ocr_page_image(image):
     """
-    Wykonuje OCR jednej strony (PIL Image) przy użyciu RapidOCR v3.x.
-    Zwraca tekst z odfiltrowaniem niskich score'ów.
+    OCR jednej strony z użyciem RapidOCR.
+    Bezpieczne dla pustych stron (data == None).
     """
-    # NOWY sposób wywołania – jedno 'result', bez rozpakowywania
     result = OCR_ENGINE(image)
+    if result is None:
+        return ""   # nic nie znaleziono
 
-    # RapidOCROutput ma metodę to_json(), która zwraca listę słowników
-    # w stylu: [{'box': [...], 'txt': 'tekst', 'score': 0.98}, ...]
-    try:
-        data = result.to_json()
-    except AttributeError:
-        # awaryjnie – jakby API się zmieniło, zwróć po prostu tekst z print(result)
-        return str(result)
+    data = result.to_json()
 
-    # to_json może zwrócić listę lub stringa JSON – zabezpieczamy się na oba przypadki
+    # RapidOCR zwraca None, gdy nic nie znalazł -> pusty tekst
+    if not data:
+        return ""
+
+    # czasem to_json() zwraca string JSON
     if isinstance(data, str):
         data = json.loads(data)
 
@@ -91,6 +92,7 @@ def ocr_page_image(image):
             lines.append(txt)
 
     return "\n".join(lines)
+
 
 
 
