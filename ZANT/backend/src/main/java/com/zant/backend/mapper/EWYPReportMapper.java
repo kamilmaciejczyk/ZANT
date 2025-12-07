@@ -41,7 +41,8 @@ public class EWYPReportMapper {
         dto.setResponseDeliveryMethod(entity.getResponseDeliveryMethod());
         dto.setSignature(toSignatureDTO(entity.getSignature()));
         dto.setScoringClassification(entity.getScoringClassification());
-        
+        dto.setStatus(entity.getStatus());
+
         return dto;
     }
     
