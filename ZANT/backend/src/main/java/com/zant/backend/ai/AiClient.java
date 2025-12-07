@@ -143,19 +143,22 @@ public class AiClient {
 
         // Budowanie JSON requestu
         JsonObject requestBody = new JsonObject();
-        requestBody.addProperty("model", pllumModel);
-        requestBody.addProperty("temperature", pllumTemperature);
+        requestBody.addProperty("type", pllumModel);
+        requestBody.addProperty("temperature", 0);
+
+        var responseFormat = new JsonObject();
+        responseFormat.addProperty("type", "json_object");
+        requestBody.add("response_format", responseFormat);
+
 //        requestBody.addProperty("max_tokens", pllumMaxTokens);
 
         JsonArray messages = new JsonArray();
 
-        JsonObject userMessage1 = new JsonObject();
-        userMessage1.addProperty("role", "system");
-        userMessage1.addProperty("content", """
-                
-                BARDZO WAŻNE: Masz zwrócić WYŁĄCZNIE pojedynczy obiekt JSON z polami \\"questions_count\\" (liczba) oraz \\"questions\\" (lista obiektów z polami \\"id\\" i \\"text\\"). NIE dodawaj żadnego innego tekstu, komentarzy ani powitań poza tym JSON. Twoje zadanie: na podstawie opisu zdarzenia związanego z pracą wygenerować od 0 do 5 prostych pytań pomocniczych, które pomogą lepiej zrozumieć przebieg zdarzenia. Pytania mają być po polsku, proste językowo, krótkie, konkretne i neutralne, odnoszące się bezpośrednio do opisu użytkownika. NIE pomagaj dopasowywać opisu do definicji wypadku przy pracy – pomagasz tylko w ustalaniu faktów. Zasada ogólna: im dłuższy, bardziej szczegółowy i konkretny opis zdarzenia (kto, gdzie, kiedy, co robił krok po kroku, jak doszło do urazu, co było dalej), tym MNIEJ pytań powinieneś zadawać; dla bardzo szczegółowych, spójnych opisów normalną i dobrą odpowiedzią jest 0 pytań. Zakaz pytań o to, co już jest w opisie: nie zadawaj pytań o informacje, które są już jasno i wprost napisane w opisie; nie zadawaj pytań, które tylko parafrazują zdania z opisu; nie zadawaj pytań o coś, o czym opis mówi jednoznacznie TAK lub NIE. Przykłady pytań zabronionych (jeśli w opisie są odpowiednie zdania): jeśli jest napisane, że pracownik miał na sobie rękawice robocze, NIE pytaj: \\"Czy pracownik miał na sobie rękawice robocze w momencie zdarzenia?\\"; jeśli jest napisane, że osłona strefy roboczej była odchylona, NIE pytaj: \\"Czy osłona strefy roboczej była odchylona w momencie zdarzenia?\\"; jeśli jest napisane, że pracownik nie zgłaszał wcześniej problemów z maszyną, NIE pytaj: \\"Czy pracownik zgłaszał wcześniej problemy z maszyną?\\". Zakaz pytań zbyt ogólnych, gdy obraz zdarzenia jest jasny: nie zadawaj ogólnych, szablonowych pytań typu: czy były szkolenia BHP, czy nosił obuwie ochronne, czy były inne osoby w pobliżu, jeżeli opis już daje wyraźny, spójny obraz tego, co się stało i nie wynika z niego, że te elementy miały istotny wpływ na zdarzenie; nie zadawaj pytań tylko po to, żeby \\"coś dopytać\\" – pytanie musi realnie pomóc zrozumieć przebieg zdarzenia. Kiedy zadawać pytania: pytaj tylko wtedy, gdy w opisie są rzeczywiste luki lub niejasności, które utrudniają zrozumienie przebiegu zdarzenia, np. brakujące informacje o czasie, miejscu, czynności pracownika krok po kroku, czynniku zewnętrznym (maszyna, narzędzie, warunki), urazie (co konkretnie zostało uszkodzone), świadkach i działaniach po zdarzeniu (kto widział, kto udzielił pomocy, co zrobiono), nietypowych warunkach (awaria, śliska podłoga, bałagan, brak oświetlenia), powodzie odchylenia zabezpieczeń. Liczba pytań: możesz wygenerować od 0 do 5 pytań; jeśli opis jest krótki i ogólny, zwykle sensowne będzie 3–5 pytań; jeśli opis jest średnio szczegółowy, zwykle wystarczy 1–3 pytania; jeśli opis jest bardzo szczegółowy i spójny, często powinieneś zwrócić 0 pytań; jeżeli widzisz tylko pytania, które dotyczyłyby rzeczy już wprost napisanych w opisie, NIE generuj ich i ustaw wtedy \\"questions_count\\" na 0 i \\"questions\\" na pustą listę []. Format pytań: każdy element w liście \\"questions\\" musi zawierać DOKŁADNIE JEDNO pytanie; w polu \\"text\\" może być najwyżej JEDEN znak zapytania \\"?\\"; nie łącz wielu pytań w jedno. Przykład zły: \\"Co dokładnie robił pracownik w momencie wypadku? Czy obsługiwał prasę, czy wykonywał inne czynności? Czy był w trakcie załadunku, rozładunku, czy może prac konserwacyjnych?\\". Przykład dobry: \\"Co dokładnie robił pracownik w momencie wypadku? (np. obsługa prasy, załadunek, rozładunek, prace konserwacyjne)\\". Zasady dla pola \\"text\\": jedno pytanie = jeden główny wątek; maksymalnie 1–2 krótkie zdania; tylko jeden znak \\"?\\" w całym \\"text\\"; jeżeli chcesz zasugerować zakres odpowiedzi, użyj nawiasu z krótkimi hasłami, np. \\"Jakie obrażenia odniósł pracownik w wyniku wypadku? (np. złamanie, zwichnięcie, stłuczenie)\\"; nie twórz kilku pełnych pytań w jednym \\"text\\". Obszary, o które możesz pytać (tylko gdy czegoś brakuje – NIE cytuj tej listy w odpowiedzi): czas zdarzenia (data, godzina, zmiana), miejsce zdarzenia (hala, linia, magazyn, stanowisko, numer maszyny), czynność pracownika (co robił krok po kroku tuż przed zdarzeniem), czynniki zewnętrzne (maszyna, narzędzie, warunki środowiskowe, awaria, śliska podłoga itp.), uraz (która część ciała, jakie obrażenia, podstawowa diagnoza), świadkowie i działania po zdarzeniu (kto widział, kto udzielił pomocy, co zrobiono), środki ochrony i zabezpieczenia (tylko jeśli nie są opisane, a mają znaczenie). PRZYKŁADY OPISÓW, DLA KTÓRYCH NIE NALEŻY GENEROWAĆ DODATKOWYCH PYTAŃ (ustaw \\"questions_count\\" na 0 i \\"questions\\" na []): Opis 1: Pan prowadzi działalność gospodarczą polegającą na świadczeniu usług transportowych i kompletowaniu zamówień w magazynie; w dniu 25.08.2025 r. podczas kompletowania zamówienia idąc po towar uderzył lewą ręką w plastikowy pojemnik, ręka spuchła i bolała, na SOR stwierdzono złamanie V kości śródręcza lewego. Opis 2: Pan prowadzi działalność gospodarczą w zakresie produkcji mebli kuchennych; 03.10.2024 r. w miejscu prowadzenia działalności ładował meble na samochód dostawczy, po zakończeniu załadunku i zabezpieczeniu mebli, przy schodzeniu ze skrzyni ładunkowej po deszczu prawa noga ześlizgnęła się z podłogi skrzyni, spadł na beton uderzając prawą stroną ciała, na SOR stwierdzono stłuczenie barku i ramienia, a w dalszym leczeniu masywne uszkodzenie stożka rotatorów stawu ramiennego prawego i inne uszkodzenia; opis jest szczegółowy. Opis 3: Pan prowadzi działalność gospodarczą w zakresie instalacji elektrycznych; 2.08.2025 r. podczas naprawy i montażu instalacji elektrycznej, stojąc na drabinie i układając przewody na suficie, ześlizgnęła mu się stopa ze stopnia drabiny i upadł na prawą rękę, na SOR stwierdzono złamanie nasady bliższej kości promieniowej; przebieg zdarzenia jest jasno opisany. Opis 4: Osoba współpracująca z piekarnią, której działalność polega na produkcji pieczywa i wyrobów ciastkarskich; 07.08.2025 r. od godz. 2.00 przygotowywał wypieki do transportu, około 7.00 usuwał wybierakiem z pieca popiół i szlakę, około 7.30 podczas wygarniania nastąpiło gwałtowne zapalenie wygarniętych materiałów, co spowodowało poparzenie lewej łydki; miejsce poparzenia schłodził wodą, udał się do Centrum Leczenia Oparzeń, gdzie stwierdzono oparzenie II/III stopnia podudzia lewego i wykonano przeszczep skóry; opis jasno przedstawia przebieg zdarzenia. Opis 5: Pan prowadzi firmę w zakresie obróbki mechanicznej elementów metalowych, jako podwykonawca wykonuje prace spawalnicze przy montażu i spawaniu elementów podwozia pociągów; 02.01.2025 r. około 6:20 na hali po spawaniu elementu usłyszał świst i zauważył ogień na spodniach roboczych, natychmiast opuścił stanowisko, zdjął buty i spodnie, zauważył kopcącą się zapasową baterię do latarki w kieszeni spodni; następnie pod natryskiem przemył nogę, wezwał 112, został przewieziony do Centrum Leczenia Oparzeń, gdzie stwierdzono oparzenie termiczne lewego uda i pośladka III stopnia oraz wdrożono leczenie szpitalne; opis szczegółowo wskazuje przebieg zdarzenia. Dla opisów podobnych do powyższych pięciu, które w podobnym stopniu opisują czas, miejsce, przebieg zdarzenia, czynności, uraz i dalsze postępowanie, NIE zadawaj żadnych dodatkowych pytań – ustaw \\"questions_count\\" na 0 i \\"questions\\" na []. Format odpowiedzi – tylko JSON: zwracany JSON musi mieć dokładnie strukturę: { \\"questions_count\\": <liczba_pytań>, \\"questions\\": [ { \\"id\\": 1, \\"text\\": \\"Tekst pierwszego pytania po polsku\\" }, { \\"id\\": 2, \\"text\\": \\"Tekst drugiego pytania po polsku\\" } ] }. \\"questions_count\\" to liczba pytań od 0 do 5, a \\"questions\\" to lista obiektów z polami \\"id\\" (numer porządkowy pytania) i \\"text\\" (treść pytania). NIE dodawaj żadnego innego tekstu poza tym JSON.
-                """);
-        messages.add(userMessage1);
+        JsonObject userMessage3 = new JsonObject();
+        userMessage3.addProperty("role", "system");
+        userMessage3.addProperty("content", """
+                BARDZO WAŻNE: Masz zwrócić WYŁĄCZNIE jeden obiekt JSON o strukturze { "questions_count": liczba, "questions": [ { "id": liczba, "text": "tekst_pytania" } ] }. Nie dodawaj żadnego innego tekstu przed ani po tym obiekcie JSON. Twoje zadanie: na podstawie opisu zdarzenia związanego z pracą przedsiębiorcy prowadzącego jednoosobową działalność gospodarczą (JDG) wygenerować od 0 do 5 prostych pytań pomocniczych, które pomagają lepiej opisać okoliczności, miejsce i przyczyny wypadku. Pytania mają być po polsku, proste językowo, krótkie, konkretne, neutralne i mają się odnosić bezpośrednio do opisu. Nie pomagaj dopasowywać opisu do definicji wypadku przy pracy, pomagasz tylko w ustalaniu faktów. Traktuj opis jako opowieść o wypadku złożoną z trzech faz: przed zdarzeniem (co, gdzie, w jakich warunkach robiła osoba poszkodowana), moment zdarzenia (co dokładnie się stało) oraz bezpośrednio po zdarzeniu (co stało się dalej w kontekście wypadku). Patrzysz na następujące obszary informacji: 1) czas zdarzenia – kiedy doszło do zdarzenia (data, przybliżona godzina, zmiana); 2) miejsce zdarzenia – gdzie dokładnie doszło do wypadku w kontekście pracy w JDG (np. hala produkcyjna, linia montażowa, magazyn, warsztat, zakład klienta, plac budowy, stołówka, biuro, korytarz, zaplecze, konkretne stanowisko, element maszyny); 3) czynność tuż przed zdarzeniem – co dokładnie robiła osoba poszkodowana tuż przed wypadkiem, najlepiej krok po kroku (np. kompletowanie towaru, przenoszenie elementów, układanie detalu w prasie, schodzenie ze skrzyni, wybieranie popiołu z pieca, spawanie elementu); 4) mechanizm zdarzenia / przyczyna zewnętrzna – co dokładnie się stało w momencie wypadku (np. poślizgnięcie, potknięcie, upadek, ześlizgnięcie się ze stopnia, przygniecenie przez maszynę, uderzenie przedmiotem, nagłe zapalenie materiału, porażenie prądem); 5) uraz / skutki zdrowotne – która część ciała została poszkodowana i jaki to rodzaj urazu w podstawowym sensie (np. stłuczenie, złamanie, skręcenie, oparzenie, rana cięta, uraz barku), bez wchodzenia w szczegółowe leczenie; 6) świadkowie i działania bezpośrednio po zdarzeniu – kto widział zdarzenie, kto pomógł, czy była pierwsza pomoc, czy wezwano pomoc i mniej więcej kiedy; 7) warunki szczególne otoczenia – np. śliska podłoga, bałagan, porozrzucane przedmioty, awaria maszyny, brak oświetlenia, nagły ogień, dym, hałas. Dla każdego z tych obszarów wewnętrznie oceniasz, czy w opisie jest: brak informacji, informacja ogólna, czy informacja szczegółowa. Obszary kluczowe dla pola „Szczegółowy opis okoliczności, miejsca i przyczyn wypadku” (czas zdarzenia, miejsce zdarzenia, czynność tuż przed zdarzeniem, mechanizm zdarzenia / przyczyna zewnętrzna, podstawowy opis urazu) mogą być przedmiotem pytań wprost, jeśli informacji w ogóle nie ma albo jest skrajnie ogólna. Obszary dodatkowe (np. świadkowie, działania po zdarzeniu, udzielona pomoc, wezwanie służb) traktuj dwustopniowo: jeżeli opis w ogóle nie wspomina, że coś w tym obszarze się wydarzyło, możesz zadać co najwyżej jedno ogólne pytanie, czy w ogóle coś takiego miało miejsce (np. „Czy po zdarzeniu ktoś udzielił Panu/Pani pomocy lub był świadkiem wypadku?”). Dopiero jeżeli w kolejnej wersji opisu pojawi się informacja, że takie zdarzenia rzeczywiście były (np. była pomoc medyczna, byli świadkowie), przy następnym sprawdzeniu możesz ewentualnie zadać jedno pytanie doprecyzowujące szczegóły, jeśli nadal brakuje ważnych informacji. Nigdy nie zaczynaj od szczegółowego pytania o jakiś element, jeżeli w opisie nie ma nawet wzmianki, że cokolwiek w tym obszarze się wydarzyło. Najpierw jednym prostym pytaniem sprawdź, czy dana rzecz w ogóle miała miejsce, a dopiero potem – przy kolejnych iteracjach – pytaj o szczegóły, jeżeli to rzeczywiście potrzebne do lepszego zrozumienia przebiegu wypadku. Pamiętaj, że użytkownik może wielokrotnie poprawiać opis i ponownie wywoływać sprawdzenie. Za każdym razem traktuj aktualny opis jako kompletny stan wiedzy i zadaj pytania tylko o te elementy, które w tej wersji są faktycznie brakujące lub zbyt ogólne. Nie wracaj do obszarów, które w nowszej wersji opisu są już dopisane jasno i szczegółowo. Liczba pytań: im więcej ważnych obszarów jest opisanych jasno, tym mniej pytań generujesz; im więcej kluczowych obszarów jest pustych lub bardzo ogólnych, tym więcej pytań generujesz, ale maksymalnie 5. Jeżeli opis jest bardzo ogólny (np. jedno–dwa krótkie zdania, bez jasnego czasu, miejsca, czynności, mechanizmu zdarzenia i opisu urazu), zwykle potrzebne są 4–5 pytań. Jeżeli opis jest średnio szczegółowy (brakuje 2–3 ważnych elementów), zwykle wystarczy 1–3 pytania. Jeżeli opis jest szczegółowy i spójny (czas, miejsce, czynność przed, mechanizm, podstawowy uraz oraz podstawowe działania po zdarzeniu są opisane jasno), możesz i powinieneś zwrócić 0 pytań. ZAKAZ POWTARZANIA: nie zadawaj pytań o informacje, które są już jasno i konkretnie napisane w opisie; nie zadawaj pytań, które tylko parafrazują zdanie z opisu; jeżeli nowa wersja opisu doprecyzowuje coś, o co można by pytać, traktuj to jako wyjaśnione i nie wracaj do tego tematu. ZAKAZ PYTAŃ O BHP I ŚRODKI OCHRONY: nie pytaj o szkolenia BHP, o to, czy osoba stosowała rękawice, obuwie ochronne, obuwie antypoślizgowe, kask, okulary ani inne środki ochrony; nie pytaj o zgodność z przepisami ani o wcześniejsze skargi na warunki pracy. Twoim zadaniem jest wyłącznie uszczegółowienie opisu faktycznego przebiegu zdarzenia, bez oceniania i bez sugerowania, co powinno było się wydarzyć. FORMAT PYTAŃ: każdy element w liście "questions" musi zawierać dokładnie jedno pytanie. W polu "text" może być DOKŁADNIE JEDEN znak zapytania „?”. NIE WOLNO używać słowa „Czy” w polu "text". Nie łącz wielu pytań w jedno zdanie. Jedno pytanie = jeden główny wątek. Jeżeli chcesz zasugerować zakres odpowiedzi, używaj nawiasu z maksymalnie 2–3 krótkimi przykładami, bez tworzenia kolejnego pytania, np.: „Co dokładnie robił Pan/Pani w momencie zdarzenia? (np. obsługa maszyny, przenoszenie towaru)”, „Jakie obrażenia ręki zostały stwierdzone? (np. złamanie, stłuczenie, rana cięta)”. Nie twórz nawiasów z długimi listami ani serią „czy…” – nawias ma być tylko pomocą, a nie kolejnym pytaniem. PRZYKŁADOWA LOGIKA: jeśli opis brzmi: „Miałem wypadek, boli mnie ręka. Pracowałem przy maszynie.”, brakuje czasu, dokładnego miejsca, czynności krok po kroku, mechanizmu zdarzenia, opisu urazu, działań po zdarzeniu – sensowne jest ok. 4–5 pytań. Jeśli opis brzmi: „Miałem wypadek, boli mnie ręka. Pracowałem przy maszynie. Działo się to w godzinach pracy, doszło do tego na linii montażowej.”, nie wolno już pytać ogólnie o to, czy zdarzenie miało miejsce w pracy ani gdzie – ale nadal można dopytać np. o datę, przybliżoną godzinę, mechanizm zdarzenia, opis urazu i to, co działo się bezpośrednio po zdarzeniu. Jeżeli opis szczegółowo zawiera kto, gdzie, kiedy, co robił, co się stało, jaki uraz stwierdzono i jakie były podstawowe działania po zdarzeniu, nie dodawaj pytań na siłę – wtedy właściwą odpowiedzią jest "questions_count": 0 i pusta tablica "questions". Na podstawie konkretnego opisu wybierz liczbę pytań zgodnie z tymi zasadami i zwróć WYŁĄCZNIE obiekt JSON w formacie { "questions_count": liczba, "questions": [ { "id": 1, "text": "Tekst pierwszego pytania" }, { "id": 2, "text": "Tekst drugiego pytania" } ] }.                """);
+        messages.add(userMessage3);
 
 
         JsonObject userMessage2 = new JsonObject();
@@ -277,103 +280,8 @@ public class AiClient {
             return parseCircumstancesResponse(pllumResponse);
         } catch (Exception e) {
             logger.error("Error calling PLLUM API for circumstances questions: {}", e.getMessage(), e);
-            return new CircumstancesAssistantResponse(0, Collections.emptyList());
-            logger.error("Error calling Gemini API for circumstances questions: {}", e.getMessage(), e);
             return new CircumstancesAssistantResponse(0, Collections.emptyList(), "Wystąpił znieznany błąd podczas odpytania modelu: " + e.getMessage());
         }
-    }
-
-    private String buildCircumstancesPrompt(String accidentDescription) {
-//        String systemPrompt = "Jesteś asystentem, który pomaga doprecyzować opis zdarzenia związanego z pracą. Użytkownik podaje opis zdarzenia – czasem bardzo krótki, czasem dłuższy i dość szczegółowy. Twoim zadaniem jest wygenerowanie listy prostych, zrozumiałych pytań pomocniczych, które pozwolą użytkownikowi rozwinąć opis tak, aby: (1) możliwie dokładnie wyjaśnić przebieg zdarzenia, (2) zostawić jak najmniej wątpliwości co do tego, co się faktycznie stało, (3) ułatwić późniejszą rzetelną weryfikację zdarzenia przez odpowiednie osoby.\n\n" +
-//                "Nie jest Twoim zadaniem pomagać użytkownikowi \"dopasować\" opis do definicji wypadku przy pracy. Masz pomagać w ustalaniu faktów, nie w naginaniu faktów.\n\n" +
-//                "Twoje pytania mają pomagać w zebraniu informacji typowo istotnych przy ocenie zdarzeń przy pracy, ale nie możesz tego wprost sugerować. Istotne obszary (tylko jako tło dla Ciebie, NIE cytuj ich i nie wspominaj o definicjach):\n" +
-//                "1) Nagłość zdarzenia – czy zdarzenie było jednorazowe / nagłe, kiedy dokładnie miało miejsce, jak długo trwało.\n" +
-//                "2) Przyczyna zewnętrzna – jaki czynnik zewnętrzny zadziałał na poszkodowanego (maszyna, ruchomy element, prąd, temperatura, substancja, spadający przedmiot, warunki w miejscu pracy itd.).\n" +
-//                "3) Związek z pracą – gdzie i w jakich okolicznościach doszło do zdarzenia, co dokładnie robiła osoba poszkodowana, czy wykonywała swoje zwykłe obowiązki, czy zdarzenie miało miejsce na terenie pracy / podczas zmiany.\n" +
-//                "4) Uraz – jaki konkretnie uraz odniósł pracownik (co go boli, co zostało uszkodzone, diagnoza lekarza, widoczne obrażenia).\n\n" +
-//                "STYL PYTAŃ:\n" +
-//                "- Pytania mają być proste językowo, \"po ludzku\".\n" +
-//                "- Krótkie i konkretne – jedno pytanie = jeden wątek.\n" +
-//                "- Neutralne – nie mogą sugerować odpowiedzi ani naprowadzać na \"korzystną\" wersję.\n" +
-//                "- Odnoszące się bezpośrednio do opisu użytkownika (bazujesz na tym, co napisał, i dopytujesz o brakujące szczegóły).\n\n" +
-//                "Unikaj języka prawniczego i urzędowego. Nie używaj pytań w stylu:\n" +
-//                "- \"Czy zdarzenie spełnia kryteria wypadku przy pracy?\",\n" +
-//                "- \"Czy wypadek miał charakter nagły, tzn. czy doszło do niego w wyniku natychmiastowego ujawnienia się przyczyny zewnętrznej...\",\n" +
-//                "- \"Czy można uznać, że...\", \"Czy da się zakwalifikować...\".\n\n" +
-//                "Zamiast tego używaj prostych, faktograficznych pytań, np.:\n" +
-//                "- \"O której godzinie dokładnie doszło do zdarzenia?\",\n" +
-//                "- \"Co dokładnie robił pracownik tuż przed zdarzeniem, krok po kroku?\",\n" +
-//                "- \"Która część maszyny miała kontakt z ciałem pracownika?\",\n" +
-//                "- \"Kto pierwszy zauważył, że coś się stało?\".\n\n" +
-//                "Preferuj pytania otwarte (\"Co...\", \"Jak...\", \"W jakich okolicznościach...\"). Pytania zamknięte typu tak/nie stosuj tylko tam, gdzie naprawdę pomagają doprecyzować jedną konkretną kwestię (np. \"Czy w momencie zdarzenia maszyna była w ruchu?\").\n\n" +
-//                "NEUTRALNOŚĆ:\n" +
-//                "- Nie sugeruj w pytaniu, jaka odpowiedź byłaby \"lepsza\" dla poszkodowanego.\n" +
-//                "- Nie pytaj w sposób zachęcający do potwierdzania określonej wersji (np. \"Czy może Pan/Pani powiedzieć, że to było nagłe zdarzenie?\").\n" +
-//                "- Zawsze pytaj o fakty: gdzie, kiedy, co dokładnie, w jakich warunkach, co się stało z pracownikiem.\n\n" +
-//                "ZAKRES TEMATYCZNY (do wykorzystania zależnie od treści opisu, nie cytuj dosłownie):\n" +
-//                "- Czas: kiedy dokładnie doszło do zdarzenia (data, godzina, zmiana), jak długo trwała sytuacja.\n" +
-//                "- Miejsce: gdzie na terenie zakładu doszło do zdarzenia (hala, linia, stanowisko, numer maszyny), jakie panowały warunki (np. ślisko, bałagan, słabe oświetlenie).\n" +
-//                "- Czynność i okoliczności: co dokładnie robiła osoba poszkodowana tuż przed zdarzeniem, czy wykonywała standardowe obowiązki, czy wystąpił pośpiech, awaria, nietypowe zadania.\n" +
-//                "- Maszyna / narzędzie / czynnik zewnętrzny: z jaką maszyną lub urządzeniem pracował pracownik, który element lub czynnik bezpośrednio spowodował uraz, czy wystąpiła awaria lub nieprawidłowe działanie.\n" +
-//                "- Uraz: która część ciała została uszkodzona, jakie są objawy, czy była konsultacja lekarska i jaka jest wstępna diagnoza.\n" +
-//                "- Świadkowie i reakcja: czy byli świadkowie, kto udzielił pierwszej pomocy, co zrobiono bezpośrednio po zdarzeniu (zatrzymanie maszyny, wezwanie pogotowia, zgłoszenie przełożonemu).\n" +
-//                "- Środki ochrony i zabezpieczenia: czy używano środków ochrony indywidualnej, czy maszyna miała osłony i zabezpieczenia, czy były sprawne, czy wcześniej zgłaszano nieprawidłowości.\n\n" +
-//                "REAKCJA NA RÓŻNĄ SZCZEGÓŁOWOŚĆ OPISU:\n" +
-//                "- Jeśli opis użytkownika jest krótki lub ogólny, wygeneruj od 3 do 5 pytań z najważniejszych obszarów, które pomagają dookreślić zdarzenie.\n" +
-//                "- Jeśli opis jest dłuższy i szczegółowy, nie powtarzaj oczywistych rzeczy. Dopytuj tylko o realne luki, doprecyzowuj ogólniki, schodź głębiej tam, gdzie opis jest nadal niejasny.\n" +
-//                "- Jeśli opis jest na tyle szczegółowy, że obejmuje czas, miejsce, wykonywaną czynność, czynniki zewnętrzne, uraz oraz reakcję po zdarzeniu i nie widać istotnych luk dla zrozumienia przebiegu zdarzenia, możesz nie zadawać żadnych dalszych pytań.\n\n" +
-//                "LICZBA PYTAŃ:\n" +
-//                "- Standardowo: wygeneruj od 3 do 5 pytań.\n" +
-//                "- Wyjątkowo, gdy opis jest naprawdę kompletny: możesz zwrócić 0 pytań.\n\n" +
-//                "FORMAT ODPOWIEDZI – WYŁĄCZNIE JSON:\n" +
-//                "Zwracasz wyłącznie poprawny JSON, bez dodatkowego tekstu, komentarzy ani wyjaśnień. Struktura:\n" +
-//                "{\n" +
-//                "  \"questions_count\": <liczba_pytań>,\n" +
-//                "  \"questions\": [\n" +
-//                "    {\n" +
-//                "      \"id\": 1,\n" +
-//                "      \"text\": \"Treść pierwszego pytania po polsku.\"\n" +
-//                "    },\n" +
-//                "    {\n" +
-//                "      \"id\": 2,\n" +
-//                "      \"text\": \"Treść drugiego pytania po polsku.\"\n" +
-//                "    }\n" +
-//                "  ]\n" +
-//                "}\n\n" +
-//                "Gdzie:\n" +
-//                "- \"questions_count\" – liczba wygenerowanych pytań (0 lub od 3 do 5),\n" +
-//                "- \"questions\" – lista obiektów, każdy z polami:\n" +
-//                "  - \"id\": numer porządkowy pytania (1, 2, 3, ...),\n" +
-//                "  - \"text\": treść pytania w prostym, naturalnym języku.\n\n" +
-//                "Zawsze przestrzegaj formatu JSON i nie dodawaj żadnego innego tekstu poza nim.";
-//
-//        return systemPrompt + "\n\nOpis zdarzenia:\n" + accidentDescription;
-
-        return """
-                
-                {
-                  "model": "pllum-12b-nc-chat-250715",
-                  "response_format": {
-                    "type": "json_schema",
-                    "json_schema": {
-                      "name": "SystemStatus",
-                      "schema": {
-                        "type": "object",
-                        "properties": {
-                          "status": { "type": "string" },
-                          "uptime": { "type": "string" }
-                        },
-                        "required": ["status"]
-                      }
-                    }
-                  },
-                  "messages": [
-                    { "role": "user", "content": "Podaj status." }
-                  ]
-                }
-                
-                
-                """;
     }
 
     private CircumstancesAssistantResponse parseCircumstancesResponse(String pllumText) {
@@ -405,9 +313,12 @@ public class AiClient {
                         String text = questionObj.has("text") ? questionObj.get("text").getAsString() : "";
                         questions.add(new CircumstancesQuestion(id, text));
                     }
+                } else if (jsonResponse.has("question")) {
+                    var questionObj = jsonResponse.get("question").getAsString();
+                    questions.add(new CircumstancesQuestion(1, questionObj));
                 }
 
-                return new CircumstancesAssistantResponse(questionsCount, questions);
+                return new CircumstancesAssistantResponse(questionsCount, questions, null);
             } else {
                 // Response doesn't have expected structure - treat as plain text
                 logger.warn("PLLUM response doesn't match expected JSON structure. Treating as plain text question.");
@@ -419,7 +330,7 @@ public class AiClient {
             return handlePlainTextResponse(pllumText);
         } catch (Exception e) {
             logger.error("Error parsing Gemini JSON response for circumstances", e);
-            return new CircumstancesAssistantResponse(0, Collections.emptyList());
+            return new CircumstancesAssistantResponse(0, Collections.emptyList(), e.getMessage());
         }
     }
 
@@ -428,14 +339,14 @@ public class AiClient {
      */
     private CircumstancesAssistantResponse handlePlainTextResponse(String plainText) {
         if (plainText == null || plainText.trim().isEmpty()) {
-            return new CircumstancesAssistantResponse(0, Collections.emptyList());
+            return new CircumstancesAssistantResponse(1, List.of(), "Pusty response");
         }
 
         // Create a single question from the plain text response
         List<CircumstancesQuestion> questions = new java.util.ArrayList<>();
         questions.add(new CircumstancesQuestion(1, plainText.trim()));
 
-        return new CircumstancesAssistantResponse(1, questions);
+        return new CircumstancesAssistantResponse(1, questions, null);
     }
 
     @Data
